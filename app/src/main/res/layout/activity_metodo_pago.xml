@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Color_Base"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ColorBaseBoss"
+    android:backgroundTint="@color/ColorBaseBoss"
+    tools:context=".Components.MetodoPago">
+
+    <LinearLayout
+        android:id="@+id/layoutHead"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginVertical="5dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
+        android:gravity="start|center_vertical|end"
+        android:orientation="horizontal"
+        android:paddingHorizontal="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/button_atrasDireccion"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="10dp"
+            android:backgroundTint="@color/ColorBaseBoss"
+            android:contentDescription="@string/btn_Atras"
+            android:onClick="Atras"
+            android:scaleType="fitCenter"
+            android:src="@drawable/west_fill0_wght400_grad0_opsz48"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:tint="@color/LetraBasePrincipal" />
+
+        <LinearLayout
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:layout_weight="6"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title_Home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/title_metodoPago"
+                android:textAllCaps="false"
+                android:textColor="@color/LetraBasePrincipal"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:tint="@color/LetraBasePrincipal"
+            card_view:srcCompat="@drawable/option"
+            tools:srcCompat="@drawable/option" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout7"
+        app:layout_constraintTop_toBottomOf="@+id/layoutHead"
+        card_view:layout_constraintEnd_toEndOf="parent"
+        card_view:layout_constraintStart_toStartOf="parent">
+
+        <FrameLayout
+            android:id="@+id/frameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:paddingVertical="5dp">
+
+            <include
+                layout="@layout/list_metodopay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </FrameLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/linearLayout7"
+        android:layout_width="409dp"
+        android:layout_height="100dp"
+        android:gravity="center_horizontal|center|center_vertical"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/btnUpdate"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="289dp"
+            android:layout_height="60dp"
+            android:backgroundTint="@color/ColorBase"
+            android:fontFamily="@font/roboto_medium"
+            android:onClick="NewTarget"
+            android:text="@string/btn_AddNewTargeta"
+            android:textAllCaps="false"
+            android:textColor="@color/LetraBase"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:cornerRadius="50dp"
+            app:strokeColor="@color/ColorBaseSecundario"
+            app:strokeWidth="2dp"
+            tools:ignore="MissingConstraints" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

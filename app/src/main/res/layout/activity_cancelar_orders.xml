@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ColorBaseBoss"
+    tools:context=".Components.CancelarOrders">
+
+    <ScrollView
+        android:id="@+id/scrollViewRegister"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/ColorBaseBoss"
+        android:windowSoftInputMode="adjustResize"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/layoutHead"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginVertical="5dp"
+                android:background="@color/ColorBaseBoss"
+                android:backgroundTint="@color/ColorBaseBoss"
+                android:gravity="start|center_vertical|end"
+                android:orientation="horizontal"
+                android:paddingHorizontal="15dp">
+
+                <ImageButton
+                    android:id="@+id/btn_Atras"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginRight="10dp"
+                    android:backgroundTint="@color/ColorBaseBoss"
+                    android:contentDescription="@string/btn_Atras"
+                    android:onClick="Atras"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/west_fill0_wght400_grad0_opsz48"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:tint="@color/LetraBasePrincipal" />
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="6"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/title_Home"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/title_Cancelarpedido"
+                        android:textAllCaps="false"
+                        android:textColor="@color/LetraBasePrincipal"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    app:tint="@color/LetraBasePrincipal"
+                    card_view:srcCompat="@drawable/option" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout19"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:orientation="vertical"
+                android:paddingVertical="15dp"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toBottomOf="@+id/layoutHead">
+
+                <TextView
+                    android:id="@+id/titlePedido"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="Por favor seleccione el motivo de la cancelación:"
+                    android:textAlignment="viewStart"
+                    android:textAllCaps="false"
+                    android:textColor="@color/LetraBasePrincipal"
+                    android:textSize="16sp"></TextView>
+
+                <LinearLayout
+                    android:id="@+id/separation"
+                    android:layout_width="408dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="3dp"
+                    android:background="#C3C3C3"
+                    android:orientation="vertical"
+                    android:paddingVertical="15dp">
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/Opcion1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/ColorBase"
+                        android:fontFamily="@font/roboto"
+                        android:paddingStart="15dp"
+                        android:text="@string/Opcion1"
+                        android:textColor="@color/LetraBasePrincipal" />
+
+                    <RadioButton
+                        android:id="@+id/Opcion2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/ColorBase"
+                        android:fontFamily="@font/roboto"
+                        android:paddingStart="15dp"
+                        android:text="@string/Opcion2"
+                        android:textColor="@color/LetraBasePrincipal" />
+
+                    <RadioButton
+                        android:id="@+id/Opcion3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/ColorBase"
+                        android:fontFamily="@font/roboto"
+                        android:paddingStart="15dp"
+                        android:text="@string/Opcion3"
+                        android:textColor="@color/LetraBasePrincipal" />
+
+                    <RadioButton
+                        android:id="@+id/Opcion4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/ColorBase"
+                        android:fontFamily="@font/roboto"
+                        android:paddingStart="15dp"
+                        android:text="@string/Opcion4"
+                        android:textColor="@color/LetraBasePrincipal" />
+
+                    <RadioButton
+                        android:id="@+id/Opcion5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/ColorBase"
+                        android:fontFamily="@font/roboto"
+                        android:paddingStart="15dp"
+                        android:text="@string/Opcion5"
+                        android:textColor="@color/LetraBasePrincipal" />
+
+                    <RadioButton
+                        android:id="@+id/Opcion6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/ColorBase"
+                        android:fontFamily="@font/roboto"
+                        android:paddingStart="15dp"
+                        android:text="@string/Opcion6"
+                        android:textColor="@color/LetraBasePrincipal" />
+
+                    <RadioButton
+                        android:id="@+id/Opcion7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/ColorBase"
+                        android:fontFamily="@font/roboto"
+                        android:paddingStart="15dp"
+                        android:text="@string/Opcion7"
+                        android:textColor="@color/LetraBasePrincipal" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/titlePedido2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="20dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Otro:"
+                    android:textAlignment="viewStart"
+                    android:textAllCaps="false"
+                    android:textColor="@color/LetraBasePrincipal"
+                    android:textStyle="bold"></TextView>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txt_descriptionC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#EDEDED"
+                    android:backgroundTint="#EDEDED"
+                    android:textColorHint="@color/LetraBaseSecundario"
+                    app:boxStrokeColor="@color/LetraBaseSecundario"
+                    app:hintTextColor="@color/LetraBaseSecundario">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/input_descriptionC"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:background="#EDEDED"
+                        android:backgroundTint="#EDEDED"
+                        android:backgroundTintMode="src_atop"
+                        android:hint="@string/Opcion8"
+                        android:textColor="@color/LetraBaseSecundario"
+                        android:textColorHighlight="@color/LetraBaseSecundario"
+                        android:textColorHint="@color/LetraBaseSecundario"
+                        android:textCursorDrawable="@color/ColorBasePrincipal"
+                        android:textSize="14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/linearLayout9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/btnCancelarOrder"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            android:layout_marginHorizontal="60dp"
+            android:layout_marginVertical="20dp"
+            android:backgroundTint="@color/ColorBase"
+            android:fontFamily="@font/roboto_medium"
+            android:onClick="Enviar"
+            android:text="@string/btn_Enviar"
+            android:textAllCaps="false"
+            android:textColor="@color/LetraBase"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:cornerRadius="20dp"
+            app:rippleColor="@color/ColorBaseSecundario"
+            app:strokeColor="@color/ColorBaseSecundario"
+            app:strokeWidth="2dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LayoutEMOJI"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="1dp"
+        android:background="#94000000"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingHorizontal="35dp"
+        card_view:layout_constraintEnd_toEndOf="parent"
+        card_view:layout_constraintStart_toStartOf="parent"
+        card_view:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/LayoutEMOJI_secunudario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_button_normal"
+            android:gravity="center|center_horizontal|center_vertical"
+            android:orientation="vertical"
+            android:paddingHorizontal="40dp"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintStart_toStartOf="parent">
+
+            <LinearLayout
+                android:id="@+id/layoutEmoji"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="30dp"
+                android:orientation="vertical"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toBottomOf="@+id/layoutHead">
+
+                <ImageView
+                    android:id="@+id/emoji"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    app:srcCompat="@drawable/emojitriste" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/titleCerrarSesion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/titleEmoji"
+                android:textAlignment="center"
+                android:textColor="@color/ColorBase"
+                android:textSize="22sp" />
+
+            <TextView
+                android:id="@+id/descriptionCerrarSesion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="15dp"
+                android:fontFamily="@font/roboto"
+                android:text="@string/descriptionEmoji"
+                android:textAlignment="center"
+                android:textColor="@color/LetraBaseSecundario"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="25dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_Aceptar"
+                    style="?attr/materialButtonOutlinedStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#FF7E1B"
+                    android:contentDescription="@string/btn_categoria"
+                    android:fontFamily="@font/roboto_medium"
+                    android:onClick="Aceptar"
+                    android:text="@string/btn_Aceptar"
+                    android:textAllCaps="false"
+                    android:textColor="@color/LetraBase"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    card_view:cornerRadius="50dp"
+                    card_view:rippleColor="#B36B00"
+                    card_view:strokeColor="@color/ColorBase" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

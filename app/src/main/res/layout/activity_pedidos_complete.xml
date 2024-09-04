@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ColorBaseBoss"
+    android:backgroundTint="@color/ColorBaseBoss"
+    tools:context=".Components.PedidosComplete">
+
+    <LinearLayout
+        android:id="@+id/layoutHeadProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginVertical="15dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            card_view:srcCompat="@drawable/logo" />
+
+        <TextView
+            android:id="@+id/title_homePedidos"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:layout_weight="1"
+            android:baselineAligned="false"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/title_pedidos"
+            android:textAllCaps="false"
+            android:textColor="@color/LetraBasePrincipal"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            app:tint="@color/LetraBasePrincipal"
+            card_view:srcCompat="@drawable/option" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutHead"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginVertical="15dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
+        android:gravity="start|center_vertical|end"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutHeadProfile">
+
+        <LinearLayout
+            android:id="@+id/btn_Activos"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/border_background"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/btn_Activos"
+                android:textAlignment="center"
+                android:textColor="@color/LetraBasePrincipal"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btn_Complete"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/border_background"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:text="@string/btn_Completado"
+                android:textAlignment="center"
+                android:textColor="@color/ColorBase"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/SeparacionMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginEnd="15dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutHead">
+
+        <LinearLayout
+            android:id="@+id/SeparacionActivo"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="15dp"
+            android:layout_weight="1"
+            android:background="#B6B6B6"
+            android:backgroundTint="#B6B6B6"
+            android:orientation="vertical"
+            tools:layout_editor_absoluteX="30dp"
+            tools:layout_editor_absoluteY="117dp">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/SeparacionCompletado"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_marginEnd="15dp"
+            android:layout_weight="1"
+            android:background="@color/ColorBase"
+            android:backgroundTint="@color/ColorBase"
+            android:orientation="vertical"
+            tools:layout_editor_absoluteX="30dp"
+            tools:layout_editor_absoluteY="117dp">
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#F7F7F7"
+        android:backgroundTint="#F7F7F7"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/SeparacionMain"
+        card_view:layout_constraintBottom_toBottomOf="parent"
+        card_view:layout_constraintEnd_toEndOf="parent"
+        card_view:layout_constraintStart_toStartOf="parent">
+
+        <FrameLayout
+            android:id="@+id/frameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            card_view:layout_constraintBottom_toTopOf="@+id/linearLayout"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toBottomOf="@+id/layoutHead">
+
+            <include
+                layout="@layout/list_pedido_complete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </FrameLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#ffff"
+        android:padding="10dp"
+        card_view:layout_constraintBottom_toBottomOf="parent"
+        card_view:layout_constraintEnd_toEndOf="parent"
+        card_view:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/button_Home"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_weight="2"
+            android:backgroundTint="@color/ColorBaseBoss"
+            android:contentDescription="@string/btn_home"
+            android:onClick="Home"
+            android:padding="0dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/home"
+            app:tint="@color/LetraBasePrincipal"
+            card_view:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/button_Pedido"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="10dp"
+                android:backgroundTint="#00FFFFFF"
+                android:contentDescription="@string/btn_carrito"
+                android:padding="0dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/order"
+                app:tint="@color/ColorBase"
+                card_view:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btn_CantidadOrder"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="20dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="-50dp"
+                android:layout_marginTop="-10dp"
+                android:backgroundTint="#FF0000"
+                android:padding="0dp"
+                android:text="1"
+                android:textColor="@color/LetraBase"
+                card_view:cornerRadius="50dp" />
+
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/button_Profile"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_weight="2"
+            android:backgroundTint="@color/ColorBaseBoss"
+            android:contentDescription="@string/btn_perfil"
+            android:onClick="Profile"
+            android:padding="0dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/profile0"
+            app:tint="@color/LetraBasePrincipal"
+            card_view:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

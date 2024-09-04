@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ColorBaseBoss"
+    android:backgroundTint="@color/ColorBaseBoss"
+    tools:context=".Components.CerrarSesion">
+
+    <LinearLayout
+        android:id="@+id/layoutHeadProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginVertical="15dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            card_view:srcCompat="@drawable/logo" />
+
+        <TextView
+            android:id="@+id/title_homeOferta"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:layout_weight="1"
+            android:baselineAligned="false"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/btn_perfil"
+            android:textAllCaps="false"
+            android:textColor="@color/LetraBasePrincipal"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            app:tint="@color/LetraBasePrincipal"
+            card_view:srcCompat="@drawable/option" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutHead"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginVertical="15dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
+        android:gravity="start|center_vertical|end"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutHeadProfile">
+
+        <ImageView
+            android:id="@+id/imageProfile2"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:clickable="false"
+            android:onClick="Profile"
+            card_view:srcCompat="@drawable/usuario" />
+
+        <LinearLayout
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_weight="6"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/label_nameUP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:textAllCaps="false"
+                android:textColor="@color/LetraBasePrincipal"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:text="@string/nameUser" />
+
+            <TextView
+                android:id="@+id/label_Phone"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/roboto_medium"
+                android:inputType="number"
+                android:textAllCaps="false"
+                android:textColor="@color/LetraBaseSecundario"
+                android:textSize="16sp"
+                tools:ignore="TextViewEdits"
+                tools:text="@string/input_phone" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/button_edit"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_weight="0.1"
+            android:background="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+            android:contentDescription="@string/btn_Edit"
+            android:onClick="EditProfile"
+            android:padding="0dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/edit"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/ColorBase" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Separacion"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="15dp"
+        android:background="#B6B6B6"
+        android:backgroundTint="#B6B6B6"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutHead">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
+        android:orientation="vertical"
+        android:paddingHorizontal="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Separacion"
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="10dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imageBtnOffer"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:backgroundTint="@color/ColorBaseBoss"
+                android:padding="0dp"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/ofert"
+                app:tint="@color/LetraBasePrincipal" />
+
+            <Button
+                android:id="@+id/buttonOffer"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:backgroundTint="@color/ColorBaseBoss"
+                android:drawableEnd="@drawable/icon_next"
+                android:drawableTint="@color/LetraBaseSecundario"
+                android:fontFamily="@font/roboto_medium"
+                android:paddingStart="0dp"
+                android:text="@string/btn_ofert"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                android:textColor="@color/LetraBasePrincipal"
+                android:textSize="16sp"
+                card_view:iconTint="#000000"
+                tools:ignore="RtlSymmetry" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imageBtnPay"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:backgroundTint="#FFFFFF"
+                android:onClick="Payment"
+                android:padding="0dp"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/pay"
+                app:tint="@color/LetraBasePrincipal" />
+
+            <Button
+                android:id="@+id/buttonPay"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:backgroundTint="@color/ColorBaseBoss"
+                android:drawableEnd="@drawable/icon_next"
+                android:drawableTint="@color/LetraBaseSecundario"
+                android:fontFamily="@font/roboto_medium"
+                android:onClick="Payment"
+                android:paddingStart="0dp"
+                android:text="@string/metododepago"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                android:textColor="@color/LetraBasePrincipal"
+                android:textSize="16sp"
+                card_view:iconTint="#000000"
+                tools:ignore="RtlSymmetry" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Separacion2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="15dp"
+        android:background="#B6B6B6"
+        android:backgroundTint="#B6B6B6"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
+        android:orientation="vertical"
+        android:paddingHorizontal="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Separacion2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+
+            <ImageButton
+                android:id="@+id/imageBtnEditProfile"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:backgroundTint="@color/ColorBaseBoss"
+                android:onClick="EditProfile"
+                android:padding="0dp"
+                android:scaleType="fitCenter"
+                app:tint="@color/LetraBasePrincipal"
+                card_view:srcCompat="@drawable/profile0" />
+
+            <Button
+                android:id="@+id/buttonEditProfile"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:backgroundTint="@color/ColorBaseBoss"
+                android:drawableEnd="@drawable/icon_next"
+                android:drawableTint="@color/LetraBaseSecundario"
+                android:fontFamily="@font/roboto_medium"
+                android:onClick="EditProfile"
+                android:paddingStart="0dp"
+                android:text="@string/btn_perfil"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                android:textColor="@color/LetraBasePrincipal"
+                android:textSize="16sp"
+                card_view:iconTint="#000000"
+                tools:ignore="RtlSymmetry" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="10dp"
+            android:orientation="horizontal">
+
+
+            <ImageButton
+                android:id="@+id/imageButton5"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:backgroundTint="@color/ColorBaseBoss"
+                android:onClick="Direccion"
+                android:padding="0dp"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/locationpng"
+                app:tint="@color/LetraBasePrincipal" />
+
+            <Button
+                android:id="@+id/buttonDireccion"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:backgroundTint="@color/ColorBaseBoss"
+                android:drawableEnd="@drawable/icon_next"
+                android:drawableTint="@color/LetraBaseSecundario"
+                android:fontFamily="@font/roboto_medium"
+                android:onClick="Direccion"
+                android:paddingStart="0dp"
+                android:text="@string/direccion"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                android:textColor="@color/LetraBasePrincipal"
+                android:textSize="16sp"
+                card_view:iconTint="#000000"
+                tools:ignore="RtlSymmetry" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+
+            <ImageButton
+                android:id="@+id/imageButton6"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:backgroundTint="@color/ColorBaseBoss"
+                android:onClick="CerraSesion"
+                android:padding="0dp"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/cerrarsesi_n"
+                app:tint="#FF0000" />
+
+            <Button
+                android:id="@+id/buttonCerrarSesión"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:backgroundTint="@color/ColorBaseBoss"
+                android:drawableTint="#FF0000"
+                android:fontFamily="@font/roboto_medium"
+                android:onClick="CerraSesion"
+                android:paddingStart="0dp"
+                android:text="@string/CerrarSesion"
+                android:textAlignment="viewStart"
+                android:textAllCaps="false"
+                android:textColor="#FF0000"
+                android:textSize="16sp"
+                app:rippleColor="@color/ColorBaseBoss"
+                card_view:cornerRadius="20dp"
+                card_view:iconTint="#FF0000"
+                card_view:strokeColor="#F5F5F5"
+                card_view:strokeWidth="1dp" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutCancelar"
+        android:layout_width="match_parent"
+        android:layout_height="720dp"
+        android:layout_marginStart="1dp"
+        android:background="#94000000"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout99"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#94000000"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutCancelar">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_layout"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/titleCerrarSesion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="25dp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/CerrarSesion"
+            android:textColor="#FF0000"
+            android:textSize="22sp" />
+
+        <LinearLayout
+            android:id="@+id/Separacion3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="15dp"
+            android:background="#B6B6B6"
+            android:backgroundTint="#B6B6B6"
+            android:orientation="vertical"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toBottomOf="@+id/layoutHead">
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/descriptionCerrarSesion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="15dp"
+            android:fontFamily="@font/roboto"
+            android:text="@string/descriptionCerrarSesion"
+            android:textColor="@color/LetraBasePrincipal"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="20dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_cancelar"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/ColorBaseBoss"
+                android:contentDescription="@string/btn_mensage"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/btn_Cancelar"
+                android:textAllCaps="false"
+                android:textColor="@color/ColorBase"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:rippleColor="#FFD89E"
+                app:strokeColor="@color/ColorBase"
+                card_view:cornerRadius="50dp"
+                card_view:strokeWidth="1dp" />
+
+            <Button
+                android:id="@+id/btn_Aceptar"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_weight="1"
+                android:backgroundTint="#FF7E1B"
+                android:contentDescription="@string/btn_categoria"
+                android:fontFamily="@font/roboto_medium"
+                android:onClick="CerraSesion"
+                android:text="@string/btn_Aceptar"
+                android:textAllCaps="false"
+                android:textColor="@color/LetraBase"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:rippleColor="#B36B00"
+                app:strokeColor="@color/ColorBase"
+                card_view:cornerRadius="50dp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

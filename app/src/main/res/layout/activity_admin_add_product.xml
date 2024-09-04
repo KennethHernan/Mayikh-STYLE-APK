@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ColorBaseBoss"
+    tools:context=".Components.Administrador.AdminAddProduct">
+
+    <ScrollView
+        android:id="@+id/scrollViewRegister"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/ColorBaseBoss"
+        android:windowSoftInputMode="adjustResize"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/layoutHead"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginVertical="5dp"
+                android:background="@color/ColorBaseBoss"
+                android:backgroundTint="@color/ColorBaseBoss"
+                android:gravity="start|center_vertical|end"
+                android:orientation="horizontal"
+                android:paddingHorizontal="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageButton
+                    android:id="@+id/btn_Atras"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginRight="10dp"
+                    android:backgroundTint="@color/ColorBaseBoss"
+                    android:contentDescription="@string/btn_Atras"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/west_fill0_wght400_grad0_opsz48"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:tint="@color/LetraBasePrincipal" />
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="6"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/title_Home"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/title_AddProductAdmin"
+                        android:textAllCaps="false"
+                        android:textColor="@color/LetraBasePrincipal"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    app:srcCompat="@drawable/option"
+                    app:tint="@color/LetraBasePrincipal"
+                    tools:srcCompat="@drawable/option" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/ColorBaseBossSecundario"
+                android:orientation="vertical"
+                android:paddingVertical="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layoutHead">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_marginVertical="5dp"
+                    app:cardBackgroundColor="@color/ColorBaseBoss"
+                    app:cardCornerRadius="20dp"
+                    tools:ignore="MissingConstraints">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/border_button_normal"
+                        android:orientation="horizontal"
+                        android:padding="10dp">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/ProductCardView"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginEnd="10dp"
+                            android:background="@color/ColorBaseBoss"
+                            android:backgroundTint="@color/ColorBaseBoss"
+                            android:padding="0dp"
+                            app:cardCornerRadius="25dp">
+
+                            <ImageView
+                                android:id="@+id/imageCategory3"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                app:srcCompat="@drawable/defaulimgg" />
+                        </androidx.cardview.widget.CardView>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/roboto_medium"
+                                android:text="@string/NameProduct"
+                                android:textAlignment="viewStart"
+                                android:textAllCaps="false"
+                                android:textColor="@color/LetraBasePrincipal"
+                                android:textStyle="bold"></TextView>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:fontFamily="@font/roboto_light"
+                                android:text="@string/NameDescription"
+                                android:textAlignment="viewStart"
+                                android:textAllCaps="false"
+                                android:textColor="@color/LetraBaseSecundario"
+                                android:textStyle="bold"></TextView>
+
+                            <TextView
+                                android:layout_width="170dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="13dp"
+                                android:fontFamily="@font/roboto_medium"
+                                android:text="@string/NamePrice"
+                                android:textAlignment="viewStart"
+                                android:textAllCaps="false"
+                                android:textColor="@color/LetraPrecio"
+                                android:textStyle="bold"></TextView>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="40dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingBottom="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout16">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/NameProduct"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColorHint="@color/LetraBaseSecundario"
+                    app:boxStrokeColor="@color/LetraBasePrincipal"
+                    app:boxStrokeErrorColor="#FF0000"
+                    app:errorTextColor="#FF0000"
+                    app:hintTextColor="@color/LetraBasePrincipal"
+                    app:placeholderTextColor="@color/LetraBaseSecundario">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/input_nameP"
+                        android:layout_width="match_parent"
+                        android:layout_height="65dp"
+                        android:backgroundTint="@color/ColorBaseBoss"
+                        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ()&quot;&quot;' "
+                        android:fontFamily="@font/roboto_medium"
+                        android:hint="@string/input_nameProduct"
+                        android:inputType="text"
+                        android:maxLength="200"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/LetraBaseSecundario"
+                        android:textSize="12sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/DescriptionP"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColorHint="@color/LetraBaseSecundario"
+                    app:boxStrokeColor="@color/LetraBasePrincipal"
+                    app:boxStrokeErrorColor="#FF0000"
+                    app:errorTextColor="#FF0000"
+                    app:hintTextColor="@color/LetraBasePrincipal"
+                    app:placeholderTextColor="@color/LetraBaseSecundario">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/input_descriptionP"
+                        android:layout_width="match_parent"
+                        android:layout_height="65dp"
+                        android:backgroundTint="@color/ColorBaseBoss"
+                        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ()&quot;&quot;' 0123456789"
+                        android:fontFamily="@font/roboto_medium"
+                        android:hint="@string/input_descriptionProduct"
+                        android:inputType="text"
+                        android:maxLength="100"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/LetraBaseSecundario"
+                        android:textSize="12sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/PriceProduct"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColorHint="@color/LetraBaseSecundario"
+                    app:boxStrokeColor="@color/LetraBasePrincipal"
+                    app:boxStrokeErrorColor="#FF0000"
+                    app:errorTextColor="#FF0000"
+                    app:hintTextColor="@color/LetraBasePrincipal"
+                    app:placeholderTextColor="@color/LetraBaseSecundario">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/input_priceP"
+                        android:layout_width="match_parent"
+                        android:layout_height="65dp"
+                        android:backgroundTint="@color/ColorBaseBoss"
+                        android:digits="0123456789"
+                        android:fontFamily="@font/roboto_medium"
+                        android:hint="@string/input_priceProduct"
+                        android:inputType="number"
+                        android:maxLength="6"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/LetraBaseSecundario"
+                        android:textSize="12sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/StockProduct"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColorHint="@color/LetraBaseSecundario"
+                    app:boxStrokeColor="@color/LetraBasePrincipal"
+                    app:boxStrokeErrorColor="#FF0000"
+                    app:errorTextColor="#FF0000"
+                    app:hintTextColor="@color/LetraBasePrincipal"
+                    app:placeholderTextColor="@color/LetraBaseSecundario">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/input_stockProduct"
+                        android:layout_width="match_parent"
+                        android:layout_height="65dp"
+                        android:backgroundTint="@color/ColorBaseBoss"
+                        android:digits="0123456789"
+                        android:fontFamily="@font/roboto_medium"
+                        android:hint="@string/input_stock"
+                        android:inputType="number"
+                        android:maxLength="3"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/LetraBaseSecundario"
+                        android:textSize="12sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/seleccionDireccion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="5dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto"
+                        android:paddingStart="15dp"
+                        android:text="@string/SeleccionCategory"
+                        android:textColor="@color/LetraBaseSecundario"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/border_spinner"
+                        android:orientation="vertical">
+
+                        <Spinner
+                            android:id="@+id/spinnerCategory"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/border_spinner"
+                            android:dropDownWidth="match_parent"
+                            android:popupBackground="@drawable/border_button_normal"
+                            android:theme="@style/SpinnerStyle" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/seleccionOferta"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="5dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto"
+                        android:paddingStart="15dp"
+                        android:text="@string/SeleccionOferta"
+                        android:textColor="@color/LetraBaseSecundario"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/border_spinner"
+                        android:orientation="vertical">
+
+                        <Spinner
+                            android:id="@+id/spinnerOferta"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/border_spinner"
+                            android:dropDownWidth="match_parent"
+                            android:popupBackground="@drawable/border_button_normal"
+                            android:theme="@style/SpinnerStyle" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/UrlProduct"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColorHint="@color/LetraBaseSecundario"
+                    app:boxStrokeColor="@color/LetraBasePrincipal"
+                    app:boxStrokeErrorColor="#FF0000"
+                    app:errorTextColor="#FF0000"
+                    app:hintTextColor="@color/LetraBasePrincipal"
+                    app:placeholderTextColor="@color/LetraBaseSecundario">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/input_urlP"
+                        android:layout_width="match_parent"
+                        android:layout_height="65dp"
+                        android:backgroundTint="@color/ColorBaseBoss"
+                        android:fontFamily="@font/roboto_medium"
+                        android:hint="@string/input_urlProduct"
+                        android:inputType="text"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/LetraBaseSecundario"
+                        android:textSize="12sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/ColorBasePrincipal"
+        android:baselineAligned="false"
+        android:gravity="center|center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="80dp"
+        android:paddingVertical="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/btn_Actualizar"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/ColorBaseBoss"
+            android:fontFamily="@font/roboto_medium"
+            android:onClick="Actualizar"
+            android:text="@string/btn_AgrgarProducto"
+            android:textAllCaps="false"
+            android:textColor="@color/LetraBasePrincipal"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:cornerRadius="15dp"
+            app:rippleColor="#CFCFCF"
+            app:strokeColor="#000000"
+            app:strokeWidth="2dp" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

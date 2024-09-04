@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AplicacionLicoreria"
+        tools:targetApi="31">
+        <activity
+            android:name=".HomeMain"
+            android:exported="false" />
+        <activity
+            android:name=".Components.Administrador.AdminAddOferta"
+            android:exported="false" />
+        <activity
+            android:name=".Components.Administrador.AdminEditOferta"
+            android:exported="false" />
+        <activity
+            android:name=".Components.Administrador.AdminOferta"
+            android:exported="false" />
+        <activity
+            android:name=".Components.DireccionOrder"
+            android:exported="false" />
+        <activity
+            android:name=".Components.MetodoPagOrder"
+            android:exported="false" />
+        <activity
+            android:name=".Components.Administrador.AdminVentaCliente"
+            android:exported="false" />
+        <activity
+            android:name=".Components.Administrador.AdminVenta"
+            android:exported="false" />
+        <activity
+            android:name=".Components.CancelarOrders"
+            android:exported="false" />
+        <activity
+            android:name=".Components.DetallePedidoCompleto"
+            android:exported="false" />
+        <activity
+            android:name=".Components.DetallePedidoActivo"
+            android:exported="false" />
+        <activity
+            android:name=".Components.OfertaProduct"
+            android:exported="false" />
+        <activity
+            android:name=".Components.Administrador.AdminAddProduct"
+            android:exported="false" />
+        <activity
+            android:name=".Components.Administrador.AdminEditProduct"
+            android:exported="false" />
+        <activity
+            android:name=".Components.Administrador.AdminEditCategory"
+            android:exported="false" />
+        <activity
+            android:name=".Components.Administrador.AdminAddCategory"
+            android:exported="false" />
+        <activity
+            android:name=".Components.Administrador.AdminProduct"
+            android:exported="false" />
+        <activity
+            android:name=".Components.Administrador.AdminCategory"
+            android:exported="false" />
+        <activity
+            android:name=".Components.Administrador.AdminHome"
+            android:exported="false" />
+        <activity
+            android:name=".Components.Oferta"
+            android:exported="false" />
+        <activity
+            android:name=".Components.DireccionEdit"
+            android:exported="false" />
+        <activity
+            android:name=".Components.ComponentsVacios.PedidoVacioComplete"
+            android:exported="false" />
+        <activity
+            android:name=".Components.PedidosComplete"
+            android:exported="false" />
+        <activity
+            android:name=".Components.Pedidos"
+            android:exported="false" />
+        <activity
+            android:name=".PruebaOrder"
+            android:exported="false" />
+        <activity
+            android:name=".Components.OrdenarPedido"
+            android:exported="false" />
+        <activity
+            android:name=".Components.ComponentsVacios.OrdenarPedidoVacioTargeta"
+            android:exported="false" />
+        <activity
+            android:name=".Components.ComponentsVacios.OrdenarPedidoVacio"
+            android:exported="false" />
+        <activity
+            android:name=".Components.ComponentsVacios.OrdenarPedidoVacioDireccion"
+            android:exported="false" />
+        <activity
+            android:name=".Components.CarritoUser"
+            android:exported="false" />
+        <activity
+            android:name=".Components.CerrarSesion"
+            android:exported="false" />
+        <activity
+            android:name=".Components.ComponentsVacios.PedidosVacioActivo"
+            android:exported="false" />
+        <activity
+            android:name=".Components.RegisterMetodoPago"
+            android:exported="false" />
+        <activity
+            android:name=".Components.ComponentsVacios.MetodoPagoVacio"
+            android:exported="false" />
+        <activity
+            android:name=".Components.MetodoPago"
+            android:exported="false" />
+        <activity
+            android:name=".Components.RegistrarDireccion"
+            android:exported="false" />
+        <activity
+            android:name=".Components.ComponentsVacios.DireccionVacio"
+            android:exported="false" />
+        <activity
+            android:name=".Components.Direccion"
+            android:exported="false" />
+        <activity
+            android:name=".Components.ProfileEdit"
+            android:exported="false" />
+        <activity
+            android:name=".Components.HomeProduct"
+            android:exported="false" />
+        <activity
+            android:name=".Components.CategoryProduct"
+            android:exported="false" />
+        <activity
+            android:name=".Components.DetalleP"
+            android:exported="false" />
+        <activity
+            android:name=".Components.Profile"
+            android:exported="false" />
+        <activity
+            android:name=".Components.ComponentsVacios.CarritoVacio"
+            android:exported="false" />
+        <activity
+            android:name=".Components.Categoria"
+            android:exported="false" />
+        <activity
+            android:name=".Components.Home"
+            android:exported="false" />
+        <activity
+            android:name=".Components.Login.Login"
+            android:exported="false" />
+        <activity
+            android:name=".Components.Login.Register"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>

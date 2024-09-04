@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ColorBasePrincipal"
+    tools:context=".Components.Login.Register">
+
+
+    <ScrollView
+        android:id="@+id/scrollViewRegister"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/ColorBaseBoss"
+        android:windowSoftInputMode="adjustResize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/ColorBaseBoss"
+            android:backgroundTint="@color/ColorBaseBoss"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingBottom="100dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/LOGO2"
+                    android:layout_width="216dp"
+                    android:layout_height="170dp"
+                    android:layout_marginTop="40dp"
+                    android:contentDescription="@string/app_name"
+                    app:srcCompat="@drawable/logo" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/title_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="20dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/title_register"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/LetraBasePrincipal"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/TexPhone"
+                android:layout_width="289dp"
+                android:layout_height="68dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginEnd="62dp"
+                android:textColorHint="@color/LetraBaseSecundario"
+                app:boxStrokeColor="@color/LetraBasePrincipal"
+                app:boxStrokeErrorColor="#FF0000"
+                app:errorTextColor="#FF0000"
+                app:hintTextColor="@color/LetraBasePrincipal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.444"
+                app:layout_constraintStart_toStartOf="parent"
+                app:placeholderTextColor="@color/LetraBaseSecundario"
+                tools:layout_editor_absoluteY="266dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input_phone"
+                    android:layout_width="289dp"
+                    android:layout_height="60dp"
+                    android:autoLink="phone"
+                    android:background="@color/ColorBaseBoss"
+                    android:backgroundTint="@color/ColorBaseBoss"
+                    android:digits="0123456789"
+                    android:fontFamily="@font/roboto_medium"
+                    android:hint="@string/input_phone"
+                    android:inputType="date"
+                    android:maxLength="9"
+                    android:paddingTop="20dp"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/LetraBaseSecundario"
+                    android:textSize="12sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/TextEmail"
+                android:layout_width="289dp"
+                android:layout_height="68dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginEnd="62dp"
+                android:textColorHint="@color/LetraBaseSecundario"
+                app:boxStrokeColor="@color/LetraBasePrincipal"
+                app:boxStrokeErrorColor="#FF0000"
+                app:errorTextColor="#FF0000"
+                app:hintTextColor="@color/LetraBasePrincipal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.444"
+                app:layout_constraintStart_toStartOf="parent"
+                app:placeholderTextColor="@color/LetraBaseSecundario"
+                tools:layout_editor_absoluteY="342dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input_email"
+                    android:layout_width="289dp"
+                    android:layout_height="60dp"
+                    android:autoLink="email"
+                    android:background="@color/ColorBaseBoss"
+                    android:backgroundTint="@color/ColorBaseBoss"
+                    android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890@._ "
+                    android:fontFamily="@font/roboto_medium"
+                    android:hint="@string/input_email"
+                    android:inputType="textEmailAddress"
+                    android:maxLength="30"
+                    android:paddingTop="20dp"
+                    android:singleLine="false"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/LetraBaseSecundario"
+                    android:textColorLink="@color/LetraBaseSecundario"
+                    android:textSize="12sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/TextName"
+                android:layout_width="289dp"
+                android:layout_height="68dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="62dp"
+                android:textColorHint="@color/LetraBaseSecundario"
+                app:boxStrokeColor="@color/LetraBasePrincipal"
+                app:boxStrokeErrorColor="#FF0000"
+                app:errorTextColor="#FF0000"
+                app:hintTextColor="@color/LetraBasePrincipal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.444"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/TextEmail"
+                app:placeholderTextColor="@color/LetraBaseSecundario">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input_name"
+                    android:layout_width="289dp"
+                    android:layout_height="60dp"
+                    android:background="@color/ColorBaseBoss"
+                    android:backgroundTint="@color/ColorBaseBoss"
+                    android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+                    android:fontFamily="@font/roboto_medium"
+                    android:hint="@string/input_name"
+                    android:inputType="text"
+                    android:maxLength="20"
+                    android:paddingTop="20dp"
+                    android:singleLine="false"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/LetraBaseSecundario"
+                    android:textSize="12sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:background="@color/ColorBaseBoss"
+        android:baselineAligned="false"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:hapticFeedbackEnabled="false"
+        android:orientation="horizontal"
+        android:windowSoftInputMode="stateVisible|adjustUnspecified"
+        app:guidelineUseRtl="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/border_footer_negro"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_register2"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:backgroundTint="@color/ColorBaseBoss"
+                android:fontFamily="@font/roboto_medium"
+                android:onClick="Registrar"
+                android:text="@string/btn_register2"
+                android:textAllCaps="false"
+                android:textColor="@color/LetraBasePrincipal"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:cornerRadius="20dp"
+                app:rippleColor="#CFCFCF"
+                app:strokeColor="@color/ColorBaseBoss"
+                app:strokeWidth="2dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/button_atras"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:scaleType="fitCenter"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="36dp"
+        android:backgroundTint="@color/ColorBaseBoss"
+        android:onClick="Anterior"
+        android:src="@drawable/west_fill0_wght400_grad0_opsz48"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ColorBaseBoss"
+    android:backgroundTint="@color/ColorBaseBoss"
+    tools:context=".Components.RegistrarDireccion">
+
+    <LinearLayout
+        android:id="@+id/layoutHead"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginVertical="5dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
+        android:gravity="start|center_vertical|end"
+        android:orientation="horizontal"
+        android:paddingHorizontal="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteY="5dp">
+
+        <ImageButton
+            android:id="@+id/button_atrasMetodoPago"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="10dp"
+            android:backgroundTint="@color/ColorBaseBoss"
+            android:contentDescription="@string/btn_Atras"
+            android:scaleType="fitCenter"
+            android:src="@drawable/west_fill0_wght400_grad0_opsz48"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:tint="@color/LetraBasePrincipal" />
+
+        <LinearLayout
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:layout_weight="6"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title_Home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/title_metodoPago"
+                android:textAllCaps="false"
+                android:textColor="@color/LetraBasePrincipal"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            card_view:srcCompat="@drawable/option"
+            tools:srcCompat="@drawable/option"
+            app:tint="@color/LetraBasePrincipal" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scrollViewRegister"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/ColorBaseBoss"
+        android:backgroundTint="@color/ColorBaseBoss"
+        android:windowSoftInputMode="adjustResize"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutHead">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/linearLayout8"
+                android:layout_width="409dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageViewP"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginVertical="20dp"
+                    app:srcCompat="@drawable/mastercard_logo_1" />
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/TextProvincia"
+                android:layout_width="350dp"
+                android:layout_height="68dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="62dp"
+                android:textColorHint="@color/LetraBaseSecundario"
+                app:boxStrokeColor="@color/LetraBasePrincipal"
+                app:boxStrokeErrorColor="#FF0000"
+                app:errorTextColor="#FF0000"
+                app:hintTextColor="@color/LetraBasePrincipal"
+                app:placeholderTextColor="@color/LetraBaseSecundario">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input_target"
+                    android:layout_width="350dp"
+                    android:layout_height="60dp"
+                    android:background="@color/ColorBaseBoss"
+                    android:backgroundTint="@color/ColorBaseBoss"
+                    android:digits="0123456789"
+                    android:fontFamily="@font/roboto_medium"
+                    android:hint="@string/input_Taget"
+                    android:inputType="date"
+                    android:maxLength="16"
+                    android:paddingTop="20dp"
+                    android:singleLine="false"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/LetraBaseSecundario"
+                    android:textSize="12sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="30dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/Textmonth"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="8dp"
+                    android:padding="0dp"
+                    android:textColorHint="@color/LetraBaseSecundario"
+                    card_view:boxStrokeColor="@color/LetraBasePrincipal"
+                    card_view:boxStrokeErrorColor="#FF0000"
+                    card_view:errorTextColor="#FF0000"
+                    card_view:hintTextColor="@color/LetraBasePrincipal"
+                    card_view:placeholderTextColor="@color/LetraBaseSecundario">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/input_month"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:hint="@string/input_Month"
+                        android:background="@color/ColorBaseBoss"
+                        android:backgroundTint="@color/ColorBaseBoss"
+                        android:digits="0123456789"
+                        android:fontFamily="@font/roboto_medium"
+                        android:inputType="date"
+                        android:maxLength="2"
+                        android:paddingTop="20dp"
+                        android:singleLine="false"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/LetraBaseSecundario"
+                        android:textSize="12sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/TextYear"
+                    android:layout_width="60dp"
+                    android:layout_height="68dp"
+                    android:layout_marginTop="8dp"
+                    android:textColorHint="@color/LetraBaseSecundario"
+                    app:boxStrokeColor="@color/LetraBasePrincipal"
+                    app:boxStrokeErrorColor="#FF0000"
+                    app:errorTextColor="#FF0000"
+                    app:hintTextColor="@color/LetraBasePrincipal"
+                    app:placeholderTextColor="@color/LetraBaseSecundario">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/input_year"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="@color/ColorBaseBoss"
+                        android:backgroundTint="@color/ColorBaseBoss"
+                        android:digits="0123456789"
+                        android:fontFamily="@font/roboto_medium"
+                        android:hint="@string/input_Year"
+                        android:inputType="date"
+                        android:maxLength="2"
+                        android:paddingTop="20dp"
+                        android:singleLine="false"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/LetraBaseSecundario"
+                        android:textSize="12sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/TextCvv"
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="8dp"
+                    android:textColorHint="@color/LetraBaseSecundario"
+                    card_view:boxStrokeColor="@color/LetraBasePrincipal"
+                    card_view:boxStrokeErrorColor="#FF0000"
+                    card_view:errorTextColor="#FF0000"
+                    card_view:hintTextColor="@color/LetraBasePrincipal"
+                    card_view:placeholderTextColor="@color/LetraBaseSecundario">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/input_cvv"
+                        android:layout_width="150dp"
+                        android:layout_height="60dp"
+                        android:background="@color/ColorBaseBoss"
+                        android:backgroundTint="@color/ColorBaseBoss"
+                        android:digits="0123456789"
+                        android:fontFamily="@font/roboto_medium"
+                        android:hint="@string/input_cvv"
+                        android:inputType="date"
+                        android:maxLength="3"
+                        android:paddingTop="20dp"
+                        android:singleLine="false"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/LetraBaseSecundario"
+                        android:textSize="12sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/linearLayout7"
+        android:layout_width="409dp"
+        android:layout_height="100dp"
+        android:gravity="center_horizontal|center|center_vertical"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/btnUpdateDireccion"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="289dp"
+            android:layout_height="60dp"
+            android:backgroundTint="@color/ColorBase"
+            android:fontFamily="@font/roboto_medium"
+            android:onClick="AddTargeta"
+            android:text="@string/btn_AddDTargeta"
+            android:textAllCaps="false"
+            android:textColor="@color/LetraBase"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:cornerRadius="50dp"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:strokeColor="@color/ColorBaseSecundario"
+            app:strokeWidth="2dp"
+            tools:ignore="MissingConstraints" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

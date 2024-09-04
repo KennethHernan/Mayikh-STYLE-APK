@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ColorBaseBossSecundario"
+    tools:context=".Components.ComponentsVacios.CarritoVacio">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout9"
+        card_view:layout_constraintEnd_toEndOf="parent"
+        card_view:layout_constraintStart_toStartOf="parent"
+        card_view:layout_constraintTop_toBottomOf="@+id/layoutHead">
+
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="150dp"
+            android:layout_height="130dp"
+            app:srcCompat="@drawable/carritovacio"
+            app:tint="@color/ColorBaseSecundario" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:text="@string/carritoVacio"
+            android:textAlignment="center"
+            android:textColor="@color/LetraBaseSecundario"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutHead"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginVertical="5dp"
+        android:background="@color/ColorBaseBoss"
+        android:backgroundTint="@color/ColorBaseBoss"
+        android:gravity="start|center_vertical|end"
+        android:orientation="horizontal"
+        android:paddingHorizontal="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/btn_AtrarCarrito"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="10dp"
+            android:backgroundTint="@color/ColorBaseBoss"
+            android:contentDescription="@string/btn_Atras"
+            android:onClick="Home"
+            android:scaleType="fitCenter"
+            android:src="@drawable/west_fill0_wght400_grad0_opsz48"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:tint="@color/LetraBasePrincipal" />
+
+        <LinearLayout
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:layout_weight="6"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title_Home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/title_carrito"
+                android:textAllCaps="false"
+                android:textColor="@color/LetraBasePrincipal"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:tint="@color/LetraBasePrincipal"
+            card_view:srcCompat="@drawable/option" />
+
+    </LinearLayout>
+
+<!--    <ScrollView-->
+<!--        android:id="@+id/scrollView2"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:background="#F7F7F7"-->
+<!--        android:backgroundTint="#F7F7F7"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/linearLayout9"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/layoutHead">-->
+
+<!--        <FrameLayout-->
+<!--            android:id="@+id/frameLayout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0dp"-->
+<!--            app:layout_constraintBottom_toTopOf="@+id/linearLayout"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/layoutHead">-->
+
+<!--            <include-->
+<!--                layout="@layout/list_carrito"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content" />-->
+<!--        </FrameLayout>-->
+<!--    </ScrollView>-->
+
+    <LinearLayout
+        android:id="@+id/linearLayout9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/btn_category"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            android:layout_marginHorizontal="60dp"
+            android:layout_marginVertical="20dp"
+            android:backgroundTint="@color/ColorBase"
+            android:contentDescription="@string/btn_Comprar"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/btn_Comprar"
+            android:textAllCaps="false"
+            android:textColor="@color/LetraBase"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:cornerRadius="20dp"
+            app:rippleColor="@color/ColorBaseSecundario"
+            app:strokeColor="@color/ColorBaseSecundario"
+            app:strokeWidth="2dp" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

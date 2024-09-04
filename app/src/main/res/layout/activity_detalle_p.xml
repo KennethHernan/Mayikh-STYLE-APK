@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ColorBaseBoss"
+    android:backgroundTint="@color/ColorBaseBoss"
+    tools:context=".Components.DetalleP">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/CategoryCardView"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:background="#A15959"
+            android:backgroundTint="#711515">
+
+            <ImageView
+                android:id="@+id/imageViewDetalleP"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                card_view:srcCompat="@drawable/vino_quebranta"
+                tools:srcCompat="@drawable/vino_quebranta" />
+
+            <View
+                android:id="@+id/viewDetalleP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:visibility="visible" />
+
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout18"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginHorizontal="25dp"
+        android:gravity="start"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+        tools:layout_editor_absoluteX="25dp">
+
+        <TextView
+            android:id="@+id/NameP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/nameProduct"
+            android:textAlignment="viewStart"
+            android:textColor="@color/ColorBase"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/txt_Discount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/input_Descuento"
+            android:textAlignment="viewStart"
+            android:textColor="#FF0000"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+            tools:ignore="MissingConstraints" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout18"
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="top"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:text="@string/descriptionP"
+                android:textAlignment="textEnd"
+                android:textColor="@color/LetraBasePrincipal"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/label_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:text="@string/descriptionProduct"
+                android:textAlignment="viewStart"
+                android:textColor="@color/LetraBaseSecundario"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            android:gravity="end"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto"
+                        android:text="@string/precioUnitario"
+                        android:textColor="@color/LetraBasePrincipal"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="25dp"
+                    android:layout_height="match_parent"
+                    android:gravity="top|end"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto"
+                        android:text="@string/StringPrice"
+                        android:textColor="@color/LetraBaseSecundario" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="top"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/label_PriceP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/priceProduct"
+                    android:textColor="@color/ColorBase"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!--        Precio del Producto-->
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout17"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/btn_AgregarC"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
+        tools:ignore="MissingConstraints">
+
+        <ImageButton
+            android:id="@+id/btn_Resta"
+            android:layout_width="25dp"
+            android:layout_height="27dp"
+            android:backgroundTint="#FFFFFF"
+            android:contentDescription="@string/btn_Resta"
+            android:onClick="disminuirCantidad"
+            android:scaleType="centerCrop"
+            app:tint="@color/ColorBase"
+            card_view:srcCompat="@drawable/icon_minus"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="63dp"
+            tools:layout_editor_absoluteY="571dp" />
+
+        <TextView
+            android:id="@+id/label_Cantidad"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:contentDescription="@string/input_cantidad"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/input_cantidad"
+            android:textAlignment="center"
+            android:textColor="@color/LetraBasePrincipal"
+            android:textSize="25sp" />
+
+        <ImageButton
+            android:id="@+id/btn_Suma"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:backgroundTint="#FFFFFF"
+            android:contentDescription="@string/btn_Suma"
+            android:onClick="aumentarCantidad"
+            android:scaleType="centerCrop"
+            app:tint="@color/ColorBase"
+            card_view:srcCompat="@drawable/icon_plus"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="248dp"
+            tools:layout_editor_absoluteY="565dp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_AgregarC"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:layout_marginHorizontal="70dp"
+        android:layout_marginBottom="52dp"
+        android:backgroundTint="@color/ColorBase"
+        android:contentDescription="@string/btn_Agregar"
+        android:fontFamily="@font/roboto_medium"
+        android:onClick="agregarCarrito"
+        android:textAllCaps="false"
+        android:text="@string/btn_Agregar"
+        android:textColor="@color/LetraBase"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:cornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:rippleColor="@color/ColorBaseSecundario"
+        app:strokeColor="@color/ColorBaseSecundario"
+        app:strokeWidth="2dp" />
+
+    <ImageButton
+        android:id="@+id/buttonAtrasDescription"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="#00FFFFFF"
+        android:contentDescription="@string/btn_Atras"
+        android:scaleType="fitCenter"
+        android:src="@drawable/west_fill0_wght400_grad0_opsz48"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/ColorBaseBoss" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

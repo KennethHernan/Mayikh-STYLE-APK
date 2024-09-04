@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ColorBaseBoss"
+    android:backgroundTint="@color/ColorBaseBoss"
+    tools:context=".Components.Login.Login">
+
+    <ImageButton
+        android:id="@+id/button_atras"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="36dp"
+        android:backgroundTint="@color/ColorBaseBoss"
+        android:onClick="Anterior"
+        android:scaleType="fitCenter"
+        android:src="@drawable/west_fill0_wght400_grad0_opsz48"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/LOGO3"
+            android:layout_width="253dp"
+            android:layout_height="174dp"
+            android:contentDescription="@string/app_name"
+            app:srcCompat="@drawable/logomk_2" />
+
+        <TextView
+            android:id="@+id/title_IniciaSesion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="20dp"
+            android:baselineAligned="false"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/title_login"
+            android:textColor="@color/LetraBasePrincipal"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/TexPhone"
+            android:layout_width="289dp"
+            android:layout_height="68dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="62dp"
+            android:textColorHint="@color/LetraBasePrincipal"
+            app:boxStrokeColor="@color/LetraBasePrincipal"
+            app:boxStrokeErrorColor="#F60000"
+            app:counterTextColor="@color/LetraBasePrincipal"
+            app:helperTextTextColor="@color/LetraBasePrincipal"
+            app:hintTextColor="@color/LetraBasePrincipal"
+            app:placeholderTextColor="@color/LetraBasePrincipal"
+            app:prefixTextColor="@color/LetraBasePrincipal"
+            app:startIconTint="@color/LetraBasePrincipal"
+            app:suffixTextColor="@color/LetraBasePrincipal">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_phone"
+                android:layout_width="289dp"
+                android:layout_height="60dp"
+                android:background="#FFFFFF"
+                android:backgroundTint="#FFFFFF"
+                android:fontFamily="@font/roboto_medium"
+                android:hint="@string/input_phone"
+                android:inputType="date"
+                android:maxLength="9"
+                android:paddingTop="20dp"
+                android:shadowColor="#FF0000"
+                android:singleLine="false"
+                android:textAlignment="viewStart"
+                android:textColor="#FF0000"
+                android:textColorHighlight="#FF0000"
+                android:textColorHint="#FF0000"
+                android:textColorLink="#FFFFFF"
+                android:textSize="12sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_siguiente"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="289dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="62dp"
+            android:backgroundTint="@color/ColorBasePrincipal"
+            android:fontFamily="@font/roboto_medium"
+            android:onClick="IniciaSesion"
+            android:text="@string/btn_register2"
+            android:textAllCaps="false"
+            android:textColor="@color/LetraBase"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:cornerRadius="20dp"
+            app:rippleColor="#2B2B2B"
+            app:strokeColor="@color/ColorBasePrincipal"
+            app:strokeWidth="2dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:background="@color/ColorBaseBoss"
+        android:gravity="center|center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/border_footer_negro"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_Register"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="180dp"
+                android:layout_height="60dp"
+                android:backgroundTint="@color/LetraBase"
+                android:fontFamily="@font/roboto_medium"
+                android:onClick="Registrar"
+                android:text="@string/btn_register"
+                android:textAllCaps="false"
+                android:textColor="@color/LetraBasePrincipal"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:cornerRadius="20dp"
+                app:rippleColor="@color/LetraBase"
+                app:strokeColor="@color/LetraBase"
+                app:strokeWidth="2dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

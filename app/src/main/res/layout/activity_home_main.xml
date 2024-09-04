@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ColorBasePrincipal"
+    android:backgroundTint="@color/ColorBasePrincipal"
+    tools:context=".HomeMain">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/ColorBasePrincipal"
+        android:backgroundTint="@color/ColorBasePrincipal"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/LOGO"
+            android:layout_width="307dp"
+            android:layout_height="307dp"
+            android:contentDescription="@string/app_name"
+            app:srcCompat="@drawable/logomk" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="@color/ColorBasePrincipal"
+        android:backgroundTint="@color/ColorBasePrincipal"
+        android:baselineAligned="false"
+        android:gravity="center|center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/border_footer_blanco"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btn_sesion"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="180dp"
+                android:layout_height="60dp"
+                android:layout_marginRight="5dp"
+                android:backgroundTint="@color/ColorBasePrincipal"
+                android:fontFamily="@font/roboto_medium"
+                android:onClick="IniciaSesion"
+                android:text="@string/btn_sesion"
+                android:textAllCaps="false"
+                android:textColor="@color/LetraBase"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:cornerRadius="20dp"
+                app:rippleColor="#2B2B2B"
+                app:strokeColor="@color/ColorBasePrincipal"
+                app:strokeWidth="2dp" />
+
+            <Button
+                android:id="@+id/btn_register2"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="180dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="5dp"
+                android:backgroundTint="@color/ColorBaseBoss"
+                android:fontFamily="@font/roboto_medium"
+                android:onClick="Registrar"
+                android:text="@string/btn_register"
+                android:textAllCaps="false"
+                android:textColor="@color/LetraBasePrincipal"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:cornerRadius="20dp"
+                app:rippleColor="#CFCFCF"
+                app:strokeColor="@color/ColorBasePrincipal"
+                app:strokeWidth="2dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

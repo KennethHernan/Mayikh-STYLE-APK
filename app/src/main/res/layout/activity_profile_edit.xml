@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ColorBaseBoss"
+    android:backgroundTint="@color/ColorBaseBoss"
+    tools:context=".Components.ProfileEdit">
+
+    <LinearLayout
+        android:id="@+id/layoutHead"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginVertical="5dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
+        android:gravity="start|center_vertical|end"
+        android:orientation="horizontal"
+        android:paddingHorizontal="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/button_atrasProfile"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="10dp"
+            android:backgroundTint="@color/ColorBaseBoss"
+            android:contentDescription="@string/btn_Atras"
+            android:onClick="Anterior"
+            android:scaleType="fitCenter"
+            android:src="@drawable/west_fill0_wght400_grad0_opsz48"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:tint="@color/LetraBasePrincipal" />
+
+        <LinearLayout
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:layout_weight="6"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title_Home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/btn_perfil"
+                android:textAllCaps="false"
+                android:textColor="@color/LetraBasePrincipal"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            card_view:srcCompat="@drawable/option"
+            tools:srcCompat="@drawable/option"
+            app:tint="@color/LetraBasePrincipal" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:windowSoftInputMode="adjustResize"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutHead"
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="29dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/imageButton3"
+                style="@android:style/Widget.DeviceDefault.Light.ImageButton"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_marginVertical="50dp"
+                android:background="@color/ColorBaseBoss"
+                android:scaleType="fitCenter"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/usuario" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/TexPhone"
+                android:layout_width="289dp"
+                android:layout_height="68dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginEnd="62dp"
+                android:textColorHint="@color/LetraBaseSecundario"
+                app:boxStrokeColor="@color/LetraBasePrincipal"
+                app:boxStrokeErrorColor="#FF0000"
+                app:errorTextColor="#FF0000"
+                app:hintTextColor="@color/LetraBasePrincipal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.444"
+                app:layout_constraintStart_toStartOf="parent"
+                app:placeholderTextColor="@color/LetraBaseSecundario"
+                tools:layout_editor_absoluteY="266dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input_phone"
+                    android:layout_width="289dp"
+                    android:layout_height="60dp"
+                    android:autoLink="phone"
+                    android:background="@color/ColorBaseBoss"
+                    android:backgroundTint="@color/ColorBaseBoss"
+                    android:digits="0123456789"
+                    android:fontFamily="@font/roboto_medium"
+                    android:hint="@string/input_phone"
+                    android:inputType="number"
+                    android:maxLength="9"
+                    android:paddingTop="20dp"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/LetraBaseSecundario"
+                    android:textColorHighlight="@color/LetraBaseSecundario"
+                    android:textColorLink="@color/LetraBaseSecundario"
+                    android:textSize="12sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/TextEmail"
+                android:layout_width="289dp"
+                android:layout_height="68dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginEnd="62dp"
+                android:textColorHint="@color/LetraBaseSecundario"
+                app:boxStrokeColor="@color/LetraBasePrincipal"
+                app:boxStrokeErrorColor="#FF0000"
+                app:errorTextColor="#FF0000"
+                app:hintTextColor="@color/LetraBasePrincipal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.444"
+                app:layout_constraintStart_toStartOf="parent"
+                app:placeholderTextColor="@color/LetraBaseSecundario"
+                tools:layout_editor_absoluteY="342dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input_email"
+                    android:layout_width="289dp"
+                    android:layout_height="60dp"
+                    android:background="@color/ColorBaseBoss"
+                    android:backgroundTint="@color/ColorBaseBoss"
+                    android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890@._- "
+                    android:enabled="false"
+                    android:fontFamily="@font/roboto_medium"
+                    android:hint="@string/input_email"
+                    android:inputType="textEmailAddress"
+                    android:maxLength="30"
+                    android:paddingTop="20dp"
+                    android:singleLine="false"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/LetraBaseSecundario"
+                    android:textColorLink="@color/LetraBaseSecundario"
+                    android:textSize="12sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/TextName"
+                android:layout_width="289dp"
+                android:layout_height="68dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="40dp"
+                android:textColorHint="@color/LetraBaseSecundario"
+                app:boxStrokeColor="@color/LetraBasePrincipal"
+                app:boxStrokeErrorColor="#FF0000"
+                app:errorTextColor="#FF0000"
+                app:hintTextColor="@color/LetraBasePrincipal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.444"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/TextEmail"
+                app:placeholderTextColor="@color/LetraBaseSecundario">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input_name"
+                    android:layout_width="289dp"
+                    android:layout_height="60dp"
+                    android:background="@color/ColorBaseBoss"
+                    android:backgroundTint="@color/ColorBaseBoss"
+                    android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+                    android:fontFamily="@font/roboto_medium"
+                    android:hint="@string/input_name"
+                    android:inputType="text"
+                    android:maxLength="20"
+                    android:paddingTop="20dp"
+                    android:singleLine="false"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/LetraBaseSecundario"
+                    android:textSize="12sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/linearLayout7"
+        android:layout_width="409dp"
+        android:layout_height="100dp"
+        android:gravity="center_horizontal|center|center_vertical"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/btnUpdate"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="289dp"
+            android:layout_height="60dp"
+            android:backgroundTint="@color/ColorBase"
+            android:fontFamily="@font/roboto_medium"
+            android:onClick="Registrar"
+            android:text="@string/btn_update"
+            android:textAllCaps="false"
+            android:textColor="@color/LetraBase"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:cornerRadius="50dp"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:strokeColor="@color/ColorBaseSecundario"
+            app:strokeWidth="2dp"
+            tools:ignore="MissingConstraints" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
