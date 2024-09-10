@@ -118,12 +118,9 @@
                 android:layout_marginStart="60dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="62dp"
-                android:textColorHint="@color/LetraBaseSecundario"
+                android:textColorHint="@color/ColorBase"
                 app:boxStrokeColor="@color/LetraBasePrincipal"
-                app:boxStrokeErrorColor="#FF0000"
-                app:errorTextColor="#FF0000"
-                app:hintTextColor="@color/LetraBasePrincipal"
-                app:placeholderTextColor="@color/LetraBaseSecundario">
+                app:hintTextColor="@color/LetraBasePrincipal">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/input_nameD"
@@ -260,7 +257,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:strokeColor="@color/ColorBaseSecundario"
+            app:rippleColor="@color/ColorRippe"
+            app:strokeColor="@color/ColorBase"
             app:strokeWidth="2dp"
             tools:ignore="MissingConstraints" />
     </LinearLayout>

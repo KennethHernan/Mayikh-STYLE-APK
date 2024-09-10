@@ -40,7 +40,7 @@
                     android:layout_height="170dp"
                     android:layout_marginTop="40dp"
                     android:contentDescription="@string/app_name"
-                    app:srcCompat="@drawable/logo" />
+                    app:srcCompat="@drawable/logomk_2" />
 
             </LinearLayout>
 
@@ -53,7 +53,7 @@
                 android:text="@string/title_register"
                 android:textAlignment="center"
                 android:textAllCaps="false"
-                android:textColor="@color/LetraBasePrincipal"
+                android:textColor="@color/ColorBase"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -62,25 +62,18 @@
                 android:layout_width="289dp"
                 android:layout_height="68dp"
                 android:layout_marginStart="60dp"
+                android:layout_marginTop="50dp"
                 android:layout_marginEnd="62dp"
-                android:textColorHint="@color/LetraBaseSecundario"
-                app:boxStrokeColor="@color/LetraBasePrincipal"
-                app:boxStrokeErrorColor="#FF0000"
-                app:errorTextColor="#FF0000"
-                app:hintTextColor="@color/LetraBasePrincipal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.444"
-                app:layout_constraintStart_toStartOf="parent"
-                app:placeholderTextColor="@color/LetraBaseSecundario"
-                tools:layout_editor_absoluteY="266dp">
+                android:textColorHint="@color/ColorNegra"
+                app:boxBackgroundColor="@color/ColorBaseBoss"
+                app:boxBackgroundMode="filled"
+                app:boxStrokeColor="@color/ColorNegra">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/input_phone"
                     android:layout_width="289dp"
                     android:layout_height="60dp"
                     android:autoLink="phone"
-                    android:background="@color/ColorBaseBoss"
-                    android:backgroundTint="@color/ColorBaseBoss"
                     android:digits="0123456789"
                     android:fontFamily="@font/roboto_medium"
                     android:hint="@string/input_phone"
@@ -88,7 +81,9 @@
                     android:maxLength="9"
                     android:paddingTop="20dp"
                     android:textAlignment="viewStart"
-                    android:textColor="@color/LetraBaseSecundario"
+                    android:textColor="@color/ColorPlomo"
+                    android:textColorHighlight="@color/ColorBaseSecundario"
+                    android:textColorLink="@color/ColorBase"
                     android:textSize="12sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -98,34 +93,26 @@
                 android:layout_height="68dp"
                 android:layout_marginStart="60dp"
                 android:layout_marginEnd="62dp"
-                android:textColorHint="@color/LetraBaseSecundario"
-                app:boxStrokeColor="@color/LetraBasePrincipal"
-                app:boxStrokeErrorColor="#FF0000"
-                app:errorTextColor="#FF0000"
-                app:hintTextColor="@color/LetraBasePrincipal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.444"
-                app:layout_constraintStart_toStartOf="parent"
-                app:placeholderTextColor="@color/LetraBaseSecundario"
-                tools:layout_editor_absoluteY="342dp">
+                android:textColorHint="@color/ColorNegra"
+                app:boxBackgroundColor="@color/ColorBaseBoss"
+                app:boxBackgroundMode="filled"
+                app:boxStrokeColor="@color/ColorNegra">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/input_email"
                     android:layout_width="289dp"
                     android:layout_height="60dp"
                     android:autoLink="email"
-                    android:background="@color/ColorBaseBoss"
-                    android:backgroundTint="@color/ColorBaseBoss"
                     android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890@._ "
                     android:fontFamily="@font/roboto_medium"
                     android:hint="@string/input_email"
                     android:inputType="textEmailAddress"
-                    android:maxLength="30"
+                    android:maxLength="20"
                     android:paddingTop="20dp"
-                    android:singleLine="false"
                     android:textAlignment="viewStart"
-                    android:textColor="@color/LetraBaseSecundario"
-                    android:textColorLink="@color/LetraBaseSecundario"
+                    android:textColor="@color/ColorPlomo"
+                    android:textColorHighlight="@color/ColorBaseSecundario"
+                    android:textColorLink="@color/ColorBase"
                     android:textSize="12sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -134,34 +121,26 @@
                 android:layout_width="289dp"
                 android:layout_height="68dp"
                 android:layout_marginStart="60dp"
-                android:layout_marginTop="8dp"
                 android:layout_marginEnd="62dp"
-                android:textColorHint="@color/LetraBaseSecundario"
-                app:boxStrokeColor="@color/LetraBasePrincipal"
-                app:boxStrokeErrorColor="#FF0000"
-                app:errorTextColor="#FF0000"
-                app:hintTextColor="@color/LetraBasePrincipal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.444"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/TextEmail"
-                app:placeholderTextColor="@color/LetraBaseSecundario">
+                android:textColorHint="@color/ColorNegra"
+                app:boxBackgroundColor="@color/ColorBaseBoss"
+                app:boxBackgroundMode="filled"
+                app:boxStrokeColor="@color/ColorNegra">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/input_name"
                     android:layout_width="289dp"
                     android:layout_height="60dp"
-                    android:background="@color/ColorBaseBoss"
-                    android:backgroundTint="@color/ColorBaseBoss"
                     android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
                     android:fontFamily="@font/roboto_medium"
                     android:hint="@string/input_name"
                     android:inputType="text"
-                    android:maxLength="20"
+                    android:maxLength="25"
                     android:paddingTop="20dp"
-                    android:singleLine="false"
                     android:textAlignment="viewStart"
-                    android:textColor="@color/LetraBaseSecundario"
+                    android:textColor="@color/ColorPlomo"
+                    android:textColorHighlight="@color/ColorBaseSecundario"
+                    android:textColorLink="@color/ColorBase"
                     android:textSize="12sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -187,7 +166,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/border_footer_negro"
+            android:background="@drawable/border_footer_principal"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -214,14 +193,18 @@
 
     <ImageButton
         android:id="@+id/button_atras"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:scaleType="fitCenter"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="36dp"
-        android:backgroundTint="@color/ColorBaseBoss"
         android:onClick="Anterior"
-        android:src="@drawable/west_fill0_wght400_grad0_opsz48"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/circulobutton"
+        android:backgroundTint="@color/ColorBase"
+        android:foreground="@drawable/icon_next"
+        android:foregroundGravity="center"
+        android:foregroundTint="#FFFFFF"
+        android:rotationY="180"
+        android:scaleType="centerInside"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />

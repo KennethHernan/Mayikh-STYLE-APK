@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_200">@color/ColorBase</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
@@ -12,14 +12,21 @@
     <color name="ColorBaseBossSecundario">#F7F7F7</color>
 
     <color name="ColorBasePrincipal">#F2D0BD</color>
+    <color name="ColorRippe">#FFB891</color>
     <color name="ColorBase">#F2D0BD</color>
     <color name="ColorAlerta">#FF0000</color>
-    <color name="ColorBaseSecundario">#FCC52E</color>
+    <color name="ColorBaseSecundario">#FFEDE2</color>
+
     <color name="LetraBasePrincipal">#F2D0BD</color>
     <color name="LetraNegritaPrincipal">#AD7657</color>
-
     <color name="LetraBase">#FFFFFFFF</color>
-    <color name="LetraBaseSecundario">#6E6E6E</color>
+    <color name="LetraBaseSecundario">#AD7657</color>
     <color name="LetraPrecio">#27A451</color>
 
+    <color name="ColorBlanco">#FFFFFFFF</color>
+    <color name="ColorNegra">#FF000000</color>
+    <color name="ColorRosa">#F2D0BD</color>
+    <color name="ColorPlomo">#9B9B9B</color>
+    <color name="ColorMarron">#AD7657</color>
+    <color name="ColorMarron2">#CEA086</color>
 </resources>

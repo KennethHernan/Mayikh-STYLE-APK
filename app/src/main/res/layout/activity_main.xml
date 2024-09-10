@@ -3,21 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/ColorBasePrincipal"
     android:layout_height="match_parent"
+    android:background="@color/ColorBaseBoss"
     app:layoutDescription="@xml/activity_main_scene2"
     tools:context=".MainActivity">
 
     <ImageView
         android:id="@+id/LOGO"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo"
+        app:srcCompat="@drawable/logomk_2"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.motion.widget.MotionLayout>

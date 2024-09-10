@@ -119,6 +119,7 @@
     <string name="txtDireccion">Ingresa una dirección</string>
     <string name="txtMetodoP">Ingresa una tarjeta</string>
     <string name="Discount">30%</string>
+    <string name="TitleOffert">Nuevas Ofertas</string>
     <string name="DescriptionOffert">¡Descuento solo válido para hoy!</string>
     <string name="cantidadProducto">4 Productos</string>
     <string name="precioTotal">Precio Total:</string>

@@ -11,29 +11,48 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@color/ColorBasePrincipal"
-        android:backgroundTint="@color/ColorBasePrincipal"
-        android:gravity="center"
+        android:background="@color/ColorBaseBoss"
+        android:backgroundTint="@color/ColorBaseBoss"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/LOGO"
-            android:layout_width="307dp"
-            android:layout_height="307dp"
-            android:contentDescription="@string/app_name"
-            app:srcCompat="@drawable/logomk" />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/Fondo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/app_name"
+                android:scaleType="fitXY" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/LOGO"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/logomk_2" />
+            </LinearLayout>
+
+        </FrameLayout>
+
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="90dp"
-        android:background="@color/ColorBasePrincipal"
-        android:backgroundTint="@color/ColorBasePrincipal"
         android:baselineAligned="false"
         android:gravity="center|center_vertical"
         android:orientation="horizontal"
@@ -44,7 +63,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/border_footer_blanco"
+            android:background="@drawable/border_footer_secundario"
             android:gravity="center">
 
             <Button
@@ -53,17 +72,17 @@
                 android:layout_width="180dp"
                 android:layout_height="60dp"
                 android:layout_marginRight="5dp"
-                android:backgroundTint="@color/ColorBasePrincipal"
+                android:backgroundTint="@color/ColorBaseBoss"
                 android:fontFamily="@font/roboto_medium"
                 android:onClick="IniciaSesion"
                 android:text="@string/btn_sesion"
                 android:textAllCaps="false"
-                android:textColor="@color/LetraBase"
+                android:textColor="@color/ColorBase"
                 android:textSize="12sp"
                 android:textStyle="bold"
                 app:cornerRadius="20dp"
                 app:rippleColor="#2B2B2B"
-                app:strokeColor="@color/ColorBasePrincipal"
+                app:strokeColor="@color/ColorBaseBoss"
                 app:strokeWidth="2dp" />
 
             <Button
@@ -72,17 +91,17 @@
                 android:layout_width="180dp"
                 android:layout_height="60dp"
                 android:layout_marginLeft="5dp"
-                android:backgroundTint="@color/ColorBaseBoss"
+                android:backgroundTint="@color/ColorBase"
                 android:fontFamily="@font/roboto_medium"
                 android:onClick="Registrar"
                 android:text="@string/btn_register"
                 android:textAllCaps="false"
-                android:textColor="@color/LetraBasePrincipal"
+                android:textColor="@color/LetraBase"
                 android:textSize="12sp"
                 android:textStyle="bold"
                 app:cornerRadius="20dp"
                 app:rippleColor="#CFCFCF"
-                app:strokeColor="@color/ColorBasePrincipal"
+                app:strokeColor="@color/ColorBaseBoss"
                 app:strokeWidth="2dp" />
         </LinearLayout>
     </LinearLayout>

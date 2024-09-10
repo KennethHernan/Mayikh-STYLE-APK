@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.aplicacionlicoreria'
+    namespace 'com.example.mayikhstyle'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.aplicacionlicoreria"
+        applicationId "com.example.mayikhstyle"
         minSdk 24
         targetSdk 33
         versionCode 1

@@ -257,8 +257,8 @@
         android:contentDescription="@string/btn_Agregar"
         android:fontFamily="@font/roboto_medium"
         android:onClick="agregarCarrito"
-        android:textAllCaps="false"
         android:text="@string/btn_Agregar"
+        android:textAllCaps="false"
         android:textColor="@color/LetraBase"
         android:textSize="12sp"
         android:textStyle="bold"
@@ -266,8 +266,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:rippleColor="@color/ColorBaseSecundario"
-        app:strokeColor="@color/ColorBaseSecundario"
+        app:rippleColor="@color/ColorRippe"
+        app:strokeColor="@color/ColorBase"
         app:strokeWidth="2dp" />
 
     <ImageButton

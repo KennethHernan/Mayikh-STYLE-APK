@@ -54,7 +54,6 @@
                 android:textColor="@color/LetraBasePrincipal"
                 android:textSize="14sp"
                 android:textStyle="bold" />
-
         </LinearLayout>
 
         <ImageView
@@ -176,7 +175,7 @@
                             android:textStyle="bold"
                             card_view:cornerRadius="12dp"
                             card_view:rippleColor="@color/ColorBase"
-                            card_view:strokeColor="@color/ColorBaseSecundario"
+                            card_view:strokeColor="@color/ColorBase"
                             card_view:strokeWidth="2dp" />
                     </LinearLayout>
 

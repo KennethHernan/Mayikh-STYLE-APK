@@ -283,7 +283,7 @@
                 android:textStyle="bold"
                 app:cornerRadius="15dp"
                 app:rippleColor="#CFCFCF"
-                app:strokeColor="#000000"
+                app:strokeColor="@color/ColorBase"
                 app:strokeWidth="2dp" />
         </LinearLayout>
 

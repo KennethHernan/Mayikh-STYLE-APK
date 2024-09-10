@@ -63,7 +63,7 @@
                     android:fontFamily="@font/roboto_medium"
                     android:textAlignment="center"
                     android:textAllCaps="false"
-                    android:textColor="@color/LetraBasePrincipal"
+                    android:textColor="@color/ColorNegra"
                     android:textSize="9sp"
                     android:textStyle="bold"
                     tools:text="@string/nameCategory"></TextView>

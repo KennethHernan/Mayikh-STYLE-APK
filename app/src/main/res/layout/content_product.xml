@@ -64,24 +64,24 @@
 
                     <TextView
                         android:id="@+id/nameProduct"
-                        android:layout_width="230dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:fontFamily="@font/roboto_medium"
                         android:textAlignment="viewStart"
                         android:textAllCaps="false"
-                        android:textColor="@color/LetraBasePrincipal"
+                        android:textColor="@color/ColorNegra"
                         android:textStyle="bold"
                         tools:text="@string/nameProduct"></TextView>
 
                     <TextView
                         android:id="@+id/descriptionProduct"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_light"
                         android:textAlignment="viewStart"
                         android:textAllCaps="false"
-                        android:textColor="@color/LetraBasePrincipal"
+                        android:textColor="@color/ColorPlomo"
                         android:textSize="12sp"
                         tools:text="@string/descriptionProduct"></TextView>
 
@@ -94,6 +94,20 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/priceProduct2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/roboto_medium"
+                                android:textAlignment="viewStart"
+                                android:textAllCaps="false"
+                                android:textColor="@color/LetraPrecio"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                tools:text="S/." />
 
                             <TextView
                                 android:id="@+id/priceProduct"

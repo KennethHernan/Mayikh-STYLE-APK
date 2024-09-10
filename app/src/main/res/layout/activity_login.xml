@@ -10,14 +10,18 @@
 
     <ImageButton
         android:id="@+id/button_atras"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="36dp"
-        android:backgroundTint="@color/ColorBaseBoss"
         android:onClick="Anterior"
-        android:scaleType="fitCenter"
-        android:src="@drawable/west_fill0_wght400_grad0_opsz48"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/circulobutton"
+        android:backgroundTint="@color/ColorBase"
+        android:foreground="@drawable/icon_next"
+        android:foregroundGravity="center"
+        android:foregroundTint="#FFFFFF"
+        android:rotationY="180"
+        android:scaleType="centerInside"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -52,7 +56,7 @@
             android:baselineAligned="false"
             android:fontFamily="@font/roboto_medium"
             android:text="@string/title_login"
-            android:textColor="@color/LetraBasePrincipal"
+            android:textColor="@color/ColorBase"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -63,35 +67,26 @@
             android:layout_marginStart="60dp"
             android:layout_marginTop="50dp"
             android:layout_marginEnd="62dp"
-            android:textColorHint="@color/LetraBasePrincipal"
-            app:boxStrokeColor="@color/LetraBasePrincipal"
-            app:boxStrokeErrorColor="#F60000"
-            app:counterTextColor="@color/LetraBasePrincipal"
-            app:helperTextTextColor="@color/LetraBasePrincipal"
-            app:hintTextColor="@color/LetraBasePrincipal"
-            app:placeholderTextColor="@color/LetraBasePrincipal"
-            app:prefixTextColor="@color/LetraBasePrincipal"
-            app:startIconTint="@color/LetraBasePrincipal"
-            app:suffixTextColor="@color/LetraBasePrincipal">
+            android:textColorHint="@color/ColorNegra"
+            app:boxBackgroundColor="@color/ColorBaseBoss"
+            app:boxBackgroundMode="filled"
+            app:boxStrokeColor="@color/ColorNegra">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/input_phone"
                 android:layout_width="289dp"
                 android:layout_height="60dp"
-                android:background="#FFFFFF"
-                android:backgroundTint="#FFFFFF"
+                android:autoLink="phone"
+                android:digits="0123456789"
                 android:fontFamily="@font/roboto_medium"
                 android:hint="@string/input_phone"
                 android:inputType="date"
                 android:maxLength="9"
                 android:paddingTop="20dp"
-                android:shadowColor="#FF0000"
-                android:singleLine="false"
                 android:textAlignment="viewStart"
-                android:textColor="#FF0000"
-                android:textColorHighlight="#FF0000"
-                android:textColorHint="#FF0000"
-                android:textColorLink="#FFFFFF"
+                android:textColor="@color/ColorPlomo"
+                android:textColorHighlight="@color/ColorBaseSecundario"
+                android:textColorLink="@color/ColorBase"
                 android:textSize="12sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -131,7 +126,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/border_footer_negro"
+            android:background="@drawable/border_footer_principal"
             android:gravity="center"
             android:orientation="vertical">
 

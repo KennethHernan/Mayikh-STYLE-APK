@@ -118,7 +118,7 @@
             android:textSize="12sp"
             android:textStyle="bold"
             app:cornerRadius="50dp"
-            app:strokeColor="@color/ColorBaseSecundario"
+            app:strokeColor="@color/ColorBase"
             app:strokeWidth="2dp" />
     </LinearLayout>
 
