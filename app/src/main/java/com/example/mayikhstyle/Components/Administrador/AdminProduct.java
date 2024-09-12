@@ -62,8 +62,8 @@ public class AdminProduct extends AppCompatActivity {
         AdminSQLopenHelper dataBase = new AdminSQLopenHelper(this, "administracion", null, 1);
         SQLiteDatabase DataBase = dataBase.getWritableDatabase();
 
-        List<Product> product = dataBase.listCategoryProduct(idCategory);
-
+        //List<Product> product = dataBase.listCategoryProduct(idCategory);
+/*
         // VER SI HAY PRODUCTOS EN CATEGORY
         Cursor cursoCategory = DataBase.rawQuery ("" +
                 "SELECT * FROM category " +
@@ -134,7 +134,7 @@ public class AdminProduct extends AppCompatActivity {
             cursorDatos.close();
             DataBase.close();
             dataBase.close();
-        }
+        }*/
     }
     public  void Atras(View view){
         Intent GestionarProducto = new Intent (this, AdminCategory.class);

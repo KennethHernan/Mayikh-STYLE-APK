@@ -1,8 +1,8 @@
 package com.example.mayikhstyle.Models;
 
 public class Category {
-    private int Id;
     private String Category;
+    private String Id;
     private  String Url;
 
     public Category() {
@@ -11,17 +11,18 @@ public class Category {
         Category = category;
         Url = url;
     }
-    public Category(int id, String category, String url) {
+
+    public Category(String id, String category, String url) {
         Id = id;
         Category = category;
         Url = url;
     }
 
-    public int getId() {
+    public String getId() {
         return Id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         Id = id;
     }
 
@@ -36,4 +37,8 @@ public class Category {
     public String getUrl() {return Url;}
 
     public void setUrl(String url) {Url = url;}
+
+    @Override
+    public String toString() { return Category; }
+
 }

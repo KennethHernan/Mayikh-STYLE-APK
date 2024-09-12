@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "1016749107959",
+    "firebase_url": "https://mayikh-default-rtdb.firebaseio.com",
+    "project_id": "mayikh",
+    "storage_bucket": "mayikh.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1016749107959:android:e5c69eb816cbabe61b01f2",
+        "android_client_info": {
+          "package_name": "com.example.mayikhstyle"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfagfjOaslJbIpsGPbks7-2a89fvur7Do"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,114 +1,27 @@
 package com.example.mayikhstyle.Models;
 
 public class Product {
-    private int idProduct;
     private String nameP;
     private String description;
     private int price;
-    private int idCategory;
+    private String idProduct, idCategory, idOffers;
     private String urlP;
     private int stock;
-    private int idOffers;
-    private int discount;
     private String descriptionOffers;
     private String nameC;
     private String urlC;
 
     public Product() {
     }
-
-    public Product(int idProduct) {
-        this.idProduct = idProduct;
-    }
-
-    public Product(int idProduct, int idOffers) {
-        this.idProduct = idProduct;
-        this.idOffers = idOffers;
-    }
-
-    public Product(int idProduct, String nameP, String description, int price, int idCategory, String urlP, int stock, int idOffers, int discount) {
+    public Product(String idProduct, String nameP, String description, int price, String urlP, int stock, String idCategory, String idOffers) {
         this.idProduct = idProduct;
         this.nameP = nameP;
         this.description = description;
         this.price = price;
+        this.urlP = urlP;
+        this.stock = stock;
         this.idCategory = idCategory;
-        this.urlP = urlP;
-        this.stock = stock;
         this.idOffers = idOffers;
-        this.discount = discount;
-    }
-    public Product(int idProduct, String nameP, String description, int price, int idCategory, String urlP, int stock, int idOffers, int discount,String descriptionOffers) {
-        this.idProduct = idProduct;
-        this.nameP = nameP;
-        this.description = description;
-        this.price = price;
-        this.idCategory = idCategory;
-        this.urlP = urlP;
-        this.stock = stock;
-        this.idOffers = idOffers;
-        this.discount = discount;
-        this.descriptionOffers = descriptionOffers;
-    }
-
-    public Product(String nameP, String description, int price, int idCategory, String urlP, int stock, int idOffers) {
-        this.nameP = nameP;
-        this.description = description;
-        this.price = price;
-        this.idCategory = idCategory;
-        this.urlP = urlP;
-        this.stock = stock;
-        this.idOffers = idOffers;
-    }
-
-
-    public Product(String nameC, String urlC, int idProduct,String nameP, String description, int price, String urlP) {
-        this.nameC = nameC;
-        this.urlC = urlC;
-        this.idProduct = idProduct;
-        this.nameP = nameP;
-        this.description = description;
-        this.price = price;
-        this.urlP = urlP;
-    }
-
-    public String getDescriptionOffers() {
-        return descriptionOffers;
-    }
-
-    public void setDescriptionOffers(String descriptionOffers) {
-        this.descriptionOffers = descriptionOffers;
-    }
-
-    public int getDiscount() {
-        return discount;
-    }
-
-    public void setDiscount(int discount) {
-        this.discount = discount;
-    }
-
-    public int getStock() {
-        return stock;
-    }
-
-    public void setStock(int stock) {
-        this.stock = stock;
-    }
-
-    public int getIdOffers() {
-        return idOffers;
-    }
-
-    public void setIdOffers(int idOffers) {
-        this.idOffers = idOffers;
-    }
-
-    public int getIdProduct() {
-        return idProduct;
-    }
-
-    public void setIdProduct(int idProduct) {
-        this.idProduct = idProduct;
     }
 
     public String getNameP() {
@@ -117,14 +30,6 @@ public class Product {
 
     public void setNameP(String nameP) {
         this.nameP = nameP;
-    }
-
-    public String getNameC() {
-        return nameC;
-    }
-
-    public void setNameC(String nameC) {
-        this.nameC = nameC;
     }
 
     public String getDescription() {
@@ -143,12 +48,28 @@ public class Product {
         this.price = price;
     }
 
-    public int getIdCategory() {
+    public String getIdProduct() {
+        return idProduct;
+    }
+
+    public void setIdProduct(String idProduct) {
+        this.idProduct = idProduct;
+    }
+
+    public String getIdCategory() {
         return idCategory;
     }
 
-    public void setIdCategory(int idCategory) {
+    public void setIdCategory(String idCategory) {
         this.idCategory = idCategory;
+    }
+
+    public String getIdOffers() {
+        return idOffers;
+    }
+
+    public void setIdOffers(String idOffers) {
+        this.idOffers = idOffers;
     }
 
     public String getUrlP() {
@@ -157,6 +78,30 @@ public class Product {
 
     public void setUrlP(String urlP) {
         this.urlP = urlP;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+
+    public String getDescriptionOffers() {
+        return descriptionOffers;
+    }
+
+    public void setDescriptionOffers(String descriptionOffers) {
+        this.descriptionOffers = descriptionOffers;
+    }
+
+    public String getNameC() {
+        return nameC;
+    }
+
+    public void setNameC(String nameC) {
+        this.nameC = nameC;
     }
 
     public String getUrlC() {

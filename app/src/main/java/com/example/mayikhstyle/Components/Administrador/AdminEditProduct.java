@@ -49,8 +49,8 @@ public class AdminEditProduct extends AppCompatActivity {
         List<String> offersList = new ArrayList<>();
         List<String> categoryList = new ArrayList<>();
 
-        List<Offers> offers = database.listOffers();
-
+        //List<Offers> offers = database.listOffers();
+/*
         if (offers.size() > 0 ) {
             //AGREGAR LOS DATOS AL ARRAY direccionList y targetaList
             Cursor cursorDireccion = DataBase.rawQuery("SELECT discount FROM offers",null);
@@ -149,8 +149,7 @@ public class AdminEditProduct extends AppCompatActivity {
                 btnAtras.setOnClickListener(v -> Atras(IdCategory));
             }
         } else {
-            DataBase.close();
-        }
+        }*/
     }
 
     public void Actualizar(int IdProduct, String NameP){
@@ -184,11 +183,11 @@ public class AdminEditProduct extends AppCompatActivity {
                                 filaO.close();
                                 @SuppressLint("Range")
                                 Integer IdCategory = filaC.getInt(filaC.getColumnIndex("idCategory"));
-
+/*
                                 //INSERTAR LOS DATOS A LA BASE DE DATOS
                                 Product NewProduct = new Product(NameP, descriptionP, priceP,IdCategory,urlP,Stock,IdOffer);
                                 database.updateProduct(NewProduct,IdProduct);
-                                database.close();
+                                database.close();*/
 
                                 //REDIRECCIÓN
                                 Intent intentP = new Intent(AdminEditProduct.this, AdminProduct.class);
@@ -219,11 +218,11 @@ public class AdminEditProduct extends AppCompatActivity {
                                 if (filaC.moveToFirst()) {
                                     @SuppressLint("Range")
                                     Integer IdCategory = filaC.getInt(filaC.getColumnIndex("idCategory"));
-
+/*
                                     //INSERTAR LOS DATOS A LA BASE DE DATOS
                                     Product NewProduct = new Product(nameP, descriptionP, priceP,IdCategory,urlP,Stock,IdOffer);
                                     database.updateProduct(NewProduct,IdProduct);
-                                    database.close();
+                                    database.close();*/
 
                                     //REDIRECCIÓN
                                     Intent intentP = new Intent(AdminEditProduct.this, AdminProduct.class);

@@ -150,16 +150,16 @@ public class AdminEditCategory extends AppCompatActivity {
     public  void Eliminar(int IdCategory){
         AdminSQLopenHelper DataBase = new AdminSQLopenHelper(this, "administracion", null, 1);
 
-
-        List<Product> idProduct = DataBase.listIdProducto(IdCategory);
+/*
+        //List<Product> idProduct = DataBase.listIdProducto(IdCategory);
         //ELIMINAR DETALLE ORDER
         for (Product item : idProduct) {
-            DataBase.deleteProduct(item.getIdProduct());
+            DataBase.deleteProduct(item.getIdProduct2());
         }
         DataBase.deleteCategory(IdCategory);
 
         Intent GestionarProducto = new Intent (this, AdminCategory.class);
-        startActivity(GestionarProducto);
+        startActivity(GestionarProducto);*/
     }
     public  void Atras(View view){
         Intent GestionarProducto = new Intent (this, AdminCategory.class);

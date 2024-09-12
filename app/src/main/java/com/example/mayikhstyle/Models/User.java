@@ -1,7 +1,7 @@
 package com.example.mayikhstyle.Models;
 
 public class User {
-    private int idUser;
+    private String idUser;
     private int phone;
     private String email;
     private String nameU;
@@ -12,7 +12,7 @@ public class User {
     public User() {
     }
 
-    public User(int idUser, int phone, String email, String nameU, String urlU, int idAddress, int idPayment) {
+    public User(String idUser, int phone, String email, String nameU, String urlU, int idAddress, int idPayment) {
         this.idUser = idUser;
         this.phone = phone;
         this.email = email;
@@ -37,18 +37,18 @@ public class User {
         this.nameU = nameU;
     }
 
-    public User(int idUser, int phone, String email, String nameU) {
+    public User(String idUser, int phone, String email, String nameU) {
         this.idUser = idUser;
         this.phone = phone;
         this.email = email;
         this.nameU = nameU;
     }
 
-    public int getIdUser() {
+    public String getIdUser() {
         return idUser;
     }
 
-    public void setIdUser(int idUser) {
+    public void setIdUser(String idUser) {
         this.idUser = idUser;
     }
 

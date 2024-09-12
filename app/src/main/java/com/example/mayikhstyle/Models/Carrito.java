@@ -4,6 +4,8 @@ public class Carrito {
     private int idCarrito, idProducto, amount, price;
 
     private String nameP, description, urlP;
+    private String idCarrito2;
+
     private int idUser;
 
     public Carrito(int idCarrito, int idProducto, int amount, int price, String nameP, String description, String urlP) {
@@ -65,6 +67,10 @@ public class Carrito {
     public void setIdCarrito(int idCarrito) {
         this.idCarrito = idCarrito;
     }
+    public String getIdCarrito2() {
+        return idCarrito2;
+    }
+    public void setIdCarrito2(String idCarrito2) { this.idCarrito2 = idCarrito2; }
 
     public int getIdProducto() {
         return idProducto;

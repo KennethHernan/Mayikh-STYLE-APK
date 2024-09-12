@@ -71,8 +71,8 @@ public class CategoryProduct extends AppCompatActivity {
         int idCategory = intent.getIntExtra("idCategory", 0);
 
         AdminSQLopenHelper DataBase = new AdminSQLopenHelper( this, "administracion", null, 1);
-        List<Product> product = DataBase.listCategoryProduct(idCategory);
-
+        //List<Product> product = DataBase.listCategoryProduct(idCategory);
+/*
         if (product.size() > 0) {
             productAdapter = new ProductAdapter(product);
             DataBase.close();
@@ -81,7 +81,7 @@ public class CategoryProduct extends AppCompatActivity {
             productAdapter.addItems(productEmpty);
             DataBase.close();
         }
-        ProductRecyclerView.setAdapter(productAdapter);
+        ProductRecyclerView.setAdapter(productAdapter);*/
 
         AdminSQLopenHelper admin = new AdminSQLopenHelper(this, "administracion", null, 1);
         SQLiteDatabase dataBase = admin.getWritableDatabase();

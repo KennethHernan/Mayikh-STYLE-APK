@@ -132,7 +132,7 @@ public class AdminPedidoAdapter extends RecyclerView.Adapter<ViewHolder>{
                 Intent intent = new Intent(itemView.getContext(), AdminVenta.class);
                 itemView.getContext().startActivity(intent);
 
-                DataBase.updateStateOrder(2,oders.getIdOrder());
+                //DataBase.updateStateOrder(2,oders.getIdOrder());
             });
         }
     }

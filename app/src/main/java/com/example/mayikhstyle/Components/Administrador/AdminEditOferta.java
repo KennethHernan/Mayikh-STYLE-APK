@@ -123,16 +123,16 @@ public class AdminEditOferta extends AppCompatActivity {
     public  void Eliminar(int IdOferta){
         AdminSQLopenHelper DataBase = new AdminSQLopenHelper(this, "administracion", null, 1);
 
-        List<Product> product = DataBase.listIdProductoOffers(IdOferta);
+        /*List<Product> product = DataBase.listIdProductoOffers(IdOferta);
         //ELIMINAR DETALLE ORDER
         for (Product item : product) {
-            DataBase.updateProductOffers(1,item.getIdProduct());
+            DataBase.updateProductOffers(1,item.getIdProduct2());
         }
         DataBase.deleteOffers(IdOferta);
         DataBase.close();
 
         Intent intent = new Intent (this, AdminOferta.class);
-        startActivity(intent);
+        startActivity(intent);*/
     }
     public  void Atras(View view){
         Intent intent = new Intent (this, AdminOferta.class);

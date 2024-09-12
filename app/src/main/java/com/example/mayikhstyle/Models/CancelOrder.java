@@ -2,6 +2,7 @@ package com.example.mayikhstyle.Models;
 
 public class CancelOrder {
     private int idCancelOrder;
+    private String idCancelOrder2;
     private  String descriptionCancel;
     private int idOrder;
 
@@ -72,6 +73,13 @@ public class CancelOrder {
 
     public void setIdCancelOrder(int idCancelOrder) {
         this.idCancelOrder = idCancelOrder;
+    }
+    public String getIdCancelOrder2() {
+        return idCancelOrder2;
+    }
+
+    public void setIdCancelOrder2(String idCancelOrder2) {
+        this.idCancelOrder2 = idCancelOrder2;
     }
 
     public String getDescriptionCancel() {

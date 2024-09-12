@@ -119,9 +119,9 @@ public class Home extends AppCompatActivity {
         int idUser = preferences.getInt("IdUser", 0);
 
         AdminSQLopenHelper DataBase = new AdminSQLopenHelper( this, "administracion", null, 1);
-        List<Product> product = DataBase.listProductRecomendado();
-        List<Offers> offers = DataBase.listOffers();
-        List<Category> category = DataBase.listCategory();
+        //List<Product> product = DataBase.listProductRecomendado();
+        //List<Offers> offers = DataBase.listOffers();
+        //List<Category> category = DataBase.listCategory();
 
         // MOSTRAR CANTIDAD CARRITO Y PEDIDO
         List<Carrito> carrito = DataBase.listCarrito(idUser);
@@ -148,7 +148,7 @@ public class Home extends AppCompatActivity {
             CantidadOrder.setVisibility(View.GONE);
         }
 
-        /*=================== Product ======================*/
+        /*=================== Product ======================
         if (product.size() > 0) {
             productAdapter = new ProductAdapter(product);
             DataBase.close();
@@ -157,9 +157,9 @@ public class Home extends AppCompatActivity {
             ArrayList<Product> productEmpty = new ArrayList<>();
             productAdapter.addItems(productEmpty);
             DataBase.close();
-        }
+        }*/
 
-        /*=================== Oferta ======================*/
+        /*=================== Oferta ======================
         if (offers.size() > 0) {
             offertAdapter = new OfertaHorizontalAdapter(offers);
             DataBase.close();
@@ -169,7 +169,8 @@ public class Home extends AppCompatActivity {
             DataBase.close();
         }
 
-        /*=================== Category ======================*/
+        /*
+        /*=================== Category ======================
         if (category.size() > 0) {
             categoryAdapter = new CategoryImgHorizontalAdapter(category);
             DataBase.close();
@@ -179,7 +180,7 @@ public class Home extends AppCompatActivity {
             DataBase.close();
         }
 
-        /*=================== Oferta HORIZONTAL ======================*/
+        /*=================== Oferta HORIZONTAL ======================
         RecyclerView recyclerViewOfetas = findViewById(R.id.list_oferta_horizontal);
         LinearLayoutManager layoutManagerOffert = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         recyclerViewOfetas.setLayoutManager(layoutManagerOffert);
@@ -187,7 +188,7 @@ public class Home extends AppCompatActivity {
         OfertaHorizontalAdapter ofertaAdapter = new OfertaHorizontalAdapter(offers);
         recyclerViewOfetas.setAdapter(ofertaAdapter);
 
-        /*=================== Category Img HORIZONTAL ======================*/
+        /*=================== Category Img HORIZONTAL ======================*//*
         RecyclerView recyclerViewCategoriasImg = findViewById(R.id.list_content_category);
         LinearLayoutManager layoutManagerCategoryImg = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         recyclerViewCategoriasImg.setLayoutManager(layoutManagerCategoryImg);
@@ -199,7 +200,7 @@ public class Home extends AppCompatActivity {
         CategoryRecyclerImgView.setAdapter(categoryAdapter);
         OffertRecyclerView.setAdapter(ofertaAdapter);
         ProductRecyclerView.setAdapter(productAdapter);
-        DataBase.close();
+        DataBase.close();*/
 
     }
     public void VerProducto(View view) {

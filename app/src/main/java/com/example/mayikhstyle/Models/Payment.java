@@ -3,7 +3,7 @@ package com.example.mayikhstyle.Models;
 
 public class Payment {
     private int idPayment,idUser, month, year,cvv;
-    private String cardNumber;
+    private String cardNumber, idPayment2;
 
     public Payment() {
     }
@@ -47,7 +47,13 @@ public class Payment {
     public void setIdPayment(int idPayment) {
         this.idPayment = idPayment;
     }
+    public String getIdPayment2() {
+        return idPayment2;
+    }
 
+    public void setIdPayment2(String idPayment2) {
+        this.idPayment2 = idPayment2;
+    }
     public String getCardNumber() {
         return cardNumber;
     }

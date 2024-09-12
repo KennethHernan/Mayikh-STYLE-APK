@@ -2,7 +2,7 @@ package com.example.mayikhstyle.Models;
 
 public class State {
     private int idState;
-    private String nameS;
+    private String nameS, idState2;
 
     public State(int idState, String nameS) {
         this.idState = idState;
@@ -19,6 +19,14 @@ public class State {
 
     public void setIdState(int idState) {
         this.idState = idState;
+    }
+
+    public String getIdState2() {
+        return idState2;
+    }
+
+    public void setIdState2(String idState2) {
+        this.idState2 = idState2;
     }
 
     public String getNameS() {

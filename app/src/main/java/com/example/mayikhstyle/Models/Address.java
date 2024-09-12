@@ -2,6 +2,7 @@ package com.example.mayikhstyle.Models;
 
 public class Address {
     private int idAddress;
+    private String idAddress2;
     private String nameA;
     private String adrress;
     private int idUser;
@@ -48,7 +49,13 @@ public class Address {
     public void setIdAddress(int idAddress) {
         this.idAddress = idAddress;
     }
+    public String getIdAddress2() {
+        return idAddress2;
+    }
 
+    public void setIdAddress2(String idAddress2) {
+        this.idAddress2 = idAddress2;
+    }
     public String getNameA() {
         return nameA;
     }

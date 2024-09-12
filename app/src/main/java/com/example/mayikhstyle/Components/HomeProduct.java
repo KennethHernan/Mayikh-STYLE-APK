@@ -58,8 +58,8 @@ public class HomeProduct extends AppCompatActivity {
     private void Content() {
 
         AdminSQLopenHelper DataBase = new AdminSQLopenHelper( this, "administracion", null, 1);
-        List<Product> product = DataBase.listProduct();
-
+        //List<Product> product = DataBase.listProduct();
+/*
         if (product.size() > 0) {
             productAdapter = new ProductAdapter(product);
             DataBase.close();
@@ -67,7 +67,7 @@ public class HomeProduct extends AppCompatActivity {
             ArrayList<Product> productEmpty = new ArrayList<>();
             productAdapter.addItems(productEmpty);
             DataBase.close();
-        }
+        }*/
 
         ProductRecyclerView.setAdapter(productAdapter);
         DataBase.close();

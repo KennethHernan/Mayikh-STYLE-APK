@@ -49,7 +49,7 @@ public class AdminCategory extends AppCompatActivity {
     }
     private void Content() {
         AdminSQLopenHelper DataBase = new AdminSQLopenHelper( this, "administracion", null, 1);
-        List<Category> category = DataBase.listCategory();
+       /* List<Category> category = DataBase.listCategory();
 
         if (category.size() > 0) {
             categoryAdapter = new AdminCategoryAdapter(category);
@@ -58,7 +58,7 @@ public class AdminCategory extends AppCompatActivity {
             ArrayList<Category> categoryEmpty = new ArrayList<>();
             categoryAdapter.addItems(categoryEmpty);
             DataBase.close();
-        }
+        }*/
 
         CategoryRecyclerView.setAdapter(categoryAdapter);
         DataBase.close();

@@ -2,6 +2,9 @@ package com.example.mayikhstyle.Models;
 
 public class DetalleOrd {
     private int idDetalleOrd, idProduct, price, amount, idOrder;
+
+    private String idDetalleOrd2, idProduct2, idOrder2;
+    private double price2;
     private  String nameP,descriptionP,urlP;
     public DetalleOrd(int idDetalleOrd) {
         this.idDetalleOrd = idDetalleOrd;
@@ -23,6 +26,13 @@ public class DetalleOrd {
         this.nameP = nameP;
         this.descriptionP = descriptionP;
         this.urlP = urlP;
+    }
+
+    public DetalleOrd(String idProduct2, double price2, int amount, String idOrder2) {
+        this.idProduct2 = idProduct2;
+        this.price2 = price2;
+        this.amount = amount;
+        this.idOrder2 = idOrder2;
     }
 
     public String getNameP() {

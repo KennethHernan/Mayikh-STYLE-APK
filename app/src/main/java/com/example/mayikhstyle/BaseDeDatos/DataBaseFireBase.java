@@ -1,11 +1,9 @@
 package com.example.mayikhstyle.BaseDeDatos;
 
 import android.content.ContentValues;
-import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-import androidx.annotation.Nullable;
+import android.util.Log;
 
 import com.example.mayikhstyle.Models.Address;
 import com.example.mayikhstyle.Models.CancelOrder;
@@ -18,17 +16,24 @@ import com.example.mayikhstyle.Models.Payment;
 import com.example.mayikhstyle.Models.Product;
 import com.example.mayikhstyle.Models.State;
 import com.example.mayikhstyle.Models.User;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.UUID;
+import java.util.stream.Collectors;
 
-
-public class AdminSQLopenHelper extends SQLiteOpenHelper{
-
-    private static final String NameBD = "administracion";
+public class DataBaseFireBase {
+    private FirebaseDatabase firebaseDatabase;
+    private DatabaseReference databaseReference;
 
     // TABLA USUARIO
-    private final static String NameTableU ="user", IdU = "idUser", PhoneU = "phone", EmailU = "email", NameU = "nameU", UrlU = "urlU", IdAddressU = "idAddress", IdPaymentU = "idPayment";
+    private final static String NameTableU ="usuario", IdU = "idUser", PhoneU = "phone", EmailU = "email", NameU = "nameU", UrlU = "urlU", IdAddressU = "idAddress", IdPaymentU = "idPayment";
 
     // TABLA PRODUCT
     private final static String NameTableP ="product", IdP = "idProduct", NameP = "nameP", DescriptionP = "description", PriceP = "price", IdCategoryP = "idCategory",UrlP = "urlP", Stock = "stock", IdOffersP = "idOffers";
@@ -59,70 +64,10 @@ public class AdminSQLopenHelper extends SQLiteOpenHelper{
     // TABLA CANCELORDER
     private final static String NameTableCancel ="cancelOrder", IdCancel = "idCancelOrder", DescriptionCancel = "descriptionCancel", IdOrderCancel = "idOrder";
 
-    public AdminSQLopenHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, NameBD, null, 1);
+    public DataBaseFireBase() {
+        databaseReference = FirebaseDatabase.getInstance().getReference();
     }
-
-    public AdminSQLopenHelper(@Nullable Context context) {
-        super(context, NameBD, null, 1);
-    }
-
-
-    @Override
-    public void onCreate(SQLiteDatabase DataBase) {
-        String Table_Users = "CREATE TABLE " + NameTableU +
-                "(" + IdU + " INTEGER PRIMARY KEY," + PhoneU+ " INTEGER," + EmailU+ " TEXT," + NameU+ " TEXT,"+ UrlU+ " TEXT," + IdAddressU+ " INTEGER," + IdPaymentU+ " INTEGER);";
-        String Table_Products = "CREATE TABLE " + NameTableP +
-                "(" + IdP + " INTEGER PRIMARY KEY," + NameP+ " TEXT," + DescriptionP+ " TEXT," + PriceP+ " INTEGER," + IdCategoryP+ " INTEGER," + UrlP+ " TEXT," + Stock+ " INTEGER," + IdOffersP+ " INTEGER);";
-        String Table_Category = "CREATE TABLE " + NameTableC +
-                "(" + IdC + " INTEGER PRIMARY KEY," + NameC+ " TEXT," + UrlC +" TEXT);";
-        String Table_Address = "CREATE TABLE " + NameTableA +
-                "(" + IdA + " INTEGER PRIMARY KEY," + NameA+ " TEXT,"+ Address +" TEXT,"+ IdUserA+ " INTEGER);";
-        String Table_Payment = "CREATE TABLE " + NameTablePay +
-                "(" + IdPay + " INTEGER PRIMARY KEY," + IdUserP + " INTEGER,"+ CardNumber+ " TEXT," + Month +" INTEGER,"+ Year+ " INTEGER," + Cvv +" INTEGER);";
-        String Table_Offers = "CREATE TABLE " + NameTableO +
-                "(" + IdO + " INTEGER PRIMARY KEY," + Discount+ " INTEGER," + DescriptionO +" TEXT);";
-        String Table_Carrito = "CREATE TABLE " + NameTableCar +
-                "(" + IdCar + " INTEGER PRIMARY KEY," + IdProductoCar + " INTEGER,"+ Amount+ " INTEGER," + PriceCar +" INTEGER,"+ NamePCar+ " TEXT," + DescriptionCar+ " TEXT,"+ UrlCar+ " TEXT,"+ IdUserCar+ " INTEGER);";
-        String Table_DetalleOrder = "CREATE TABLE " + NameTableDetalleOrd +
-                "(" + IdDetalleOrd + " INTEGER PRIMARY KEY," + IdProductoDetalleOrd + " INTEGER,"+ PriceDetalleOrd+ " INTEGER," + AmountDetalle +" INTEGER,"+IdOrdDetalle+ " INTEGER);";
-        String Table_Order = "CREATE TABLE " + NameTableOrd +
-                "(" + IdOrd + " INTEGER PRIMARY KEY," + FechaCompra + " TEXT,"+ PriceTotal+ " INTEGER,"+ AddressOrd+ " TEXT," + AmountOrd +" INTEGER,"+IdUserOrd+ " INTEGER,"+IdStateOrd+ " INTEGER);";
-        String Table_State = "CREATE TABLE " + NameTableEst +
-                "(" + IdEst + " INTEGER PRIMARY KEY," + NameS + " TEXT);";
-        String Table_CancelOrd = "CREATE TABLE " + NameTableCancel +
-                "(" + IdCancel + " INTEGER PRIMARY KEY," +DescriptionCancel+ " TEXT," +IdOrderCancel+ " INTEGER);";
-
-        DataBase.execSQL(Table_Users);
-        DataBase.execSQL(Table_Products);
-        DataBase.execSQL(Table_Category);
-        DataBase.execSQL(Table_Address);
-        DataBase.execSQL(Table_Payment);
-        DataBase.execSQL(Table_Offers);
-        DataBase.execSQL(Table_Carrito);
-        DataBase.execSQL(Table_DetalleOrder);
-        DataBase.execSQL(Table_Order);
-        DataBase.execSQL(Table_State);
-        DataBase.execSQL(Table_CancelOrd);
-    }
-
-    @Override
-    public void onUpgrade(SQLiteDatabase DataBase, int oldVersion, int newVersion) {
-        DataBase.execSQL("DROP TABLE IF EXISTS " + NameTableU);
-        DataBase.execSQL("DROP TABLE IF EXISTS " + NameTableP);
-        DataBase.execSQL("DROP TABLE IF EXISTS " + NameTableC);
-        DataBase.execSQL("DROP TABLE IF EXISTS " + NameTableA);
-        DataBase.execSQL("DROP TABLE IF EXISTS " + NameTablePay);
-        DataBase.execSQL("DROP TABLE IF EXISTS " + NameTableO);
-        DataBase.execSQL("DROP TABLE IF EXISTS " + NameTableCar);
-        DataBase.execSQL("DROP TABLE IF EXISTS " + NameTableDetalleOrd);
-        DataBase.execSQL("DROP TABLE IF EXISTS " + NameTableOrd);
-        DataBase.execSQL("DROP TABLE IF EXISTS " + NameTableEst);
-        DataBase.execSQL("DROP TABLE IF EXISTS " + NameTableCancel);
-        onCreate(DataBase);
-    }
-/*
-    public List<Product> listProduct(){
+    /*public List<Product> listProduct(){
         String sql = "SELECT "+NameTableP+".*, "+NameTableO+"."+Discount+" " +
                 "FROM " + NameTableP+" " +
                 "INNER JOIN "+NameTableO+" " +
@@ -172,6 +117,34 @@ public class AdminSQLopenHelper extends SQLiteOpenHelper{
         cursor.close();
         return listProduct;
     }
+    ///////////*/
+    public void listProductRecomendado() {
+    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("product");
+
+    databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+        @Override
+        public void onDataChange(DataSnapshot dataSnapshot) {
+            List<Product> allProducts = new ArrayList<>();
+
+            for (DataSnapshot productSnapshot : dataSnapshot.getChildren()) {
+                Product product = productSnapshot.getValue(Product.class);
+                allProducts.add(product);
+            }
+
+            // Seleccionar 4 productos aleatorios
+            Collections.shuffle(allProducts);
+            List<Product> recommendedProducts = allProducts.stream().limit(4).collect(Collectors.toList());
+
+            // Aquí puedes hacer algo con la lista de productos recomendados
+        }
+
+        @Override
+        public void onCancelled(DatabaseError databaseError) {
+            // Manejar el error
+        }
+    });
+    }
+    /*
     public List<Product> listIdProducto(int idCategory){
         String sql = "SELECT product.idProduct FROM product " +
                 "INNER JOIN category " +
@@ -188,7 +161,7 @@ public class AdminSQLopenHelper extends SQLiteOpenHelper{
         }
         cursor.close();
         return listIdProducto;
-    }/*
+    }
     public List<Product> listIdProductoOffers(int idOffers){
         String sql = "SELECT product.idProduct,product.idOffers FROM product " +
                 "INNER JOIN offers " +
@@ -206,8 +179,8 @@ public class AdminSQLopenHelper extends SQLiteOpenHelper{
         }
         cursor.close();
         return listIdProducto;
-    }*/
-    public List<Address> listAddress(int idUser){
+    }
+    public List<com.example.mayikhstyle.Models.Address> listAddress(int idUser){
         String sql = "SELECT * FROM "+NameTableA+" WHERE "+IdUserA+" = " + idUser;
         SQLiteDatabase DataBase = this.getReadableDatabase();
         List<Address> listAddress = new ArrayList<>();
@@ -327,14 +300,14 @@ public class AdminSQLopenHelper extends SQLiteOpenHelper{
         }
         cursor.close();
         return listCancelOrder;
-    }/*
+    }
     public List<Product> listCategoryProduct(int idCategory){
         String sql =
                 "SELECT category.nameC,category.urlC,product.idProduct,product.nameP,product.description,product.price,product.urlP " +
-                "FROM " + NameTableC +
-                " INNER JOIN "+ NameTableP +
-                " ON category.idCategory = product.idCategory"+
-                " WHERE "+NameTableC+"."+IdC+" = "+ idCategory;
+                        "FROM " + NameTableC +
+                        " INNER JOIN "+ NameTableP +
+                        " ON category.idCategory = product.idCategory"+
+                        " WHERE "+NameTableC+"."+IdC+" = "+ idCategory;
 
         SQLiteDatabase DataBase = this.getReadableDatabase();
         List<Product> listCategoryProduct = new ArrayList<>();
@@ -381,8 +354,8 @@ public class AdminSQLopenHelper extends SQLiteOpenHelper{
         }
         cursor.close();
         return listOfferroduct;
-    }*/
-    /*public List<Category> listCategory(){
+    }
+    public List<Category> listCategory(){
         String sql = "SELECT * FROM " + NameTableC+" ORDER BY RANDOM() ";
         SQLiteDatabase DataBase = this.getReadableDatabase();
         List<Category> listCategory = new ArrayList<>();
@@ -397,7 +370,7 @@ public class AdminSQLopenHelper extends SQLiteOpenHelper{
         }
         cursor.close();
         return listCategory;
-    }*/
+    }
     public List<User> listUser(){
         String sql = "SELECT * FROM " + NameTableU;
         SQLiteDatabase DataBase = this.getReadableDatabase();
@@ -481,7 +454,7 @@ public class AdminSQLopenHelper extends SQLiteOpenHelper{
         }
         cursor.close();
         return listDetalelOrd;
-    }/*
+    }
     public List<Offers> listOffers(){
         String sql = "SELECT * FROM "+ NameTableO+" WHERE "+IdO+" != 1 ORDER BY RANDOM() ";
         SQLiteDatabase DataBase = this.getReadableDatabase();
@@ -500,126 +473,109 @@ public class AdminSQLopenHelper extends SQLiteOpenHelper{
     }*/
 
     public void newProduct(Product product){
-        SQLiteDatabase DataBase = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-
-        values.put(NameP, product.getNameP());
-        values.put(DescriptionP, product.getDescription());
-        values.put(PriceP, product.getPrice());
-        values.put(IdCategoryP, product.getIdCategory());
-        values.put(UrlP, product.getUrlP());
-        values.put(Stock, product.getStock());
-        values.put(IdOffersP, product.getIdOffers());
-        DataBase.insert(NameTableP, null, values);
+        databaseReference.child("product").child(product.getIdProduct()).setValue(product).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                Log.d("Firebase", "Producto guardado con éxito");
+            } else {
+                Log.e("Firebase", "Error al guardar Producto", task.getException());
+            }
+        });
     }
     public void newCategoy(Category category){
-        SQLiteDatabase DataBase = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-
-        values.put(NameC, category.getCategory());
-        values.put(UrlC, category.getUrl());
-        DataBase.insert(NameTableC, null, values);
+        databaseReference.child("category").child(category.getId()).setValue(category).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                Log.d("Firebase", "Categoria guardado con éxito");
+            } else {
+                Log.e("Firebase", "Error al guardar Categoria", task.getException());
+            }
+        });
     }
     public void newState(State state){
-        SQLiteDatabase DataBase = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-
-        values.put(NameS, state.getNameS());
-        DataBase.insert(NameTableEst, null, values);
+        databaseReference.child("state").child(state.getIdState2()).setValue(state).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                Log.d("Firebase", "state guardado con éxito");
+            } else {
+                Log.e("Firebase", "Error al guardar state", task.getException());
+            }
+        });
     }
 
     public void newCancelOrd(CancelOrder cancelOrder){
-        SQLiteDatabase DataBase = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-
-        values.put(DescriptionCancel, cancelOrder.getDescriptionCancel());
-        values.put(IdOrderCancel, cancelOrder.getIdOrder());
-        DataBase.insert(NameTableCancel, null, values);
+        databaseReference.child("cancelOrder").child(cancelOrder.getIdCancelOrder2()).setValue(cancelOrder).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                Log.d("Firebase", "CancelOrder guardado con éxito");
+            } else {
+                Log.e("Firebase", "Error al guardar CancelOrder", task.getException());
+            }
+        });
     }
 
     public void newDireccion(Address address){
-        SQLiteDatabase DataBase = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-
-        values.put(NameA, address.getNameA());
-        values.put(Address, address.getAdrress());
-        values.put(IdUserA, address.getIdUser());
-        DataBase.insert(NameTableA, null, values);
+        databaseReference.child("address").child(address.getIdAddress2()).setValue(address).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                Log.d("Firebase", "Address guardado con éxito");
+            } else {
+                Log.e("Firebase", "Error al guardar address", task.getException());
+            }
+        });
     }
     public void newTarget(Payment payment){
-        SQLiteDatabase DataBase = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-
-        values.put(IdUserP, payment.getIdUser());
-        values.put(CardNumber, payment.getCardNumber());
-        values.put(Month, payment.getMonth());
-        values.put(Year, payment.getYear());
-        values.put(Cvv, payment.getCvv());
-        DataBase.insert(NameTablePay, null, values);
+        databaseReference.child("payment").child(payment.getIdPayment2()).setValue(payment).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                Log.d("Firebase", "Payment guardado con éxito");
+            } else {
+                Log.e("Firebase", "Error al guardar payment", task.getException());
+            }
+        });
     }
     public void newUser(User user){
-        SQLiteDatabase DataBase = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-
-        values.put(PhoneU, user.getPhone());
-        values.put(EmailU, user.getEmail());
-        values.put(NameU, user.getNameU());
-        values.put(UrlU, user.getUrlU());
-        values.put(IdAddressU, user.getIdAddress());
-        values.put(IdPaymentU, user.getIdPayment());
-        DataBase.insert(NameTableU, null, values);
+        databaseReference.child("user").child(user.getIdUser()).setValue(user).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                Log.d("Firebase", "Usuario guardado con éxito");
+            } else {
+                Log.e("Firebase", "Error al guardar usuario", task.getException());
+            }
+        });
     }
     public void newOrder(Order order){
-        SQLiteDatabase DataBase = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-
-        values.put(FechaCompra, order.getFechaCompra());
-        values.put(PriceTotal, order.getPriceTotal());
-        values.put(AddressOrd, order.getAddress());
-        values.put(AmountOrd, order.getAmountProduct());
-        values.put(IdUserOrd, order.getIdUser());
-        values.put(IdStateOrd, order.getIdState());
-        DataBase.insert(NameTableOrd, null, values);
+        databaseReference.child("orders").child(order.getIdOrder2()).setValue(order).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                Log.d("Firebase", "Order guardado con éxito");
+            } else {
+                Log.e("Firebase", "Error al guardar Order", task.getException());
+            }
+        });
     }
-    public void newDetalleOrder(int idProduct, double price, int amount, int idOrder) {
-        SQLiteDatabase database = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(IdProductoDetalleOrd, idProduct);
-        values.put(PriceDetalleOrd, price);
-        values.put(AmountDetalle, amount);
-        values.put(IdOrdDetalle, idOrder);
-        database.insert(NameTableDetalleOrd, null, values);
+    public void newDetalleOrder(String idProduct, double price, int amount, String idOrder) {
+        DetalleOrd detalleOrd = new DetalleOrd(idProduct,price,amount,idOrder);
+        String detalleOrderId = UUID.randomUUID().toString();
+        databaseReference.child("detalleOrder").child(detalleOrderId).setValue(detalleOrd).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                Log.d("Firebase", "DetalleOrder guardado con éxito");
+            } else {
+                Log.e("Firebase", "Error al guardar DetalleOrder", task.getException());
+            }
+        });
     }
     public void newCarrito(Carrito carrito){
-        SQLiteDatabase DataBase = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-
-        values.put(IdProductoCar, carrito.getIdProducto());
-        values.put(Amount, carrito.getAmount());
-        values.put(PriceCar, carrito.getPrice());
-        values.put(NamePCar, carrito.getNameP());
-        values.put(DescriptionCar, carrito.getDescription());
-        values.put(UrlCar, carrito.getUrlP());
-        values.put(IdUserCar, carrito.getIdUser());
-        DataBase.insert(NameTableCar, null, values);
-    }
-
-    public void newUserIdAddress(User user){
-        SQLiteDatabase DataBase = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-
-        values.put(IdAddressU, user.getIdAddress());
-        DataBase.insert(NameTableU, null, values);
+        databaseReference.child("carrito").child(carrito.getIdCarrito2()).setValue(carrito).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                Log.d("Firebase", "Carrito guardado con éxito");
+            } else {
+                Log.e("Firebase", "Error al guardar carrito", task.getException());
+            }
+        });
     }
     public void newOffer(Offers offers){
-        SQLiteDatabase DataBase = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-
-        values.put(Discount, offers.getDiscount());
-        values.put(DescriptionO, offers.getDescriptionO());
-        DataBase.insert(NameTableO, null, values);
+        databaseReference.child("offers").child(offers.getIdOffers()).setValue(offers).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                Log.d("Firebase", "Oferta guardado con éxito");
+            } else {
+                Log.e("Firebase", "Error al guardar Oferta", task.getException());
+            }
+        });
     }
-    public void updateUser(User user,int id){
+    /*public void updateUser(User user,int id){
         SQLiteDatabase DataBase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
@@ -722,5 +678,5 @@ public class AdminSQLopenHelper extends SQLiteOpenHelper{
     public void deleteCarrito(){
         SQLiteDatabase DataBase = this.getWritableDatabase();
         DataBase.delete(NameTableCar, null,null);
-    }
+    }*/
 }

@@ -65,8 +65,8 @@ public class OfertaProduct extends AppCompatActivity {
         int idOffers = intent.getIntExtra("IdOffers", 0);
 
         AdminSQLopenHelper DataBase = new AdminSQLopenHelper( this, "administracion", null, 1);
-        List<Product> product = DataBase.listOffersProduct(idOffers);
-
+        //List<Product> product = DataBase.listOffersProduct(idOffers);
+/*
         if (product.size() > 0) {
             productAdapter = new ProductAdapter(product);
             DataBase.close();
@@ -74,7 +74,7 @@ public class OfertaProduct extends AppCompatActivity {
             ArrayList<Product> productEmpty = new ArrayList<>();
             productAdapter.addItems(productEmpty);
             DataBase.close();
-        }
+        }*/
         ProductRecyclerView.setAdapter(productAdapter);
 
         AdminSQLopenHelper admin = new AdminSQLopenHelper(this, "administracion", null, 1);

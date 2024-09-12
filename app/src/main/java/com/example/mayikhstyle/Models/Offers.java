@@ -1,14 +1,14 @@
 package com.example.mayikhstyle.Models;
 
 public class Offers {
-    private int idOffers;
+    private String idOffers;
     private int discount;
     private String descriptionO;
 
     public Offers() {
     }
 
-    public Offers(int idOffers, int discount, String descriptionO) {
+    public Offers(String idOffers, int discount, String descriptionO) {
         this.idOffers = idOffers;
         this.discount = discount;
         this.descriptionO = descriptionO;
@@ -19,11 +19,11 @@ public class Offers {
         this.descriptionO = descriptionO;
     }
 
-    public int getIdOffers() {
+    public String getIdOffers() {
         return idOffers;
     }
 
-    public void setIdOffers(int idOffers) {
+    public void setIdOffers(String idOffers) {
         this.idOffers = idOffers;
     }
 
@@ -41,5 +41,10 @@ public class Offers {
 
     public void setDescriptionO(String descriptionO) {
         this.descriptionO = descriptionO;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(discount);
     }
 }

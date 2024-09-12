@@ -115,7 +115,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ViewHolder>{
             DescriptionPEditText.setText(product.getDescription());
 
             //APLICAR ETIQUETA DE DESCUENTO POR PRODUCTO
-            if (product.getDiscount() > 0) {
+/*            if (product.getDiscount() > 0) {
                 //APLICAR DESCUENTO DE PRODUCTO
                 Double Descuento = product.getPrice() * (((double) product.getDiscount() / 100));
                 int DescuentoTotal = (int) (product.getPrice() - Descuento);
@@ -132,7 +132,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ViewHolder>{
             }else {
                 ContentDiscount.setVisibility(View.GONE);
                 PricePEditText.setText("S/." + product.getPrice());
-            }
+            }*/
 
             //METODO ONCLICK
             ProductCardView.setOnClickListener(v -> {

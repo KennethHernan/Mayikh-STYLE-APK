@@ -51,8 +51,8 @@ public class AdminOferta extends AppCompatActivity {
 
         AdminSQLopenHelper DataBase = new AdminSQLopenHelper(this, "administracion", null, 1);
 
-        List<Offers> offers = DataBase.listOffers();
-
+        //List<Offers> offers = DataBase.listOffers();
+/*
         if (offers.size() > 0) {
             offertAdapter = new AdminOfertaAdapter(offers);
             DataBase.close();
@@ -60,7 +60,7 @@ public class AdminOferta extends AppCompatActivity {
             ArrayList<Offers> offersEmpty = new ArrayList<>();
             offertAdapter.addItems(offersEmpty);
             DataBase.close();
-        }
+        }*/
 
         OffertRecyclerView.setAdapter(offertAdapter);
         DataBase.close();

@@ -1,8 +1,9 @@
 package com.example.mayikhstyle.Models;
 
 public class Order {
-    private int idOrder, priceTotal, amountProduct;
-    private String fechaCompra;
+    private int priceTotal, amountProduct;
+    private String idOrder2, fechaCompra;
+    private int idOrder;
     private int idUser;
     private String address;
     private int idState;
@@ -25,13 +26,28 @@ public class Order {
         this.idUser = idUser;
         this.idState = idState;
     }
-
+    public Order(String idOrder2, String fechaCompra, int priceTotal, String address,int amountProduct, int idUser, int idState) {
+        this.idOrder2 = idOrder2;
+        this.fechaCompra = fechaCompra;
+        this.priceTotal = priceTotal;
+        this.address = address;
+        this.amountProduct = amountProduct;
+        this.idUser = idUser;
+        this.idState = idState;
+    }
     public int getIdOrder() {
         return idOrder;
     }
 
     public void setIdOrder(int idOrder) {
         this.idOrder = idOrder;
+    }
+    public String getIdOrder2() {
+        return idOrder2;
+    }
+
+    public void setIdOrder2(String idOrder2) {
+        this.idOrder2 = idOrder2;
     }
 
     public int getPriceTotal() {

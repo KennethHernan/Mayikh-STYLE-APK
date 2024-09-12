@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".BaseDeDatos.FireBase"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -86,9 +87,6 @@
             android:name=".Components.Pedidos"
             android:exported="false" />
         <activity
-            android:name=".PruebaOrder"
-            android:exported="false" />
-        <activity
             android:name=".Components.OrdenarPedido"
             android:exported="false" />
         <activity
@@ -144,9 +142,6 @@
             android:exported="false" />
         <activity
             android:name=".Components.ComponentsVacios.CarritoVacio"
-            android:exported="false" />
-        <activity
-            android:name=".Components.Categoria"
             android:exported="false" />
         <activity
             android:name=".Components.Home"
