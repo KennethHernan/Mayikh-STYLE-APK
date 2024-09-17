@@ -57,7 +57,7 @@ public class AdminVentaCliente extends AppCompatActivity {
         SQLiteDatabase dataBase = DataBase.getWritableDatabase();
 
         Cursor cursorUser = dataBase.rawQuery
-                ("SELECT * FROM orders WHERE idUser = "+ IdUser, null);
+                ("SELECT * FROM orders WHERE idUser = "+ IdUser, null);/*
         if (cursorUser.moveToFirst()) {
             List<Order> orders = DataBase.listOrder(IdUser,2);
             if (orders.size() > 0) {
@@ -71,7 +71,7 @@ public class AdminVentaCliente extends AppCompatActivity {
             }
             OrderRecyclerView.setAdapter(orderdapter);
         }
-        cursorUser.close();
+        cursorUser.close();*/
 
         Cursor cursor = dataBase.rawQuery
                 ("SELECT * FROM usuario WHERE idUser = "+ IdUser, null);

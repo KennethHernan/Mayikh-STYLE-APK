@@ -32,8 +32,9 @@
             android:backgroundTint="@color/ColorBaseBoss"
             android:contentDescription="@string/btn_Atras"
             android:onClick="Atras"
-            android:scaleType="fitCenter"
-            android:src="@drawable/west_fill0_wght400_grad0_opsz48"
+            android:rotationY="180"
+            android:scaleType="center"
+            android:src="@drawable/icon_next"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:tint="@color/LetraBasePrincipal" />
@@ -81,17 +82,19 @@
 
         <ImageView
             android:id="@+id/imageView6"
-            android:layout_width="150dp"
-            android:layout_height="130dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:tint="#D3D3D3"
             app:srcCompat="@drawable/metodopay" />
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="180dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="@string/metodopagoVacio"
             android:textAlignment="center"
-            android:textColor="@color/LetraBaseSecundario" />
+            android:textColor="#D3D3D3"
+            android:textSize="13dp" />
     </LinearLayout>
 
     <LinearLayout

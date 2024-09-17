@@ -1,10 +1,10 @@
 package com.example.mayikhstyle.Models;
 
 public class State {
-    private int idState;
-    private String nameS, idState2;
+    private String idState;
+    private String nameS;
 
-    public State(int idState, String nameS) {
+    public State(String idState, String nameS) {
         this.idState = idState;
         this.nameS = nameS;
     }
@@ -13,20 +13,12 @@ public class State {
         this.nameS = nameS;
     }
 
-    public int getIdState() {
+    public String getIdState() {
         return idState;
     }
 
-    public void setIdState(int idState) {
+    public void setIdState(String idState) {
         this.idState = idState;
-    }
-
-    public String getIdState2() {
-        return idState2;
-    }
-
-    public void setIdState2(String idState2) {
-        this.idState2 = idState2;
     }
 
     public String getNameS() {

@@ -6,7 +6,6 @@
     android:name="com.example.ss.ItemListFragment"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    style="@style/Color_Base"
     app:layoutManager="LinearLayoutManager"
     tools:context=".Components.Home"
     tools:listitem="@layout/content_product" />

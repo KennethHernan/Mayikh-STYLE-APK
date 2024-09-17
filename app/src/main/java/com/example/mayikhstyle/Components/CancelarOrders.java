@@ -84,7 +84,7 @@ public class CancelarOrders extends AppCompatActivity {
 
         AdminSQLopenHelper DataBase = new AdminSQLopenHelper(this, "administracion", null, 1);
 
-        DataBase.updateStateOrder(3,IdOrder);
+        //DataBase.updateStateOrder(3,IdOrder);
 
         //AGREGAR CANCELACION
         CancelOrder NewCancelOrder = new CancelOrder(Description,IdOrder);

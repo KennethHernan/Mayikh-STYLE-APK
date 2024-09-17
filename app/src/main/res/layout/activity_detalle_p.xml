@@ -21,17 +21,13 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/CategoryCardView"
             android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:background="#A15959"
-            android:backgroundTint="#711515">
+            android:layout_height="400dp">
 
             <ImageView
                 android:id="@+id/imageViewDetalleP"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                card_view:srcCompat="@drawable/vino_quebranta"
-                tools:srcCompat="@drawable/vino_quebranta" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                card_view:srcCompat="@drawable/placeholder" />
 
             <View
                 android:id="@+id/viewDetalleP"
@@ -61,7 +57,7 @@
             android:fontFamily="@font/roboto_medium"
             android:text="@string/nameProduct"
             android:textAlignment="viewStart"
-            android:textColor="@color/ColorBase"
+            android:textColor="@color/ColorNegra"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -110,7 +106,7 @@
                 android:fontFamily="@font/roboto"
                 android:text="@string/descriptionP"
                 android:textAlignment="textEnd"
-                android:textColor="@color/LetraBasePrincipal"
+                android:textColor="@color/ColorNegra"
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
@@ -121,7 +117,7 @@
                 android:fontFamily="@font/roboto"
                 android:text="@string/descriptionProduct"
                 android:textAlignment="viewStart"
-                android:textColor="@color/LetraBaseSecundario"
+                android:textColor="@color/ColorPlomo"
                 android:textSize="14sp" />
         </LinearLayout>
 
@@ -149,7 +145,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto"
                         android:text="@string/precioUnitario"
-                        android:textColor="@color/LetraBasePrincipal"
+                        android:textColor="@color/ColorNegra"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
@@ -167,7 +163,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto"
                         android:text="@string/StringPrice"
-                        android:textColor="@color/LetraBaseSecundario" />
+                        android:textColor="@color/ColorPlomo" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -184,7 +180,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto"
                     android:text="@string/priceProduct"
-                    android:textColor="@color/ColorBase"
+                    android:textColor="@color/ColorPlomo"
                     android:textSize="30sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -228,7 +224,7 @@
             android:fontFamily="@font/roboto_medium"
             android:text="@string/input_cantidad"
             android:textAlignment="center"
-            android:textColor="@color/LetraBasePrincipal"
+            android:textColor="@color/ColorNegra"
             android:textSize="25sp" />
 
         <ImageButton
@@ -272,16 +268,20 @@
 
     <ImageButton
         android:id="@+id/buttonAtrasDescription"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="15dp"
-        android:backgroundTint="#00FFFFFF"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/circulobutton"
+        android:backgroundTint="@color/ColorBaseBoss"
         android:contentDescription="@string/btn_Atras"
-        android:scaleType="fitCenter"
-        android:src="@drawable/west_fill0_wght400_grad0_opsz48"
+        android:foreground="@drawable/icon_next"
+        android:foregroundGravity="center"
+        android:foregroundTint="@color/ColorBase"
+        android:rotationY="180"
+        android:scaleType="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/ColorBaseBoss" />
+        app:tint="@color/ColorBase" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

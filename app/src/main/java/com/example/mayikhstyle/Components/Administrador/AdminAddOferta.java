@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.example.mayikhstyle.BaseDeDatos.AdminSQLopenHelper;
 import com.example.mayikhstyle.BaseDeDatos.DataBaseFireBase;
 import com.example.mayikhstyle.Models.Offers;
+import com.example.mayikhstyle.Models.State;
 import com.example.mayikhstyle.R;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DatabaseReference;
@@ -52,25 +53,25 @@ public class AdminAddOferta extends AppCompatActivity {
         String DescriptionOferta = etDescription.getText().toString();
         String DiscountOferta = etDescuento.getText().toString();
 
-        if(!DescriptionOferta.isEmpty() & !DiscountOferta.isEmpty()){
+        if (!DescriptionOferta.isEmpty() & !DiscountOferta.isEmpty()) {
             int DiscountO = Integer.parseInt(DiscountOferta);
-            if (DescriptionOferta.length() > 3 && DiscountO >= 0 && DiscountO < 100){
+            if (DescriptionOferta.length() > 3 && DiscountO >= 0 && DiscountO < 100) {
                 //INSERTAR LOS DATOS A LA BASE DE DATOS
                 String IdO = UUID.randomUUID().toString();
-                Offers NewOffers = new Offers(IdO,DiscountO,DescriptionOferta);
+                Offers NewOffers = new Offers(IdO, DiscountO, DescriptionOferta);
 
                 DataBaseFireBase DataFire = new DataBaseFireBase();
                 DataFire.newOffer(NewOffers);
                 //NOTIFICACION
-                Toast.makeText(this, "¡Hecho!", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, DiscountO+"% Agregado", Toast.LENGTH_LONG).show();
                 //REDIRECCIÓN
-                Intent intent = new Intent(this, AdminAddOferta.class);
+                Intent intent = new Intent(this, AdminOferta.class);
                 startActivity(intent);
-            }else{
-                Toast.makeText(this, "Ingresa los campos correctamente",Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(this, "Ingresa los campos correctamente", Toast.LENGTH_LONG).show();
             }
-        }else{
-            Toast.makeText(this, "Ingresa los campos",Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(this, "Ingresa los campos", Toast.LENGTH_LONG).show();
         }
     }
     public  void Atras(View view){

@@ -120,7 +120,7 @@ public class ProfileEdit extends AppCompatActivity {
                                         filaN.close();
                                         //INSERTAR LOS DATOS A LA BASE DE DATOS
                                         User NewUser = new User(PhoneU, EmailU, name);
-                                        dataBase.updateUser(NewUser, idUser);
+                                        //dataBase.updateUser(NewUser, idUser);
                                         DataBase.close();
 
                                         //NOTIFICACION
@@ -145,7 +145,7 @@ public class ProfileEdit extends AppCompatActivity {
                                     if(name.equals(NameU)){
                                         //INSERTAR LOS DATOS A LA BASE DE DATOS
                                         User NewUser = new User(PhoneU, email, NameU);
-                                        dataBase.updateUser(NewUser, idUser);
+                                        //dataBase.updateUser(NewUser, idUser);
                                         dataBase.close();
 
                                         //NOTIFICACION
@@ -167,7 +167,7 @@ public class ProfileEdit extends AppCompatActivity {
                                             filaN.close();
                                             //INSERTAR LOS DATOS A LA BASE DE DATOS
                                             User NewUser = new User(PhoneU, email, name);
-                                            dataBase.updateUser(NewUser, idUser);
+                                            //dataBase.updateUser(NewUser, idUser);
                                             dataBase.close();
 
                                             //NOTIFICACION
@@ -196,7 +196,7 @@ public class ProfileEdit extends AppCompatActivity {
                                     if(name.equals(NameU)){
                                         //INSERTAR LOS DATOS A LA BASE DE DATOS
                                         User NewUser = new User(phone, EmailU, NameU);
-                                        dataBase.updateUser(NewUser, idUser);
+                                        //dataBase.updateUser(NewUser, idUser);
                                         dataBase.close();
 
                                         //NOTIFICACION
@@ -218,7 +218,7 @@ public class ProfileEdit extends AppCompatActivity {
                                             filaN.close();
                                             //INSERTAR LOS DATOS A LA BASE DE DATOS
                                             User NewUser = new User(phone, EmailU, name);
-                                            dataBase.updateUser(NewUser, idUser);
+                                            //dataBase.updateUser(NewUser, idUser);
                                             dataBase.close();
                                             DataBase.close();
 
@@ -244,7 +244,7 @@ public class ProfileEdit extends AppCompatActivity {
                                         if(name.equals(NameU)){
                                             //INSERTAR LOS DATOS A LA BASE DE DATOS
                                             User NewUser = new User(phone, email, NameU);
-                                            dataBase.updateUser(NewUser, idUser);
+                                            //dataBase.updateUser(NewUser, idUser);
                                             dataBase.close();
                                             DataBase.close();
 
@@ -267,7 +267,7 @@ public class ProfileEdit extends AppCompatActivity {
                                                 filaN.close();
                                                 //INSERTAR LOS DATOS A LA BASE DE DATOS
                                                 User NewUser = new User(phone, email, name);
-                                                dataBase.updateUser(NewUser, idUser);
+                                                //dataBase.updateUser(NewUser, idUser);
                                                 dataBase.close();
                                                 DataBase.close();
 

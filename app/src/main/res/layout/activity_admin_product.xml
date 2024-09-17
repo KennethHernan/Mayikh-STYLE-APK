@@ -29,8 +29,9 @@
             android:backgroundTint="@color/ColorBaseBoss"
             android:contentDescription="@string/btn_Atras"
             android:onClick="Atras"
-            android:scaleType="fitCenter"
-            android:src="@drawable/west_fill0_wght400_grad0_opsz48"
+            android:rotationY="180"
+            android:scaleType="center"
+            android:src="@drawable/icon_next"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:tint="@color/LetraBasePrincipal" />
@@ -76,11 +77,12 @@
         tools:ignore="MissingConstraints">
 
         <androidx.cardview.widget.CardView
-            app:cardCornerRadius="40dp"
             android:layout_width="match_parent"
             android:layout_height="210dp"
             android:layout_marginVertical="10dp"
             android:layout_marginTop="20dp"
+            app:cardBackgroundColor="@color/ColorBase"
+            app:cardCornerRadius="40dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/layoutHead">
@@ -161,7 +163,7 @@
                 android:textStyle="bold"
                 app:cornerRadius="15dp"
                 app:rippleColor="#CFCFCF"
-                app:strokeColor="#000000"
+                app:strokeColor="@color/ColorBase"
                 app:strokeWidth="2dp" />
         </LinearLayout>
 

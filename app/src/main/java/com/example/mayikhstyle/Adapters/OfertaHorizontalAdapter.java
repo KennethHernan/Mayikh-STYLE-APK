@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -63,6 +64,10 @@ public class OfertaHorizontalAdapter extends RecyclerView.Adapter<ViewHolder>{
         CardView CardViewOffert;
 
         @SuppressLint("NonConstantResourceId")
+        @BindView(R.id.buttonIngresar)
+        Button buttonIngresar;
+
+        @SuppressLint("NonConstantResourceId")
         @BindView(R.id.txt_Discount)
         TextView Discount;
 
@@ -86,13 +91,13 @@ public class OfertaHorizontalAdapter extends RecyclerView.Adapter<ViewHolder>{
             DataBase = new AdminSQLopenHelper(itemView.getContext());
 
             String DiscountS = String.valueOf(offers.getDiscount());
-            Discount.setText(DiscountS+"%");
+            Discount.setText(DiscountS + "%");
 
             DescriptionO.setText(offers.getDescriptionO());
 
 
             //PRODUCTO POR OFERTA
-            CardViewOffert.setOnClickListener(v -> {
+            buttonIngresar.setOnClickListener(v -> {
                 Intent intent = new Intent(itemView.getContext(), OfertaProduct.class);
                 intent.putExtra("IdOffers",offers.getIdOffers());
                 itemView.getContext().startActivity(intent);

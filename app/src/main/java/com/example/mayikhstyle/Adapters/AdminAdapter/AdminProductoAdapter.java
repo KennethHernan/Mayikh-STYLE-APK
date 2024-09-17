@@ -101,11 +101,13 @@ public class AdminProductoAdapter extends RecyclerView.Adapter<ViewHolder>{
             ContentProduct.setOnClickListener(v -> {
                 Intent intent = new Intent(itemView.getContext(), AdminEditProduct.class);
                 intent.putExtra("idProduct",  product.getIdProduct());
+                intent.putExtra("idCategory",  product.getIdCategory());
                 itemView.getContext().startActivity(intent);
             });
             btnEditarProduct.setOnClickListener(v -> {
                 Intent intent = new Intent(itemView.getContext(), AdminEditProduct.class);
                 intent.putExtra("idProduct",  product.getIdProduct());
+                intent.putExtra("idCategory",  product.getIdCategory());
                 itemView.getContext().startActivity(intent);
             });
             DataBase.close();

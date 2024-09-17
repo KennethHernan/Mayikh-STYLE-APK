@@ -105,7 +105,7 @@ public class OrdenarPedidoVacioTargeta extends AppCompatActivity {
 
         int TotalPrice = 0;
         AdminSQLopenHelper DataBase = new AdminSQLopenHelper(this, "administracion", null, 1);
-
+/*
         List<Carrito> carrito = DataBase.listCarrito(IdUser);
 
         if (carrito.size() > 0) {
@@ -127,7 +127,7 @@ public class OrdenarPedidoVacioTargeta extends AppCompatActivity {
         //MOSTAR SUBTOTAL Y TOTAL
         for (Carrito item : carrito) {
             TotalPrice += item.getPrice();
-        }
+        }*/
 
         int delivery = 5;
         int totalP = (TotalPrice + delivery);

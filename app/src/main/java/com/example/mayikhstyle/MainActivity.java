@@ -9,6 +9,7 @@ import android.view.WindowManager;
 import com.example.mayikhstyle.Components.Administrador.AdminAddCategory;
 import com.example.mayikhstyle.Components.Administrador.AdminAddOferta;
 import com.example.mayikhstyle.Components.Administrador.AdminAddProduct;
+import com.example.mayikhstyle.Components.Administrador.AdminHome;
 import com.example.mayikhstyle.Components.Login.Register;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Pasar al siguiente activity con tiempo
         new Handler().postDelayed(() -> {
-            Intent intent = new Intent(MainActivity.this, AdminAddProduct.class);
+            Intent intent = new Intent(MainActivity.this, HomeMain.class);
             startActivity(intent);
             finish();
         }, 4000);

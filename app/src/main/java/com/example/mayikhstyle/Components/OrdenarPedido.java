@@ -172,7 +172,7 @@ public class OrdenarPedido extends AppCompatActivity {
         int TotalPrice = 0;
         AdminSQLopenHelper DataBase = new AdminSQLopenHelper(this, "administracion", null, 1);
 
-        List<Carrito> carrito = DataBase.listCarrito(IdUser);
+        /*List<Carrito> carrito = DataBase.listCarrito(IdUser);
 
         if (carrito.size() > 0) {
             ordenarPedidoAdapter = new OrdenarPedidoAdapter(carrito);
@@ -194,7 +194,7 @@ public class OrdenarPedido extends AppCompatActivity {
         //MOSTAR SUBTOTAL Y TOTAL
         for (Carrito item : carrito) {
             TotalPrice += item.getPrice();
-        }
+        }*/
 
         int delivery = 5;
         int totalP = (TotalPrice + delivery);
@@ -242,8 +242,8 @@ public class OrdenarPedido extends AppCompatActivity {
             int IdState = 1;
 
             //CREAR TABLA ORDER
-            Order NewOrder = new Order(Fecha, PriceTotal,Address,AmountProduct,IdUser,IdState);
-            dataBase.newOrder(NewOrder);
+            //Order NewOrder = new Order(Fecha, PriceTotal,Address,AmountProduct,IdUser,IdState);
+            //dataBase.newOrder(NewOrder);
 
             // CAPTURAR EL ORDER CREADO RECIENTEMENTE
             Cursor cursorOrder = DataBase.rawQuery
@@ -256,7 +256,7 @@ public class OrdenarPedido extends AppCompatActivity {
                 @SuppressLint("Range")
                 int IdOrder = Integer.parseInt(cursorOrder.getString(cursorOrder.getColumnIndex("idOrder")));
                 int TotalPrice = 0;
-
+/*
                 List<Carrito> carrito = dataBase.listCarrito(IdUser);
                 //AGREGAMOS DATOS AL DETALLEORDER
                 for (Carrito item : carrito) {
@@ -268,18 +268,14 @@ public class OrdenarPedido extends AppCompatActivity {
                     values.put("idOrder", IdOrder);
                     dataBase.newDetalleOrder(item.getIdProducto(),item.getPrice(),item.getAmount(),IdOrder);
                 }
-                AmountProduct = carrito.size();
+                AmountProduct = carrito.size();*/
 
                 //MODIFICAR TABLA ORDER
-                Order UpOrder = new Order(Fecha, TotalPrice,Direccion,AmountProduct,IdUser,IdState);
-                dataBase.updateOrder(UpOrder, IdOrder);
+                //Order UpOrder = new Order(Fecha, TotalPrice,Direccion,AmountProduct,IdUser,IdState);
+                //dataBase.updateOrder(UpOrder, IdOrder);
             }
             cursorOrder.close();
         }
-        cursor.close();
-        dataBase.deleteCarrito();
-        dataBase.close();
-        DataBase.close();
 
         Intent intentC = new Intent(this, Pedidos.class);
         startActivity(intentC);

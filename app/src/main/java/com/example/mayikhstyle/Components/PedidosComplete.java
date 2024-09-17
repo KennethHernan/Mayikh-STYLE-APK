@@ -70,7 +70,7 @@ public class PedidosComplete extends AppCompatActivity {
         SQLiteDatabase dataBase = DataBase.getWritableDatabase();
 
         // MOSTRAR CANTIDAD PEDIDO
-        List<Order> order = DataBase.listOrder(IdUser,1);
+        /*List<Order> order = DataBase.listOrder(IdUser,1);
 
         if (order.size() > 0){
             //VISIBLE
@@ -110,7 +110,7 @@ public class PedidosComplete extends AppCompatActivity {
 
         OrderRecyclerView.setAdapter(orderdapter);
         DataBase.close();
-        cursor.close();
+        cursor.close();*/
     }
 
     public void Home(View view) {

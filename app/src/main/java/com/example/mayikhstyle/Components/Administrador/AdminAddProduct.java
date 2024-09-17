@@ -38,32 +38,30 @@ public class AdminAddProduct extends AppCompatActivity {
 
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference databaseReference;
-
-    private List<Offers> offersList = new ArrayList<Offers>();
+    private List<Offers> offersList = new ArrayList<>();
     ArrayAdapter<Offers> offersArrayAdapter;
     Offers offersSelect;
-    private List<Category> categoryList = new ArrayList<Category>();
+    private List<Category> categoryList = new ArrayList<>();
     ArrayAdapter<Category> categoryArrayAdapter;
     Category categorySelect;
     private EditText etNameP, etDescription,etPrice,etStock,etUrlP;
     private Spinner spinnerOferta, spinnerCategory;
 
-    public String IDCATEGORY;
-    public String IDOFFERS;
+    public String IDCATEGORY, IDOFFERS;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_add_product);
 
-        etNameP = (EditText)findViewById(R.id.input_nameP);
-        etDescription = (EditText)findViewById(R.id.input_descriptionP);
-        etPrice = (EditText)findViewById(R.id.input_priceP);
-        etStock = (EditText)findViewById(R.id.input_stockProduct);
-        etUrlP = (EditText)findViewById(R.id.input_urlP);
+        etNameP = findViewById(R.id.input_nameP);
+        etDescription = findViewById(R.id.input_descriptionP);
+        etPrice = findViewById(R.id.input_priceP);
+        etStock = findViewById(R.id.input_stockProduct);
+        etUrlP = findViewById(R.id.input_urlP);
 
-        spinnerOferta= (Spinner) findViewById(R.id.spinnerOferta);
-        spinnerCategory = (Spinner) findViewById(R.id.spinnerCategory);
+        spinnerOferta= findViewById(R.id.spinnerOferta);
+        spinnerCategory = findViewById(R.id.spinnerCategory);
 
         //Metodo OnClick
         Intent intent = getIntent();
@@ -110,7 +108,7 @@ public class AdminAddProduct extends AppCompatActivity {
                     offersList.add(o);
 
                     //MOSTRAMOS LOS DATOS EN EL SPINNER
-                    offersArrayAdapter = new ArrayAdapter<Offers>(AdminAddProduct.this, R.layout.spinner, offersList);
+                    offersArrayAdapter = new ArrayAdapter<>(AdminAddProduct.this, R.layout.spinner, offersList);
                     offersArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     spinnerOferta.setAdapter(offersArrayAdapter);
                 }
@@ -127,7 +125,7 @@ public class AdminAddProduct extends AppCompatActivity {
                     categoryList.add(c);
 
                     //MOSTRAMOS LOS DATOS EN EL SPINNER
-                    categoryArrayAdapter = new ArrayAdapter<Category>(AdminAddProduct.this, R.layout.spinner, categoryList);
+                    categoryArrayAdapter = new ArrayAdapter<>(AdminAddProduct.this, R.layout.spinner, categoryList);
                     categoryArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     spinnerCategory.setAdapter(categoryArrayAdapter);
                 }
@@ -160,8 +158,8 @@ public class AdminAddProduct extends AppCompatActivity {
                     DataFire.newProduct(NewProduct);
 
                     //REDIRECCIÓN
-                    Intent intentP = new Intent(AdminAddProduct.this, AdminAddProduct.class);
-                    //Intent intentP = new Intent(AdminAddProduct.this, AdminAddProduct.class);
+                    Toast.makeText(this,nameP+" - Agregado",Toast.LENGTH_LONG).show();
+                    Intent intentP = new Intent(AdminAddProduct.this, AdminProduct.class);
                     intentP.putExtra("idCategory",IDCATEGORY);
                     startActivity(intentP);
                 } else {

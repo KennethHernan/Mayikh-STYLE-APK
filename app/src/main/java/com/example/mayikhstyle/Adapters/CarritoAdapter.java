@@ -1,23 +1,35 @@
 package com.example.mayikhstyle.Adapters;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.mayikhstyle.BaseDeDatos.AdminSQLopenHelper;
+import com.example.mayikhstyle.BaseDeDatos.DataBaseFireBase;
 import com.example.mayikhstyle.Components.CarritoUser;
 import com.example.mayikhstyle.Models.Carrito;
+import com.example.mayikhstyle.Models.Product;
 import com.example.mayikhstyle.R;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -25,6 +37,8 @@ import butterknife.ButterKnife;
 
 public class CarritoAdapter extends RecyclerView.Adapter<ViewHolder>{
 
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
     private final List<Carrito> carritoList;
 
     public CarritoAdapter(List<Carrito> cList) {
@@ -84,7 +98,6 @@ public class CarritoAdapter extends RecyclerView.Adapter<ViewHolder>{
         @SuppressLint("NonConstantResourceId")
         @BindView(R.id.TextCantidad)
         TextView TextCantidad;
-        AdminSQLopenHelper DataBase;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -98,7 +111,6 @@ public class CarritoAdapter extends RecyclerView.Adapter<ViewHolder>{
 
             Carrito carrito = carritoList.get(position);
 
-            DataBase = new AdminSQLopenHelper(itemView.getContext());
             if (carrito.getUrlP() != null) {
                 Glide.with(itemView.getContext())
                         .load(carrito.getUrlP())
@@ -107,7 +119,7 @@ public class CarritoAdapter extends RecyclerView.Adapter<ViewHolder>{
             }
 
             NamePTextView.setText(carrito.getNameP());
-            DescriptionPEditText.setText(carrito.getDescription());
+            DescriptionPEditText.setText(carrito.getDescriptionCar());
 
             CantidadEditText.setText(String.valueOf(carrito.getAmount()));
 
@@ -117,10 +129,12 @@ public class CarritoAdapter extends RecyclerView.Adapter<ViewHolder>{
 
             //ELIMINAR ITEM PRODUCTO POR ID
             Eliminar.setOnClickListener(v -> {
-                DataBase.deleteItemCarrito(carrito.getIdCarrito());
-
+                DataBaseFireBase DataFire = new DataBaseFireBase();
+                DataFire.deleteItemCarrito(carrito.getIdCarrito(), carrito.getIdProduct(),carrito.getAmount());
+                Toast.makeText(itemView.getContext(), "Eliminar", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(itemView.getContext(), CarritoUser.class);
                 itemView.getContext().startActivity(intent);
+
             });
         }
     }

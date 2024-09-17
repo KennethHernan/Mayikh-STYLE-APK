@@ -49,7 +49,7 @@ public class Profile extends AppCompatActivity {
         SQLiteDatabase dataBase = DataBase.getWritableDatabase();
 
         // MOSTRAR CANTIDAD PEDIDO
-        List<Order> order = DataBase.listOrder(IdUser,1);
+        /*List<Order> order = DataBase.listOrder(IdUser,1);
 
         if (order.size() > 0){
             //VISIBLE
@@ -60,7 +60,7 @@ public class Profile extends AppCompatActivity {
         }else {
             //OCULTAR
             CantidadOrder.setVisibility(View.GONE);
-        }
+        }*/
 
         Cursor cursor = dataBase.rawQuery
                 ("SELECT * FROM usuario WHERE idUser = "+IdUser,null);

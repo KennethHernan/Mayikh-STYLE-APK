@@ -6,7 +6,7 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/ColorBaseBossSecundario"
+    android:background="@color/ColorBaseBoss"
     tools:context=".Components.ComponentsVacios.CarritoVacio">
 
     <LinearLayout
@@ -22,19 +22,19 @@
 
         <ImageView
             android:id="@+id/imageView6"
-            android:layout_width="150dp"
-            android:layout_height="130dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             app:srcCompat="@drawable/carritovacio"
-            app:tint="@color/ColorBaseSecundario" />
+            app:tint="#D3D3D3" />
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="180dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="@string/carritoVacio"
             android:textAlignment="center"
-            android:textColor="@color/LetraBaseSecundario"
-            android:textSize="16sp" />
+            android:textColor="#D3D3D3"
+            android:textSize="13sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -58,9 +58,10 @@
             android:layout_marginRight="10dp"
             android:backgroundTint="@color/ColorBaseBoss"
             android:contentDescription="@string/btn_Atras"
-            android:onClick="Home"
-            android:scaleType="fitCenter"
-            android:src="@drawable/west_fill0_wght400_grad0_opsz48"
+            android:onClick="Atras"
+            android:rotationY="180"
+            android:scaleType="center"
+            android:src="@drawable/icon_next"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:tint="@color/LetraBasePrincipal" />
@@ -94,32 +95,32 @@
 
     </LinearLayout>
 
-<!--    <ScrollView-->
-<!--        android:id="@+id/scrollView2"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="0dp"-->
-<!--        android:background="#F7F7F7"-->
-<!--        android:backgroundTint="#F7F7F7"-->
-<!--        app:layout_constraintBottom_toTopOf="@+id/linearLayout9"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/layoutHead">-->
+    <!--    <ScrollView-->
+    <!--        android:id="@+id/scrollView2"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="0dp"-->
+    <!--        android:background="#F7F7F7"-->
+    <!--        android:backgroundTint="#F7F7F7"-->
+    <!--        app:layout_constraintBottom_toTopOf="@+id/linearLayout9"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/layoutHead">-->
 
-<!--        <FrameLayout-->
-<!--            android:id="@+id/frameLayout"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="0dp"-->
-<!--            app:layout_constraintBottom_toTopOf="@+id/linearLayout"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/layoutHead">-->
+    <!--        <FrameLayout-->
+    <!--            android:id="@+id/frameLayout"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="0dp"-->
+    <!--            app:layout_constraintBottom_toTopOf="@+id/linearLayout"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            app:layout_constraintTop_toBottomOf="@+id/layoutHead">-->
 
-<!--            <include-->
-<!--                layout="@layout/list_carrito"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content" />-->
-<!--        </FrameLayout>-->
-<!--    </ScrollView>-->
+    <!--            <include-->
+    <!--                layout="@layout/list_carrito"-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="wrap_content" />-->
+    <!--        </FrameLayout>-->
+    <!--    </ScrollView>-->
 
     <LinearLayout
         android:id="@+id/linearLayout9"
@@ -147,7 +148,7 @@
             android:textStyle="bold"
             app:cornerRadius="20dp"
             app:rippleColor="@color/ColorBaseSecundario"
-            app:strokeColor="@color/ColorBaseSecundario"
+            app:strokeColor="@color/ColorBase"
             app:strokeWidth="2dp" />
     </LinearLayout>
 

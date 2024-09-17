@@ -107,7 +107,7 @@ public class OrdenarPedidoAdapter  extends RecyclerView.Adapter<ViewHolder>{
             }
 
             NamePTextView.setText(carrito.getNameP());
-            DescriptionPEditText.setText(carrito.getDescription());
+            DescriptionPEditText.setText(carrito.getDescriptionCar());
 
             CantidadEditText.setText(String.valueOf(carrito.getAmount()));
 
@@ -117,7 +117,7 @@ public class OrdenarPedidoAdapter  extends RecyclerView.Adapter<ViewHolder>{
 
             //AL HACER CLICK AL UN PRODUCTO - REDIRECCION A DESCRIPTIONP
             Eliminar.setOnClickListener(v -> {
-                DataBase.deleteItemCarrito(carrito.getIdCarrito());
+                //DataBase.deleteItemCarrito(carrito.getIdCarrito());
 
                 Intent intent = new Intent(itemView.getContext(), OrdenarPedido.class);
                 itemView.getContext().startActivity(intent);

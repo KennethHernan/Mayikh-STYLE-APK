@@ -1,10 +1,16 @@
 package com.example.mayikhstyle.BaseDeDatos;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+
+import com.example.mayikhstyle.Components.Administrador.AdminCategory;
+import com.example.mayikhstyle.Components.Administrador.AdminEditCategory;
 import com.example.mayikhstyle.Models.Address;
 import com.example.mayikhstyle.Models.CancelOrder;
 import com.example.mayikhstyle.Models.Carrito;
@@ -24,7 +30,9 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -118,32 +126,7 @@ public class DataBaseFireBase {
         return listProduct;
     }
     ///////////*/
-    public void listProductRecomendado() {
-    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("product");
 
-    databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
-        @Override
-        public void onDataChange(DataSnapshot dataSnapshot) {
-            List<Product> allProducts = new ArrayList<>();
-
-            for (DataSnapshot productSnapshot : dataSnapshot.getChildren()) {
-                Product product = productSnapshot.getValue(Product.class);
-                allProducts.add(product);
-            }
-
-            // Seleccionar 4 productos aleatorios
-            Collections.shuffle(allProducts);
-            List<Product> recommendedProducts = allProducts.stream().limit(4).collect(Collectors.toList());
-
-            // Aquí puedes hacer algo con la lista de productos recomendados
-        }
-
-        @Override
-        public void onCancelled(DatabaseError databaseError) {
-            // Manejar el error
-        }
-    });
-    }
     /*
     public List<Product> listIdProducto(int idCategory){
         String sql = "SELECT product.idProduct FROM product " +
@@ -410,28 +393,8 @@ public class DataBaseFireBase {
         }
         cursor.close();
         return listUser;
-    }
-    public List<Carrito> listCarrito(int idUser){
-        String sql = "SELECT * FROM " + NameTableCar+" WHERE "+IdUserCar+" = "+ idUser;
-        SQLiteDatabase DataBase = this.getReadableDatabase();
-        List<Carrito> listCarrito = new ArrayList<>();
-        Cursor cursor = DataBase.rawQuery(sql, null);
-        if(cursor.moveToFirst()){
-            do{
-                int IdCarrrito = cursor.getInt(0);
-                int IdProducto = cursor.getInt(1);
-                int Amount = cursor.getInt(2);
-                int Price = cursor.getInt(3);
-                String NamePCar = cursor.getString(4);
-                String DescriptionPCar = cursor.getString(5);
-                String UrlPCar = cursor.getString(6);
-                listCarrito.add(new Carrito(IdCarrrito,IdProducto,Amount,Price,NamePCar,DescriptionPCar,UrlPCar));
-            }while (cursor.moveToNext());
-        }
-        cursor.close();
-        return listCarrito;
-    }
-    public List<DetalleOrd> listDetalelOrd(int idOrder){
+    }*/
+    /*public List<DetalleOrd> listDetalelOrd(int idOrder){
         String sql = "SELECT detalleOrder.*,product.nameP,product.description,product.urlP " +
                 "FROM detalleOrder INNER JOIN product " +
                 "ON detalleOrder.idProducto = product.idProduct " +
@@ -491,7 +454,7 @@ public class DataBaseFireBase {
         });
     }
     public void newState(State state){
-        databaseReference.child("state").child(state.getIdState2()).setValue(state).addOnCompleteListener(task -> {
+        databaseReference.child("state").child(state.getIdState()).setValue(state).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 Log.d("Firebase", "state guardado con éxito");
             } else {
@@ -538,7 +501,7 @@ public class DataBaseFireBase {
         });
     }
     public void newOrder(Order order){
-        databaseReference.child("orders").child(order.getIdOrder2()).setValue(order).addOnCompleteListener(task -> {
+        databaseReference.child("orders").child(order.getIdOrder()).setValue(order).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 Log.d("Firebase", "Order guardado con éxito");
             } else {
@@ -558,7 +521,7 @@ public class DataBaseFireBase {
         });
     }
     public void newCarrito(Carrito carrito){
-        databaseReference.child("carrito").child(carrito.getIdCarrito2()).setValue(carrito).addOnCompleteListener(task -> {
+        databaseReference.child("carrito").child(carrito.getIdCarrito()).setValue(carrito).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 Log.d("Firebase", "Carrito guardado con éxito");
             } else {
@@ -595,15 +558,17 @@ public class DataBaseFireBase {
         values.put(Address, address.getAdrress());
         values.put(IdUserA, address.getIdUser());
         DataBase.update(NameTableA, values,IdA+" = "+ id,null);
+    }*/
+    public void updateCategory(Category category){
+        databaseReference.child("category").child(category.getId()).setValue(category).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                Log.d("Firebase", "Category guardado con éxito");
+            } else {
+                Log.e("Firebase", "Error al actualizar Category", task.getException());
+            }
+        });
     }
-    public void updateCategory(Category category,int id){
-        SQLiteDatabase DataBase = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-
-        values.put(NameC, category.getCategory());
-        values.put(UrlC, category.getUrl());
-        DataBase.update(NameTableC, values,IdC+" = "+ id,null);
-    }
+    /*
     public void updateOffers(Offers offers,int id){
         SQLiteDatabase DataBase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -629,36 +594,43 @@ public class DataBaseFireBase {
 
         values.put(IdStateOrd, IdState);
         DataBase.update(NameTableOrd, values, IdOrd + " = " + id, null);
+    }*/
+    public void updateProduct(Product product){
+        databaseReference.child("product").child(product.getIdProduct()).setValue(product).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                Log.d("Firebase", "Producto guardado con éxito");
+            } else {
+                Log.e("Firebase", "Error al actualizar Producto", task.getException());
+            }
+        });
     }
-    public  void updateProduct(Product product, int id){
-        SQLiteDatabase DataBase = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-
-        values.put(NameP, product.getNameP());
-        values.put(DescriptionP, product.getDescription());
-        values.put(PriceP, product.getPrice());
-        values.put(IdCategoryP, product.getIdCategory());
-        values.put(UrlP, product.getUrlP());
-        values.put(Stock, product.getStock());
-        values.put(IdOffersP, product.getIdOffers());
-        DataBase.update(NameTableP, values, IdP+" = "+ id,null);
-    }
+    /*
     public void updateProductOffers(int IdOffers,int id) {
         SQLiteDatabase DataBase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
         values.put(IdOffersP, IdOffers);
         DataBase.update(NameTableP, values, IdP + " = " + id, null);
+    }*/
+    public void deleteProduct(String id){
+        databaseReference.child("product").child(id).removeValue().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                Log.d("Firebase", "Producto guardado con éxito");
+            } else {
+                Log.e("Firebase", "Error al guardar Producto", task.getException());
+            }
+        });
     }
-    public void deleteProduct(int id){
-        SQLiteDatabase DataBase = this.getWritableDatabase();
-        DataBase.delete(NameTableP, IdP	+ "	= ?", new String[] { String.valueOf(id)});
+    public void deleteCategory(String id){
+        databaseReference.child("category").child(id).removeValue().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                Log.d("Firebase", "Category guardado con éxito");
+            } else {
+                Log.e("Firebase", "Error al guardar Category", task.getException());
+            }
+        });
     }
-
-    public void deleteCategory(int id){
-        SQLiteDatabase DataBase = this.getWritableDatabase();
-        DataBase.delete(NameTableC, IdC	+ "	= ?", new String[] { String.valueOf(id)});
-    }
+    /*
     public void deleteOffers(int id){
         SQLiteDatabase DataBase = this.getWritableDatabase();
         DataBase.delete(NameTableO, IdO	+ "	= ?", new String[] { String.valueOf(id)});
@@ -670,11 +642,43 @@ public class DataBaseFireBase {
     public void deleteTargeta(int id){
         SQLiteDatabase DataBase = this.getWritableDatabase();
         DataBase.delete(NameTablePay, IdPay	+ "	= ?", new String[] { String.valueOf(id)});
+    }*/
+    public void deleteItemCarrito(String idCarrito, String idProduct, int stockNUEVO){
+        databaseReference.child("carrito").child(idCarrito).removeValue().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                Log.d("Firebase", "Producto eliminado del carrito");
+            }else {
+                Log.e("Firebase", "Error al eliminar el producto", task.getException());
+            }
+        });
+        DatabaseReference productoRef = databaseReference.child("product").child(idProduct);
+        productoRef.child("stock").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    int stockActual = dataSnapshot.getValue(Integer.class);
+
+                    // Sumar el stock adicional
+                    int nuevoStock = stockActual + stockNUEVO;
+
+                    // Actualizar el stock en Firebase
+                    Map<String, Object> updates = new HashMap<>();
+                    updates.put("stock", nuevoStock);
+
+                    productoRef.updateChildren(updates).addOnCompleteListener(task -> {
+                        if (task.isSuccessful()) {
+                            Log.d("Firebase", "Stock actualizado correctamente.");
+                        } else {
+                            Log.e("Firebase", "Error al actualizar el stock.", task.getException());
+                        }
+                    });
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {}
+        });
     }
-    public void deleteItemCarrito(int id){
-        SQLiteDatabase DataBase = this.getWritableDatabase();
-        DataBase.delete(NameTableCar, IdCar	+ "	= ?", new String[] { String.valueOf(id)});
-    }
+    /*
     public void deleteCarrito(){
         SQLiteDatabase DataBase = this.getWritableDatabase();
         DataBase.delete(NameTableCar, null,null);

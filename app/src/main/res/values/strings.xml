@@ -1,5 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name">Aplicacion Licoreria</string>
+    <string name="app_name">Mayikh STYLE</string>
     <string name="btn_sesion">Inicia Sesión</string>
     <string name="btn_register">Registrate</string>
     <string name="btn_register2">Siguiente</string>
@@ -24,8 +24,8 @@
     <string name="btn_AddNewTargeta">Agregar Nueva Tarjeta</string>
     <string name="btn_AddDTargeta">Agregar Tarjeta</string>
     <string name="btn_SaveTargeta">Guardar Tarjeta</string>
-    <string name="btn_Activos">Activos</string>
-    <string name="btn_Completado">Completado</string>
+    <string name="btn_Activos">Estado del Pedido</string>
+    <string name="btn_Completado">Historial de Pedido</string>
     <string name="btn_Cancelar">Cancelar</string>
     <string name="btn_Aceptar">Aceptar</string>
     <string name="btn_StateActivo">Pagado</string>
@@ -60,7 +60,7 @@
 
     <string name="carritoVacio">No tienes productos seleccionados en tu carrito.</string>
     <string name="actvivosVacio">No tienes pedidos activos en este momento.</string>
-    <string name="completadosVacio">No tienes pedidos completados en este momento.</string>
+    <string name="completadosVacio">No has realizado pedidos en este momento.</string>
     <string name="direccionVacio">No tienes direcciones guardadas en este momento.</string>
     <string name="metodopagoVacio">No tienes tarjetas guardadas en este momento.</string>
 

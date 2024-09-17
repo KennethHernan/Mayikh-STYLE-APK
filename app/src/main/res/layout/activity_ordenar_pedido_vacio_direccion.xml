@@ -31,8 +31,9 @@
             android:backgroundTint="@color/ColorBaseBoss"
             android:contentDescription="@string/btn_Atras"
             android:onClick="Carrito"
-            android:scaleType="fitCenter"
-            android:src="@drawable/west_fill0_wght400_grad0_opsz48"
+            android:rotationY="180"
+            android:scaleType="center"
+            android:src="@drawable/icon_next"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:tint="@color/LetraBasePrincipal" />
@@ -80,11 +81,10 @@
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto"
             android:layout_marginVertical="10dp"
+            android:fontFamily="@font/roboto"
             android:text="@string/title_home"
-            android:textColor="#000000"
-            android:textStyle="bold" />
+            android:textColor="#000000" />
 
         <LinearLayout
             android:id="@+id/btnAgregarDireccion"
@@ -127,13 +127,12 @@
 
         <TextView
             android:id="@+id/textView4"
-            android:layout_marginVertical="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
             android:fontFamily="@font/roboto"
             android:text="@string/metododepago"
-            android:textColor="#000000"
-            android:textStyle="bold" />
+            android:textColor="#000000" />
 
         <TextView
             android:id="@+id/SeleccionTargeta"
@@ -185,7 +184,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/Sutotal"
-                android:textColor="@color/LetraBaseSecundario" />
+                android:textColor="@color/ColorNegra" />
 
             <TextView
                 android:id="@+id/textPriceTotal"
@@ -194,8 +193,7 @@
                 android:layout_weight="1"
                 android:text="@string/PriceOrder"
                 android:textAlignment="textEnd"
-                android:textColor="#000000"
-                android:textStyle="bold" />
+                android:textColor="#000000" />
         </LinearLayout>
 
         <LinearLayout
@@ -210,7 +208,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/Delivery"
-                android:textColor="@color/LetraBaseSecundario" />
+                android:textColor="@color/ColorNegra" />
 
             <TextView
                 android:id="@+id/txtDelivery"
@@ -219,8 +217,7 @@
                 android:layout_weight="1"
                 android:text="@string/PriceOrder"
                 android:textAlignment="viewEnd"
-                android:textColor="#000000"
-                android:textStyle="bold" />
+                android:textColor="#000000" />
         </LinearLayout>
 
         <LinearLayout
@@ -242,7 +239,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/Total"
-                android:textColor="@color/LetraBaseSecundario" />
+                android:textColor="@color/ColorNegra"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txtTotal"
@@ -272,8 +270,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto"
             android:text="@string/Resumen"
-            android:textColor="#000000"
-            android:textStyle="bold" />
+            android:textColor="#000000" />
     </LinearLayout>
 
     <ScrollView

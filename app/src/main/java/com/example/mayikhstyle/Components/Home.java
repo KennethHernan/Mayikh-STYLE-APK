@@ -6,11 +6,13 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +20,8 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.mayikhstyle.Adapters.CategoryImgHorizontalAdapter;
 import com.example.mayikhstyle.Adapters.OfertaHorizontalAdapter;
 import com.example.mayikhstyle.Adapters.ProductAdapter;
@@ -27,16 +31,28 @@ import com.example.mayikhstyle.Models.Category;
 import com.example.mayikhstyle.Models.Offers;
 import com.example.mayikhstyle.Models.Order;
 import com.example.mayikhstyle.Models.Product;
+import com.example.mayikhstyle.Models.ProductDetails;
 import com.example.mayikhstyle.R;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
 public class Home extends AppCompatActivity {
+
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
     @BindView(R.id.list_content_category)
     RecyclerView CategoryRecyclerImgView;
     CategoryImgHorizontalAdapter categoryAdapter;
@@ -52,6 +68,8 @@ public class Home extends AppCompatActivity {
     GridLayoutManager ProductLayoutManager;
 
     private Button CantidadCarrito,CantidadOrder;
+
+    private List<ProductDetails> allProducts = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +91,7 @@ public class Home extends AppCompatActivity {
         ImageButton animar = findViewById(R.id.button_Home);
         animar.setAnimation(animationNavegacion);
 
+        inicializarFirebase();
         ButterKnife.bind(this);
         Recycler();
     }
@@ -114,94 +133,206 @@ public class Home extends AppCompatActivity {
         Content();
     }
 
+    private void inicializarFirebase() {
+        FirebaseApp.initializeApp(this);
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference();
+    }
+
     private void Content() {
         SharedPreferences preferences = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
-        int idUser = preferences.getInt("IdUser", 0);
+        String idUser = preferences.getString("IdUser",toString());
 
-        AdminSQLopenHelper DataBase = new AdminSQLopenHelper( this, "administracion", null, 1);
-        //List<Product> product = DataBase.listProductRecomendado();
-        //List<Offers> offers = DataBase.listOffers();
-        //List<Category> category = DataBase.listCategory();
+        DatabaseReference databaseCarrito = FirebaseDatabase.getInstance().getReference("carrito");
+        DatabaseReference databaseOrder = FirebaseDatabase.getInstance().getReference("orders");
+        DatabaseReference databaseOferta = FirebaseDatabase.getInstance().getReference("offers");
+        DatabaseReference databaseCategory = FirebaseDatabase.getInstance().getReference("category");
+        DatabaseReference databaseProduct = FirebaseDatabase.getInstance().getReference("product");
 
-        // MOSTRAR CANTIDAD CARRITO Y PEDIDO
-        List<Carrito> carrito = DataBase.listCarrito(idUser);
-        List<Order> order = DataBase.listOrder(idUser,1);
+        //=================== CARRITO ======================
+        databaseCarrito.orderByChild("idUser").equalTo(idUser).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                List<Carrito> listCarrito = new ArrayList<>();
 
-        if (carrito.size() > 0){
-            //VISIBLE
-            CantidadCarrito.setVisibility(View.VISIBLE);
+                for (DataSnapshot offerSnapshot : dataSnapshot.getChildren()) {
+                    Carrito carrito = offerSnapshot.getValue(Carrito.class);
+                    listCarrito.add(carrito);
+                }
 
-            Button btnCantidadCar = findViewById(R.id.btn_CantidadCarrito);
-            btnCantidadCar.setText(""+carrito.size());
-        }else {
-            //OCULTAR
-            CantidadCarrito.setVisibility(View.GONE);
-        }
-        if (order.size() > 0){
-            //VISIBLE
-            CantidadOrder.setVisibility(View.VISIBLE);
+                if (listCarrito.size() > 0) {
+                    //Mostrar Notificacion Carrito
+                    CantidadCarrito.setVisibility(View.VISIBLE);
+                    Button btnCantidadCar = findViewById(R.id.btn_CantidadCarrito);
+                    btnCantidadCar.setText(""+listCarrito.size());
+                } else {
+                    //OCULTAR
+                    CantidadCarrito.setVisibility(View.GONE);
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError error) {
+                Log.d("Firebase", "Error al leer datos: " + error.getMessage());
+            }
+        });
 
-            Button btnCantidadOrd = findViewById(R.id.btn_CantidadOrder);
-            btnCantidadOrd.setText(""+order.size());
-        }else {
-            //OCULTAR
-            CantidadOrder.setVisibility(View.GONE);
-        }
+        //=================== ORDER ======================
+        databaseOrder.orderByChild("idUser").equalTo(idUser).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                List<Order> listOrder = new ArrayList<>();
+                String idState = "e70aa771-470f-476e-800e-da6e477b1b0b";
 
-        /*=================== Product ======================
-        if (product.size() > 0) {
-            productAdapter = new ProductAdapter(product);
-            DataBase.close();
+                for (DataSnapshot offerSnapshot : dataSnapshot.getChildren()) {
+                    Order order = offerSnapshot.getValue(Order.class);
+                    if (order != null && order.getIdState() == idState) {
+                        listOrder.add(order);
+                    }
+                }
+                if (listOrder.size() > 0){
+                    //VISIBLE
+                    CantidadOrder.setVisibility(View.VISIBLE);
+                    Button btnCantidadOrd = findViewById(R.id.btn_CantidadOrder);
+                    btnCantidadOrd.setText(""+listOrder.size());
+                }else {
+                    //OCULTAR
+                    CantidadOrder.setVisibility(View.GONE);
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError error) {
+                Log.e("FirebaseError", "Error al leer datos: " + error.getMessage());
+            }
+        });
 
+        //=================== OFFERS ======================
+        databaseOferta.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                List<Offers> allOffers = new ArrayList<>();
+                for (DataSnapshot offersSnapshot : dataSnapshot.getChildren()) {
+                    Offers offers = offersSnapshot.getValue(Offers.class);
+                    allOffers.add(offers);
+                }
+                Collections.shuffle(allOffers);
+                if (allOffers.size() > 0) {
+                    offertAdapter = new OfertaHorizontalAdapter(allOffers);
+                } else {
+                    ArrayList<Offers> offersEmpty = new ArrayList<>();
+                    offertAdapter.addItems(offersEmpty);
+                }
+                //=================== Oferta HORIZONTAL ======================
+                RecyclerView recyclerViewOfetas = findViewById(R.id.list_oferta_horizontal);
+                LinearLayoutManager layoutManagerOffert = new LinearLayoutManager(Home.this, LinearLayoutManager.HORIZONTAL, false);
+                recyclerViewOfetas.setLayoutManager(layoutManagerOffert);
+
+                OfertaHorizontalAdapter ofertaAdapter = new OfertaHorizontalAdapter(allOffers);
+                recyclerViewOfetas.setAdapter(ofertaAdapter);
+
+                OffertRecyclerView.setAdapter(ofertaAdapter);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {}
+        });
+
+        //=================== CATEGORY ======================
+        databaseCategory.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                List<Category> listCategory = new ArrayList<>();
+                for (DataSnapshot categorySnapshot : dataSnapshot.getChildren()) {
+                    Category category = categorySnapshot.getValue(Category.class);
+                    listCategory.add(category);
+                }
+                Collections.shuffle(listCategory);
+                if (listCategory.size() > 0) {
+                    categoryAdapter = new CategoryImgHorizontalAdapter(listCategory);
+                } else {
+                    ArrayList<Category> categoryEmpty = new ArrayList<>();
+                    categoryAdapter.addItems(categoryEmpty);
+                }
+
+                //=================== Category Img HORIZONTAL ======================
+                RecyclerView recyclerViewCategoriasImg = findViewById(R.id.list_content_category);
+                LinearLayoutManager layoutManagerCategoryImg = new LinearLayoutManager(Home.this, LinearLayoutManager.HORIZONTAL, false);
+                recyclerViewCategoriasImg.setLayoutManager(layoutManagerCategoryImg);
+
+                CategoryImgHorizontalAdapter categoryImgAdapter = new CategoryImgHorizontalAdapter(listCategory);
+                recyclerViewCategoriasImg.setAdapter(categoryImgAdapter);
+
+                CategoryRecyclerImgView.setAdapter(categoryImgAdapter);
+                CategoryRecyclerImgView.setAdapter(categoryAdapter);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {}
+        });
+
+        //=================== PRODUCT ======================
+        databaseProduct.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+
+                    for (DataSnapshot productSnapshot : dataSnapshot.getChildren()) {
+                        Product product = productSnapshot.getValue(Product.class);
+
+                        if (product != null && product.getStock() > 0) {
+                            ProductDetails productDetails = new ProductDetails();
+                            productDetails.setProduct(product);
+
+                            loadCategoryAndOffers(productDetails);
+                        }
+                    }
+                }
+                @Override
+                public void onCancelled(DatabaseError databaseError) { }
+        });
+    }
+
+    private void loadCategoryAndOffers(ProductDetails productDetails) {
+        DatabaseReference categoryRef = FirebaseDatabase.getInstance().getReference("category").child(productDetails.getProduct().getIdCategory());
+        categoryRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Category category = dataSnapshot.getValue(Category.class);
+                if (category != null) {
+                    productDetails.setCategory(category);
+                }
+
+                loadOffers(productDetails);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) { }
+        });
+    }
+
+    private void loadOffers(ProductDetails productDetails) {
+        DatabaseReference offersRef = FirebaseDatabase.getInstance().getReference("offers").child(productDetails.getProduct().getIdOffers());
+        offersRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Offers offers = dataSnapshot.getValue(Offers.class);
+                if (offers != null) {
+                    productDetails.setOffer(offers);
+                }
+
+                addProductToList(productDetails);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {}
+        });
+    }
+    private void addProductToList(ProductDetails productDetails) {
+        allProducts.add(productDetails);
+
+        if (allProducts.size() > 0) {
+            productAdapter = new ProductAdapter(allProducts);
+            ProductRecyclerView.setAdapter(productAdapter);
         } else {
-            ArrayList<Product> productEmpty = new ArrayList<>();
+            ArrayList<ProductDetails> productEmpty = new ArrayList<>();
             productAdapter.addItems(productEmpty);
-            DataBase.close();
-        }*/
-
-        /*=================== Oferta ======================
-        if (offers.size() > 0) {
-            offertAdapter = new OfertaHorizontalAdapter(offers);
-            DataBase.close();
-        } else {
-            ArrayList<Offers> offersEmpty = new ArrayList<>();
-            offertAdapter.addItems(offersEmpty);
-            DataBase.close();
         }
-
-        /*
-        /*=================== Category ======================
-        if (category.size() > 0) {
-            categoryAdapter = new CategoryImgHorizontalAdapter(category);
-            DataBase.close();
-        } else {
-            ArrayList<Category> categoryEmpty = new ArrayList<>();
-            categoryAdapter.addItems(categoryEmpty);
-            DataBase.close();
-        }
-
-        /*=================== Oferta HORIZONTAL ======================
-        RecyclerView recyclerViewOfetas = findViewById(R.id.list_oferta_horizontal);
-        LinearLayoutManager layoutManagerOffert = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        recyclerViewOfetas.setLayoutManager(layoutManagerOffert);
-
-        OfertaHorizontalAdapter ofertaAdapter = new OfertaHorizontalAdapter(offers);
-        recyclerViewOfetas.setAdapter(ofertaAdapter);
-
-        /*=================== Category Img HORIZONTAL ======================*//*
-        RecyclerView recyclerViewCategoriasImg = findViewById(R.id.list_content_category);
-        LinearLayoutManager layoutManagerCategoryImg = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        recyclerViewCategoriasImg.setLayoutManager(layoutManagerCategoryImg);
-
-        CategoryImgHorizontalAdapter categoryImgAdapter = new CategoryImgHorizontalAdapter(category);
-        recyclerViewCategoriasImg.setAdapter(categoryImgAdapter);
-
-        CategoryRecyclerImgView.setAdapter(categoryImgAdapter);
-        CategoryRecyclerImgView.setAdapter(categoryAdapter);
-        OffertRecyclerView.setAdapter(ofertaAdapter);
-        ProductRecyclerView.setAdapter(productAdapter);
-        DataBase.close();*/
-
     }
     public void VerProducto(View view) {
         Intent intent = new Intent(Home.this, HomeProduct.class);

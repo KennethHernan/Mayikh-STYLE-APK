@@ -13,6 +13,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.mayikhstyle.BaseDeDatos.AdminSQLopenHelper;
 import com.example.mayikhstyle.Components.CategoryProduct;
 import com.example.mayikhstyle.Models.Category;
@@ -84,6 +85,10 @@ public class CategoryImgHorizontalAdapter extends RecyclerView.Adapter<ViewHolde
             if (category.getUrl() != null) {
                 Glide.with(itemView.getContext())
                         .load(category.getUrl())
+                        .apply(new RequestOptions()
+                                .centerCrop()
+                                .placeholder(R.drawable.placeholder)
+                                .error(R.drawable.error))
                         .into(imageViewC);
             }
 

@@ -74,7 +74,7 @@ public class Pedidos extends AppCompatActivity {
         AdminSQLopenHelper DataBase = new AdminSQLopenHelper(this, "administracion", null, 1);
 
         // MOSTRAR CANTIDAD PEDIDO
-        List<Order> order = DataBase.listOrder(IdUser,1);
+        /*List<Order> order = DataBase.listOrder(IdUser,1);
 
         if (order.size() > 0){
             //VISIBLE
@@ -99,7 +99,7 @@ public class Pedidos extends AppCompatActivity {
             startActivity(intentCar);
         }
         OrderRecyclerView.setAdapter(orderdapter);
-        DataBase.close();
+        DataBase.close();*/
     }
 
     public void Home(View view) {

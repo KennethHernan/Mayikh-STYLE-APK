@@ -101,7 +101,7 @@ public class DireccionAdapter extends RecyclerView.Adapter<ViewHolder>{
 
            //ELIMINAR CON ID
             EliminarDireccion.setOnClickListener(v -> {
-                DataBase.deleteDireccion(address.getIdAddress());
+                //DataBase.deleteDireccion(address.getIdAddress());
 
                 Intent intent = new Intent(itemView.getContext(), Direccion.class);
                 itemView.getContext().startActivity(intent);

@@ -86,7 +86,7 @@ public class AdminEditOferta extends AppCompatActivity {
                 if (DiscountO == Discount){
                     //INSERTAR LOS DATOS A LA BASE DE DATOS
                     Offers NewOffers = new Offers(Discount,DescriptionOferta);
-                    dataBase.updateOffers(NewOffers, IdOferta);
+                    //dataBase.updateOffers(NewOffers, IdOferta);
                     DataBase.close();
                     //NOTIFICACION
                     Toast.makeText(this, "¡Hecho!", Toast.LENGTH_LONG).show();
@@ -102,7 +102,7 @@ public class AdminEditOferta extends AppCompatActivity {
                     }else {
                         //INSERTAR LOS DATOS A LA BASE DE DATOS
                         Offers NewOffers = new Offers(DiscountO,DescriptionOferta);
-                        dataBase.updateOffers(NewOffers, IdOferta);
+                        //dataBase.updateOffers(NewOffers, IdOferta);
                         DataBase.close();
                         //NOTIFICACION
                         Toast.makeText(this, "¡Hecho!", Toast.LENGTH_LONG).show();

@@ -116,7 +116,7 @@ public class DireccionEdit extends AppCompatActivity {
                                         int idUser = Integer.parseInt(filaIdUser.getString(filaIdUser.getColumnIndex("idUser")));
 
                                         Address NewAddress = new Address(NameAO, Address, idUser);
-                                        dataBase.updateDireccion(NewAddress, idUser);
+                                        //dataBase.updateDireccion(NewAddress, idUser);
                                         filaIdUser.close();
                                     } else {
                                         filaIdUser.close();
@@ -146,7 +146,7 @@ public class DireccionEdit extends AppCompatActivity {
                                         @SuppressLint("Range")
                                         int idUser = Integer.parseInt(filaIdUser.getString(filaIdUser.getColumnIndex("idUser")));
                                         Address NewAddress = new Address(nameA, AddressO, idUser);
-                                        dataBase.updateDireccion(NewAddress, idUser);
+                                        //dataBase.updateDireccion(NewAddress, idUser);
                                         filaIdUser.close();
                                     } else {
                                         filaIdUser.close();
@@ -188,7 +188,7 @@ public class DireccionEdit extends AppCompatActivity {
                                             int idUser = Integer.parseInt(filaIdUser.getString(filaIdUser.getColumnIndex("idUser")));
 
                                             Address NewAddress = new Address(nameA, Address, idUser);
-                                            dataBase.updateDireccion(NewAddress, idUser);
+                                            //dataBase.updateDireccion(NewAddress, idUser);
                                             filaIdUser.close();
                                         } else {
                                             filaIdUser.close();

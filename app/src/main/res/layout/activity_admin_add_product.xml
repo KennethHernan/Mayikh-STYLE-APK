@@ -198,7 +198,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="65dp"
                         android:backgroundTint="@color/ColorBaseBoss"
-                        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ()&quot;&quot;' "
                         android:fontFamily="@font/roboto_medium"
                         android:hint="@string/input_nameProduct"
                         android:inputType="text"
@@ -224,11 +223,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="65dp"
                         android:backgroundTint="@color/ColorBaseBoss"
-                        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ()&quot;&quot;' 0123456789"
                         android:fontFamily="@font/roboto_medium"
                         android:hint="@string/input_descriptionProduct"
                         android:inputType="text"
-                        android:maxLength="100"
                         android:textAlignment="viewStart"
                         android:textColor="@color/LetraBaseSecundario"
                         android:textSize="12sp" />
@@ -421,7 +418,7 @@
             android:textStyle="bold"
             app:cornerRadius="15dp"
             app:rippleColor="#CFCFCF"
-            app:strokeColor="#000000"
+            app:strokeColor="@color/ColorBase"
             app:strokeWidth="2dp" />
 
     </LinearLayout>

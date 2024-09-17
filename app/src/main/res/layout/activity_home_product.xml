@@ -28,8 +28,9 @@
             android:layout_marginRight="10dp"
             android:backgroundTint="@color/ColorBaseBoss"
             android:contentDescription="@string/btn_Atras"
-            android:scaleType="fitCenter"
-            android:src="@drawable/west_fill0_wght400_grad0_opsz48"
+            android:rotationY="180"
+            android:scaleType="center"
+            android:src="@drawable/icon_next"
             app:tint="@color/LetraBasePrincipal" />
 
         <LinearLayout

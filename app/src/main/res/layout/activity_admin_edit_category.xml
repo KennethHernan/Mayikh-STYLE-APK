@@ -44,8 +44,9 @@
                     android:backgroundTint="@color/ColorBaseBoss"
                     android:contentDescription="@string/btn_Atras"
                     android:onClick="Atras"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/west_fill0_wght400_grad0_opsz48"
+                    android:rotationY="180"
+                    android:scaleType="center"
+                    android:src="@drawable/icon_next"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:tint="@color/LetraBasePrincipal" />
@@ -197,7 +198,6 @@
                         android:layout_height="60dp"
                         android:background="@color/ColorBaseBoss"
                         android:backgroundTint="@color/ColorBaseBoss"
-                        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-'´&quot;() "
                         android:fontFamily="@font/roboto_medium"
                         android:hint="@string/input_nameCategory"
                         android:inputType="text"
@@ -271,12 +271,12 @@
             android:fontFamily="@font/roboto_medium"
             android:text="@string/btn_Actualizar"
             android:textAllCaps="false"
-            android:textColor="@color/LetraBasePrincipal"
+            android:textColor="@color/ColorBase"
             android:textSize="12sp"
             android:textStyle="bold"
             app:cornerRadius="15dp"
             app:rippleColor="#CFCFCF"
-            app:strokeColor="#000000"
+            app:strokeColor="@color/ColorBase"
             app:strokeWidth="2dp" />
 
         <Button
@@ -286,16 +286,16 @@
             android:layout_height="60dp"
             android:layout_marginStart="10dp"
             android:layout_weight="1"
-            android:backgroundTint="@color/ColorBaseBoss"
+            android:backgroundTint="@color/ColorBase"
             android:fontFamily="@font/roboto_medium"
             android:text="@string/btn_Eliminar"
             android:textAllCaps="false"
-            android:textColor="@color/LetraBasePrincipal"
+            android:textColor="@color/ColorBaseBoss"
             android:textSize="12sp"
             android:textStyle="bold"
             app:cornerRadius="15dp"
             app:rippleColor="#CFCFCF"
-            app:strokeColor="#000000"
+            app:strokeColor="@color/ColorBaseBoss"
             app:strokeWidth="2dp" />
 
     </LinearLayout>

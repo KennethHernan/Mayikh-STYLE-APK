@@ -12,12 +12,23 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.mayikhstyle.Adapters.AdminAdapter.AdminProductoAdapter;
 import com.example.mayikhstyle.BaseDeDatos.AdminSQLopenHelper;
+import com.example.mayikhstyle.Components.CategoryProduct;
+import com.example.mayikhstyle.Models.Category;
 import com.example.mayikhstyle.Models.Product;
+import com.example.mayikhstyle.Models.ProductDetails;
 import com.example.mayikhstyle.R;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +37,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class AdminProduct extends AppCompatActivity {
+
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.list_admin_product)
     RecyclerView ProductRecyclerView;
@@ -51,90 +65,72 @@ public class AdminProduct extends AppCompatActivity {
         ProductRecyclerView.setLayoutManager(ProductLayoutManager);
         productAdapter = new AdminProductoAdapter(new ArrayList<>());
 
+        inicializarFirebase();
         Content();
     }
 
+    private void inicializarFirebase() {
+        FirebaseApp.initializeApp(this);
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference();
+    }
     private void Content() {
-
         Intent intent = getIntent();
-        int idCategory = intent.getIntExtra("idCategory", 0);
+        String idCategory = intent.getStringExtra("idCategory");
 
-        AdminSQLopenHelper dataBase = new AdminSQLopenHelper(this, "administracion", null, 1);
-        SQLiteDatabase DataBase = dataBase.getWritableDatabase();
+        //=================== CATEGORY ======================
+        DatabaseReference databaseCategory = FirebaseDatabase.getInstance().getReference("category");
+        databaseCategory.orderByChild("id").equalTo(idCategory).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                List<Category> filteredCategory = new ArrayList<>();
 
-        //List<Product> product = dataBase.listCategoryProduct(idCategory);
-/*
-        // VER SI HAY PRODUCTOS EN CATEGORY
-        Cursor cursoCategory = DataBase.rawQuery ("" +
-                "SELECT * FROM category " +
-                "INNER JOIN product " +
-                "ON category.idCategory = product.idCategory " +
-                "WHERE category.idCategory ="+ idCategory, null);
-
-        if (cursoCategory.moveToFirst()) {
-
-            if (product.size() > 0) {
-                productAdapter = new AdminProductoAdapter(product);
-            } else {
-                ArrayList<Product> productEmpty = new ArrayList<>();
-                productAdapter.addItems(productEmpty);
-            }
-            ProductRecyclerView.setAdapter(productAdapter);
-
-            Cursor cursorDatos = DataBase.rawQuery ("" +
-                    "SELECT category.nameC,category.urlC " +
-                    "FROM category " +
-                    "INNER JOIN product " +
-                    "ON category.IdCategory = product.IdCategory " +
-                    "WHERE category.idCategory = "+ idCategory, null);
-
-            // Recorrer el cursor para obtener los datos del SELECT
-            if (cursorDatos != null) {
-                cursorDatos.moveToFirst();
-                @SuppressLint("Range")
-                String urlC = cursorDatos.getString(cursorDatos.getColumnIndex("urlC"));
-
-                ImageView imageView = findViewById(R.id.imageViewCateP);
-                if (urlC != null){
-                    Glide.with(this)
-                            .load(urlC)
-                            .centerCrop()
-                            .into(imageView);
+                for (DataSnapshot offerSnapshot : dataSnapshot.getChildren()) {
+                    Category category = offerSnapshot.getValue(Category.class);
+                    filteredCategory.add(category);
+                }
+                if (filteredCategory.size() > 0) {
+                    Category categorys = filteredCategory.get(0);
+                    //Mostrar datos
+                    ImageView imageView = findViewById(R.id.imageViewCateP);
+                    if (categorys.getUrl() != null){
+                        Glide.with(AdminProduct.this)
+                                .load(categorys.getUrl())
+                                .apply(new RequestOptions()
+                                        .centerCrop()
+                                        .placeholder(R.drawable.placeholder)
+                                        .error(R.drawable.error))
+                                .into(imageView);
+                    }
                 }
             }
-            cursorDatos.close();
-            DataBase.close();
-            dataBase.close();
-        } else {
-            //CATEGORIA VACIO
-            ArrayList<Product> productEmpty = new ArrayList<>();
-            productAdapter.addItems(productEmpty);
-
-            ProductRecyclerView.setAdapter(productAdapter);
-
-            Cursor cursorDatos = DataBase.rawQuery ("" +
-                    "SELECT urlC " +
-                    "FROM category " +
-                    "WHERE idCategory = "+ idCategory, null);
-
-            // Recorrer el cursor para obtener los datos del SELECT
-            if (cursorDatos != null) {
-                cursorDatos.moveToFirst();
-                @SuppressLint("Range")
-                String urlC = cursorDatos.getString(cursorDatos.getColumnIndex("urlC"));
-
-                ImageView imageView = findViewById(R.id.imageViewCateP);
-                if (urlC != null){
-                    Glide.with(this)
-                            .load(urlC)
-                            .centerCrop()
-                            .into(imageView);
-                }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
             }
-            cursorDatos.close();
-            DataBase.close();
-            dataBase.close();
-        }*/
+        });
+
+        //=================== PRODUCT ======================
+        DatabaseReference databaseProduct = FirebaseDatabase.getInstance().getReference("product");
+        databaseProduct.orderByChild("idCategory").equalTo(idCategory).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                List<Product> listProduct = new ArrayList<>();
+                for (DataSnapshot productSnapshot : dataSnapshot.getChildren()) {
+                    Product product = productSnapshot.getValue(Product.class);
+                    listProduct.add(product);
+                }
+                if (listProduct.size() > 0) {
+                    productAdapter = new AdminProductoAdapter(listProduct);
+                } else {
+                    ArrayList<Product> productEmpty = new ArrayList<>();
+                    productAdapter.addItems(productEmpty);
+                }
+                ProductRecyclerView.setAdapter(productAdapter);
+
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {}
+        });
     }
     public  void Atras(View view){
         Intent GestionarProducto = new Intent (this, AdminCategory.class);
@@ -142,7 +138,7 @@ public class AdminProduct extends AppCompatActivity {
     }
     public void AddProduct(View view) {
         Intent intent = getIntent();
-        int idCategory = intent.getIntExtra("idCategory", 0);
+        String idCategory = intent.getStringExtra("idCategory");
         Intent intentAddP = new Intent(AdminProduct.this, AdminAddProduct.class);
         intentAddP.putExtra("idCategory",idCategory);
         startActivity(intentAddP);

@@ -6,7 +6,7 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/ColorBaseBossSecundario"
+    android:background="@color/ColorBaseBoss"
     tools:context=".Components.CarritoUser">
 
     <LinearLayout
@@ -31,8 +31,9 @@
             android:backgroundTint="@color/ColorBaseBoss"
             android:contentDescription="@string/btn_Atras"
             android:onClick="Atras"
-            android:scaleType="fitCenter"
-            android:src="@drawable/west_fill0_wght400_grad0_opsz48"
+            android:rotationY="180"
+            android:scaleType="center"
+            android:src="@drawable/icon_next"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:tint="@color/LetraBasePrincipal" />
@@ -70,8 +71,8 @@
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="#F7F7F7"
-        android:backgroundTint="#F7F7F7"
+        android:background="@color/ColorBaseBoss"
+        android:backgroundTint="@color/ColorBaseBoss"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -120,7 +121,7 @@
             android:textSize="12sp"
             android:textStyle="bold"
             app:cornerRadius="20dp"
-            app:strokeColor="@color/ColorBaseSecundario"
+            app:strokeColor="@color/ColorBase"
             app:strokeWidth="2dp" />
     </LinearLayout>
 

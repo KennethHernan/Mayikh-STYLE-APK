@@ -2,13 +2,10 @@ package com.example.mayikhstyle.Models;
 
 public class Order {
     private int priceTotal, amountProduct;
-    private String idOrder2, fechaCompra;
-    private int idOrder;
-    private int idUser;
+    private String idOrder, idUser, idState, fechaCompra;
     private String address;
-    private int idState;
 
-    public Order(String fechaCompra,int priceTotal, String address, int amountProduct, int idUser, int idState) {
+    public Order(String fechaCompra,int priceTotal, String address, int amountProduct, String idUser, String idState) {
         this.fechaCompra = fechaCompra;
         this.priceTotal = priceTotal;
         this.address = address;
@@ -17,7 +14,7 @@ public class Order {
         this.idState = idState;
     }
 
-    public Order(int idOrder, String fechaCompra, int priceTotal, String address,int amountProduct, int idUser, int idState) {
+    public Order(String idOrder, String fechaCompra, int priceTotal, String address,int amountProduct, String idUser, String idState) {
         this.idOrder = idOrder;
         this.fechaCompra = fechaCompra;
         this.priceTotal = priceTotal;
@@ -26,28 +23,13 @@ public class Order {
         this.idUser = idUser;
         this.idState = idState;
     }
-    public Order(String idOrder2, String fechaCompra, int priceTotal, String address,int amountProduct, int idUser, int idState) {
-        this.idOrder2 = idOrder2;
-        this.fechaCompra = fechaCompra;
-        this.priceTotal = priceTotal;
-        this.address = address;
-        this.amountProduct = amountProduct;
-        this.idUser = idUser;
-        this.idState = idState;
-    }
-    public int getIdOrder() {
+
+    public String getIdOrder() {
         return idOrder;
     }
 
-    public void setIdOrder(int idOrder) {
+    public void setIdOrder(String idOrder) {
         this.idOrder = idOrder;
-    }
-    public String getIdOrder2() {
-        return idOrder2;
-    }
-
-    public void setIdOrder2(String idOrder2) {
-        this.idOrder2 = idOrder2;
     }
 
     public int getPriceTotal() {
@@ -73,12 +55,20 @@ public class Order {
         this.fechaCompra = fechaCompra;
     }
 
-    public int getIdUser() {
+    public String getIdUser() {
         return idUser;
     }
 
-    public void setIdUser(int idUser) {
+    public void setIdUser(String idUser) {
         this.idUser = idUser;
+    }
+
+    public String getIdState() {
+        return idState;
+    }
+
+    public void setIdState(String idState) {
+        this.idState = idState;
     }
 
     public String getAddress() {
@@ -87,13 +77,5 @@ public class Order {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public int getIdState() {
-        return idState;
-    }
-
-    public void setIdState(int idState) {
-        this.idState = idState;
     }
 }

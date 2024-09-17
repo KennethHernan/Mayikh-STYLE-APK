@@ -85,7 +85,7 @@ public class MetodoPagoAdapter  extends RecyclerView.Adapter<ViewHolder>{
 
            //ELIMINAR CON ID
             btnEliminar.setOnClickListener(v -> {
-                DataBase.deleteTargeta(payment.getIdPayment());
+                //DataBase.deleteTargeta(payment.getIdPayment());
 
                 Intent intent = new Intent(itemView.getContext(), MetodoPago.class);
                 itemView.getContext().startActivity(intent);

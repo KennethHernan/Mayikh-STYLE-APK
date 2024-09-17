@@ -262,7 +262,7 @@ public class AdminSQLopenHelper extends SQLiteOpenHelper{
         }
         cursor.close();
         return listDetalleOrds;
-    }
+    }/*
     public List<Order> listOrder(int idUser, int idState){
         String sql = "SELECT * FROM "+NameTableOrd+" WHERE "+IdUserOrd+" = " + idUser+" AND "+IdStateOrd+" = " + idState;
         SQLiteDatabase DataBase = this.getReadableDatabase();
@@ -283,7 +283,7 @@ public class AdminSQLopenHelper extends SQLiteOpenHelper{
         }
         cursor.close();
         return listOrder;
-    }
+    }/*
     public List<Order> listOrderAdmin(int idState){
         String sql = "SELECT * FROM "+NameTableOrd+" WHERE "+IdStateOrd+" = " + idState;
         SQLiteDatabase DataBase = this.getReadableDatabase();
@@ -437,7 +437,7 @@ public class AdminSQLopenHelper extends SQLiteOpenHelper{
         }
         cursor.close();
         return listUser;
-    }
+    }/*
     public List<Carrito> listCarrito(int idUser){
         String sql = "SELECT * FROM " + NameTableCar+" WHERE "+IdUserCar+" = "+ idUser;
         SQLiteDatabase DataBase = this.getReadableDatabase();
@@ -589,7 +589,7 @@ public class AdminSQLopenHelper extends SQLiteOpenHelper{
         values.put(AmountDetalle, amount);
         values.put(IdOrdDetalle, idOrder);
         database.insert(NameTableDetalleOrd, null, values);
-    }
+    }/*
     public void newCarrito(Carrito carrito){
         SQLiteDatabase DataBase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -722,5 +722,5 @@ public class AdminSQLopenHelper extends SQLiteOpenHelper{
     public void deleteCarrito(){
         SQLiteDatabase DataBase = this.getWritableDatabase();
         DataBase.delete(NameTableCar, null,null);
-    }
+    }*/
 }

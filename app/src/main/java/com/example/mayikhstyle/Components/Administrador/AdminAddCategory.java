@@ -55,9 +55,9 @@ public class AdminAddCategory extends AppCompatActivity {
             DataBaseFireBase DataFire = new DataBaseFireBase();
             DataFire.newCategoy(NewCategory);
             //NOTIFICACION
-            Toast.makeText(this, "¡Hecho!", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, NameCategory+" Agregado", Toast.LENGTH_LONG).show();
             //REDIRECCIÓN
-            Intent intent = new Intent(this, AdminAddCategory.class);
+            Intent intent = new Intent(this, AdminCategory.class);
             startActivity(intent);
 
         }else{

@@ -93,7 +93,7 @@ public class AdminVenta extends AppCompatActivity {
     private void Content() {
 
         AdminSQLopenHelper DataBase = new AdminSQLopenHelper( this, "administracion", null, 1);
-        List<User> user = DataBase.listUser();
+        List<User> user = DataBase.listUser();/*
         List<CancelOrder> cancelOrder = DataBase.listCancelOrder();
         List<Order> orders = DataBase.listOrderAdmin(1);
 
@@ -119,7 +119,7 @@ public class AdminVenta extends AppCompatActivity {
             DataBase.close();
         }
 
-        /*=================== Order Cancel ======================*/
+        /*=================== Order Cancel ======================
         if (cancelOrder.size() > 0) {
             orderCancelAdapter = new AdminPedidoCancelAdapter(cancelOrder);
             DataBase.close();
@@ -128,7 +128,7 @@ public class AdminVenta extends AppCompatActivity {
             orderCancelAdapter.addItems(orderEmpty);
             DataBase.close();
         }
-        /*=================== Order Pendientes ======================*/
+        /*=================== Order Pendientes ======================
         if (orders.size() > 0) {
             orderdapter = new AdminPedidoAdapter(orders);
             DataBase.close();
@@ -137,7 +137,7 @@ public class AdminVenta extends AppCompatActivity {
             orderdapter.addItems(orderEmpty);
             DataBase.close();
         }
-
+*/
         RecyclerView recyclerViewUser = findViewById(R.id.list_user_button);
         LinearLayoutManager layoutManagerUser = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         recyclerViewUser.setLayoutManager(layoutManagerUser);
@@ -151,7 +151,7 @@ public class AdminVenta extends AppCompatActivity {
         LinearLayoutManager layoutManagerOrderCancel = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         recyclerViewOrderCancel.setLayoutManager(layoutManagerOrderCancel);
 
-        AdminPedidoCancelAdapter orderCancelAdapter = new AdminPedidoCancelAdapter(cancelOrder);
+        //AdminPedidoCancelAdapter orderCancelAdapter = new AdminPedidoCancelAdapter(cancelOrder);
         recyclerViewOrderCancel.setAdapter(orderCancelAdapter);
 
         OrderRecyclerView.setAdapter(orderdapter);

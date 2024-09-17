@@ -16,16 +16,36 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.mayikhstyle.BaseDeDatos.AdminSQLopenHelper;
+import com.example.mayikhstyle.BaseDeDatos.DataBaseFireBase;
 import com.example.mayikhstyle.Models.Carrito;
+import com.example.mayikhstyle.Models.Category;
+import com.example.mayikhstyle.Models.Offers;
+import com.example.mayikhstyle.Models.Product;
+import com.example.mayikhstyle.Models.ProductDetails;
 import com.example.mayikhstyle.R;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 public class DetalleP extends AppCompatActivity {
 
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
     private ImageButton btnAtras;
     private int cantidadActual = 0;
     private int DescuentoTotal = 0;
+    private ProductDetails productDetails1;
 
+    private List<ProductDetails> allProducts = new ArrayList<>();
     @SuppressLint({"MissingInflatedId"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,88 +56,116 @@ public class DetalleP extends AppCompatActivity {
         btnAtras = findViewById(R.id.buttonAtrasDescription);
         btnAtras.setOnClickListener(v -> onBackPressed());
 
+        inicializarFirebase();
         Content();
     }
 
+    private void inicializarFirebase() {
+        FirebaseApp.initializeApp(this);
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference();
+    }
     private void Content() {
         //Recuperamos el ID del Producto
         Intent intent = getIntent();
-        int idProducto = intent.getIntExtra("id", 0);
+        String idProduct = intent.getStringExtra("idProduct");
+        DatabaseReference databaseProduct = FirebaseDatabase.getInstance().getReference("product");
 
-        AdminSQLopenHelper admin = new AdminSQLopenHelper(this, "administracion", null, 1);
-        SQLiteDatabase DataBase = admin.getWritableDatabase();
+        databaseProduct.orderByChild("idProduct").equalTo(idProduct).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
 
-        Cursor cursor = DataBase.rawQuery
-                ("SELECT * FROM product " +
-                        "INNER JOIN offers " +
-                        "ON product.idOffers = offers.idOffers " +
-                        "WHERE idProduct = "+ idProducto, null);
+                for (DataSnapshot productSnapshot : dataSnapshot.getChildren()) {
+                    Product product = productSnapshot.getValue(Product.class);
 
-        // Recorrer el cursor para obtener los datos del usuario
-        if (cursor != null) {
-            cursor.moveToFirst();
-            @SuppressLint("Range")
-            String NameP = cursor.getString(cursor.getColumnIndex("nameP"));
-            @SuppressLint("Range")
-            String DescriptionP = cursor.getString(cursor.getColumnIndex("description"));
-            @SuppressLint("Range")
-            int PriceP = Integer.parseInt(cursor.getString(cursor.getColumnIndex("price")));
-            @SuppressLint("Range")
-            String Url = cursor.getString(cursor.getColumnIndex("urlP"));
-            @SuppressLint("Range")
-            int Discount = Integer.parseInt(cursor.getString(cursor.getColumnIndex("discount")));
+                    if (product != null) {
+                        ProductDetails productDetails = new ProductDetails();
+                        productDetails.setProduct(product);
 
-            // Mostrar el dato en la interface
-            if (Discount > 0){
+                        loadCategoryAndOffers(productDetails);
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {}
+        });
+    }
+
+    private void loadCategoryAndOffers(ProductDetails productDetails) {
+        DatabaseReference categoryRef = FirebaseDatabase.getInstance().getReference("category").child(productDetails.getProduct().getIdCategory());
+        categoryRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Category category = dataSnapshot.getValue(Category.class);
+                if (category != null) {
+                    productDetails.setCategory(category);
+                }
+
+                loadOffers(productDetails);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) { }
+        });
+    }
+
+    private void loadOffers(ProductDetails productDetails) {
+        DatabaseReference offersRef = FirebaseDatabase.getInstance().getReference("offers").child(productDetails.getProduct().getIdOffers());
+        offersRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Offers offers = dataSnapshot.getValue(Offers.class);
+                if (offers != null) {
+                    productDetails.setOffer(offers);
+                }
+
+                addProductToList(productDetails);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {}
+        });
+    }
+    private void addProductToList(ProductDetails productDetails) {
+        allProducts.add(productDetails);
+
+        if (allProducts.size() > 0) {
+
+            productDetails1 = allProducts.get(0);
+            //Mostrar datos
+            if (productDetails1.getOffer().getDiscount() > 0){
                 @SuppressLint({"MissingInflatedId", "LocalSuppress"})
                 TextView discount = findViewById(R.id.txt_Discount);
-                discount.setText(""+Discount+"% de Descuento - ¡Oferta limitada!");
+                discount.setText(""+productDetails1.getOffer().getDiscount()+"% de Descuento - ¡Oferta limitada!");
             }
             TextView nameP = findViewById(R.id.NameP);
-            nameP.setText(NameP);
+            nameP.setText(productDetails1.getProduct().getNameP());
 
             TextView descritionP = findViewById(R.id.label_description);
-            descritionP.setText(DescriptionP);
+            descritionP.setText(productDetails1.getProduct().getDescription());
 
             TextView priceP = findViewById(R.id.label_PriceP);
-            priceP.setText(String.valueOf(PriceP));
+            priceP.setText(String.valueOf(productDetails1.getProduct().getPrice()));
 
             ImageView imageView = findViewById(R.id.imageViewDetalleP);
-            if (Url != null){
+            if (productDetails1.getProduct().getUrlP() != null){
                 Glide.with(this)
-                        .load(Url)
+                        .load(productDetails1.getProduct().getUrlP())
                         .centerCrop()
                         .into(imageView);
             }
-        }
-        cursor.close();
-        DataBase.close();
+            aumentarCantidad(findViewById(R.id.btn_Suma));
 
-        aumentarCantidad(findViewById(R.id.btn_Suma));
+        }
     }
-
     public void aumentarCantidad(View view) {
-        //Recuperamos el ID del Producto
-        Intent intent = getIntent();
-        int idProducto = intent.getIntExtra("id", 0);
+        productDetails1 = allProducts.get(0);
 
-        AdminSQLopenHelper admin = new AdminSQLopenHelper(this, "administracion", null, 1);
-        SQLiteDatabase DataBase = admin.getWritableDatabase();
-
-        Cursor cursor = DataBase.rawQuery
-                ("SELECT * FROM product WHERE idProduct = "+ idProducto, null);
-        // Recorrer el cursor para obtener los datos del usuario
-        if (cursor != null) {
-            cursor.moveToFirst();
-            @SuppressLint("Range")
-            int Stock = Integer.parseInt(cursor.getString(cursor.getColumnIndex("stock")));
-            if (cantidadActual < Stock) {
-                cantidadActual++;
-                mostrarCantidad();
-            }
+        if (cantidadActual < productDetails1.getProduct().getStock()) {
+            cantidadActual++;
+            mostrarCantidad();
         }
-        cursor.close();
-        DataBase.close();
+
     }
 
     public void disminuirCantidad(View view) {
@@ -132,84 +180,40 @@ public class DetalleP extends AppCompatActivity {
         mostrarTotalPagar();
     }
     private void mostrarTotalPagar() {
-        //Recuperamos el ID del Producto
-        Intent intent = getIntent();
-        int idProducto = intent.getIntExtra("id", 0);
+        productDetails1 = allProducts.get(0);
 
-        AdminSQLopenHelper admin = new AdminSQLopenHelper(this, "administracion", null, 1);
-        SQLiteDatabase DataBase = admin.getWritableDatabase();
-
-        Cursor cursor = DataBase.rawQuery
-                ("SELECT product.price,offers.discount " +
-                        "FROM product " +
-                        "INNER JOIN offers " +
-                        "ON product.idOffers = offers.idOffers " +
-                        "WHERE idProduct = "+ idProducto, null);
-        if (cursor != null) {
-            cursor.moveToFirst();
-            @SuppressLint("Range")
-            int PriceP = Integer.parseInt(cursor.getString(cursor.getColumnIndex("price")));
-            @SuppressLint("Range")
-            int Discount = Integer.parseInt(cursor.getString(cursor.getColumnIndex("discount")));
-
-            //APLICAR DESCUENTO DE PRODUCTO
-            Double Descuento = PriceP * (((double) Discount / 100));
-            DescuentoTotal = (int) (PriceP - Descuento);
-
-            //Mostrar precio en el botón
-            Button miBoton = findViewById(R.id.btn_AgregarC);
-            miBoton.setText(getString(R.string.btn_Agregar) + " S/." + DescuentoTotal * cantidadActual);
-        }
-        cursor.close();
-        DataBase.close();
+        //APLICAR DESCUENTO DE PRODUCTO
+        Double Descuento = productDetails1.getProduct().getPrice() * (((double) productDetails1.getOffer().getDiscount() / 100));
+        DescuentoTotal = (int) (productDetails1.getProduct().getPrice() - Descuento);
+        //Mostrar precio en el botón
+        Button miBoton = findViewById(R.id.btn_AgregarC);
+        miBoton.setText(getString(R.string.btn_Agregar) + " S/." + DescuentoTotal * cantidadActual);
     }
 
     public void agregarCarrito(View view) {
-
-        //Recuperamos el ID del Producto
-        Intent intent = getIntent();
-        int idProducto = intent.getIntExtra("id", 0);
+        productDetails1 = allProducts.get(0);
         //Recuperamos dato de Prerefencia
         SharedPreferences preferences = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
         String NameUser = preferences.getString("NameUser", "");
+        String IdUser = preferences.getString("IdUser", "");
 
+        if (cantidadActual > 0){
+            // Cambiar STOCK
+            int NewStock = productDetails1.getProduct().getStock() -cantidadActual ;
+            Product updateProduct = new Product(productDetails1.getProduct().getIdProduct(), productDetails1.getProduct().getNameP(), productDetails1.getProduct().getDescription(), productDetails1.getProduct().getPrice() , productDetails1.getProduct().getUrlP(), NewStock,productDetails1.getProduct().getIdCategory(),productDetails1.getProduct().getIdOffers());
+            DataBaseFireBase DataFire = new DataBaseFireBase();
+            DataFire.updateProduct(updateProduct);
 
-        AdminSQLopenHelper dataBase = new AdminSQLopenHelper(this, "administracion", null, 1);
-        SQLiteDatabase DataBase = dataBase.getWritableDatabase();
-
-        if (cantidadActual >= 1){
-            Cursor cursor = DataBase.rawQuery
-                    ("SELECT * FROM product WHERE idProduct = "+ idProducto, null);
-            Cursor cursorUser = DataBase.rawQuery
-                    ("SELECT idUser FROM usuario WHERE nameU = ? ", new String[]{NameUser}, null);
-            if (cursor != null) {
-                cursor.moveToFirst();
-                @SuppressLint("Range")
-                String NameP = cursor.getString(cursor.getColumnIndex("nameP"));
-                @SuppressLint("Range")
-                String Description = cursor.getString(cursor.getColumnIndex("description"));
-                @SuppressLint("Range")
-                String UrlP = cursor.getString(cursor.getColumnIndex("urlP"));
-
-                if (cursorUser != null) {
-                    cursorUser.moveToFirst();
-                    @SuppressLint("Range")
-                    int IdUser = Integer.parseInt(cursorUser.getString(cursorUser.getColumnIndex("idUser")));
-                    int PriceTotal = (DescuentoTotal * cantidadActual);
-
-                    Carrito newCarrito = new Carrito(idProducto,cantidadActual,PriceTotal,NameP,Description,UrlP,IdUser);
-                    dataBase.newCarrito(newCarrito);
-                }
-                cursorUser.close();
-            }
-            cursor.close();
-            //REDIRECCIÓN A HOME
-            Intent intentC = new Intent(DetalleP.this, Home.class);
-            intentC.putExtra("NameUser", NameUser);
-            startActivity(intentC);
-        }else{
+            // AGREGAR P. A CARRITO
+            String idCarrito = UUID.randomUUID().toString();
+            int PriceTotal = (productDetails1.getProduct().getPrice() * cantidadActual);
+            Carrito newCarrito = new Carrito(idCarrito,productDetails1.getProduct().getIdProduct(),cantidadActual,PriceTotal,productDetails1.getProduct().getNameP(),productDetails1.getProduct().getDescription(),productDetails1.getProduct().getUrlP(),IdUser);
+            DataFire.newCarrito(newCarrito);
         }
-        DataBase.close();
+        //REDIRECCIÓN A HOME
+        Intent intentC = new Intent(DetalleP.this, Home.class);
+        intentC.putExtra("NameUser", NameUser);
+        startActivity(intentC);
     }
 
 }
